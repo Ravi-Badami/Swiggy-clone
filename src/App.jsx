@@ -1,19 +1,18 @@
 import "./App.css";
 import Header from "./components/Header";
-
-// import objJson from "./utils/mockData";
-
 import { Outlet, createBrowserRouter } from "react-router-dom";
-// import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
-
-//lazy loading importing the component
+/** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
+import { Provider } from "react-redux";
+
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 function App() {
   const [userName, setUserName] = useState();
@@ -25,12 +24,14 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="overflow-hidden">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="overflow-hidden">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 }
 
@@ -59,6 +60,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/Cart",
+        element: <Cart />,
       },
     ],
   },

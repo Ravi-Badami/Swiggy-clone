@@ -1,6 +1,14 @@
 import { MENU_IMAGE } from "../utils/constants";
+import { addItems } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ItemList = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleItems = (item) => {
+    dispatch(addItems(item));
+  };
+
   console.log(data);
   return (
     <div className="">
@@ -19,10 +27,18 @@ const ItemList = ({ data }) => {
               {e.card.info.description}
             </div>
           </div>
-          <img
-            src={MENU_IMAGE + e.card.info.imageId}
-            className="w-32 h-auto mb-4"
-          />
+          <div className=" ml-10 ">
+            <div
+              className="absolute p-2 bg-black text-white font-extrabold rounded-sm text-xs ml-8 "
+              onClick={() => handleItems(e)}
+            >
+              ADD+
+            </div>
+            <img
+              src={MENU_IMAGE + e.card.info.imageId}
+              className="w-32 h-24 mb-4 "
+            />
+          </div>
         </div>
       ))}
     </div>
