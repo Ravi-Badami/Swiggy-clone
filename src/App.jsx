@@ -1,0 +1,66 @@
+import "./App.css";
+import Header from "./components/Header";
+
+// import objJson from "./utils/mockData";
+
+import { Outlet, createBrowserRouter } from "react-router-dom";
+// import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import Body from "./components/Body";
+import RestaurantMenu from "./components/RestaurantMenu";
+import { lazy, Suspense, useEffect, useState } from "react";
+import UserContext from "./utils/UserContext";
+
+//lazy loading importing the component
+const About = lazy(() => import("./components/About"));
+
+function App() {
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "ravi",
+    };
+    setUserName(data.name);
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="overflow-hidden">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
+  );
+}
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+]);
+export default appRouter;
