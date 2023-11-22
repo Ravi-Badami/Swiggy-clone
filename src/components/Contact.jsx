@@ -1,9 +1,13 @@
-const contact = () => {
+const Contact = () => {
   return (
     <div className="contactContainer">
-      <div className="contact">contact us page</div>
+      <h1 className="contact">contact us page</h1>
+
+      <input type="text" placeholder="name" />
+      <input type="text" placeholder="ravi" />
+      <button>Submit</button>
     </div>
   );
 };
 
-export default contact;
+export default Contact;
