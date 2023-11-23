@@ -19,7 +19,11 @@ const Cart = () => {
         clear cart
       </button>
       <div className="m-2 p-2 px-3 w-6/12 mx-auto   cursor-pointer shadow-2xl">
-        <ItemList data={cartItems}></ItemList>
+        {cartItems.length === 0 ? (
+          <h1>Nothing in the cart</h1>
+        ) : (
+          <ItemList data={cartItems}></ItemList>
+        )}
       </div>
     </div>
   );

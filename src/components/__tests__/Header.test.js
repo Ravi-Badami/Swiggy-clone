@@ -8,7 +8,7 @@ import appStore from "../../utils/appStore";
 import "@testing-library/jest-dom";
 import MOCK_DATA from "../RestaurantCategory";
 
-import RestaurantCard from "../RestaurantCard";
+import RestaurantCard, { PromotedCard } from "../RestaurantCard";
 it("should render login button", () => {
   render(
     /** since testing import from other libraries directly we need to import and wrap it here */
@@ -86,4 +86,22 @@ it("should render cards data in the body", () => {
   const card = screen.getByText("KFC");
 
   expect(card).toBeInTheDocument();
+});
+
+it("should render the promoted card", () => {
+  const info = {
+    info: {
+      name: "KFC",
+      areaName: "Dabolim",
+      avgRating: 4.1,
+    },
+  };
+
+  const DisplayPromotedCard = PromotedCard(RestaurantCard);
+
+  render(<DisplayPromotedCard resData={MOCK_DATA && info} />);
+
+  const data = screen.getByText("Open");
+
+  expect(data).toBeInTheDocument();
 });

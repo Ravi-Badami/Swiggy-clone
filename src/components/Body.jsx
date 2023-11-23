@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { API_DATA } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import Dish from "./dishNotFound";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -16,9 +17,10 @@ const Body = () => {
 
   /** This contains the filtered data  */
   const [filterData, setFilterData] = useState(restaurantData);
+  // const [searchData, setSearchData] = useState(restaurantData);
   // const [inputValue2, setInputValues2] = useState("");
 
-  // console.log(restaurantData);
+  // console.log(filterData);
 
   /** This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
@@ -56,6 +58,9 @@ const Body = () => {
     setFilterData(
       json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     );
+    // setSearchData(
+    //   json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+    // );
   };
   // console.log(restaurantData);
 
@@ -69,6 +74,9 @@ const Body = () => {
   if (useOnlineStatus() === false)
     return <h1 className="onlineStatus">you are offline</h1>;
 
+  if (filterData === null) {
+    return <Dish />;
+  }
   /**
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
@@ -82,6 +90,7 @@ const Body = () => {
         /**This is the css using tailwind */
         className="border-2 border-black rounded-lg p-2
            m-4"
+        data-testid="searchInput"
         /**This is used to display the data take from the input */
         value={inputValue}
         /** This is used to set the data inorder to display furthur */
@@ -100,8 +109,13 @@ const Body = () => {
           const filteredList = restaurantData.filter((res) =>
             res.info.name.toLowerCase().includes(inputValue.toLowerCase())
           );
-          /** This is used to set the data  */
-          setFilterData(filteredList);
+
+          if (filteredList.length === 0) {
+            setFilterData(null);
+          } else {
+            /** This is used to set the data  */
+            setFilterData(filteredList);
+          }
         }}
       >
         Search

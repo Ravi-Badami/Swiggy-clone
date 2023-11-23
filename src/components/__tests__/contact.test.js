@@ -7,6 +7,21 @@ import "@testing-library/jest-dom";
  * -small group of test cases using describe
  */
 describe("COntact us page text", () => {
+  // beforeAll(() => {
+  //   console.log("before all");
+  // });
+  // beforeEach(() => {
+  //   console.log("before each");
+  // });
+
+  // afterEach(() => {
+  //   console.log("after each");
+  // });
+
+  // afterAll(() => {
+  //   console.log("after All");
+  // });
+
   test("it should render", () => {
     /**renders the component on the jsdom */
     render(<Contact />);

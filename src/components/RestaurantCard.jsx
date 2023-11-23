@@ -11,7 +11,10 @@ const RestaurantCard = (props) => {
   const { name, areaName, avgRating } = resData?.info;
 
   return (
-    <div className=" w-56 h-64 border-black border-2 border-solid rounded-lg">
+    <div
+      data-testid="resCard"
+      className=" w-56 h-64 border-black border-2 border-solid rounded-lg"
+    >
       <img src="" alt="" />
       <h3 className="mt-10 font-black">{name}</h3>
       <h4>{areaName}</h4>

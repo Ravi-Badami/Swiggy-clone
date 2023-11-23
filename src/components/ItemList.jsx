@@ -14,6 +14,7 @@ const ItemList = ({ data }) => {
     <div className="">
       {data.map((e) => (
         <div
+          data-testid="foodItems"
           key={e.card.info.id}
           className="m-2 text-left flex  border-b-2  border-black"
         >
@@ -28,12 +29,12 @@ const ItemList = ({ data }) => {
             </div>
           </div>
           <div className=" ml-10 ">
-            <div
+            <button
               className="absolute p-2 bg-black text-white font-extrabold rounded-sm text-xs ml-8 "
               onClick={() => handleItems(e)}
             >
               ADD+
-            </div>
+            </button>
             <img
               src={MENU_IMAGE + e.card.info.imageId}
               className="w-32 h-24 mb-4 "
