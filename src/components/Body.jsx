@@ -43,9 +43,12 @@ const Body = () => {
      * - This is the useState function
      * - It will give the data to restaurantData
      */
+    // console.log(json.data.cards);
+
     setRestaurantData(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
     // setRestaurantData(
     //   json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     // );
@@ -56,7 +59,7 @@ const Body = () => {
      */
 
     setFilterData(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
     );
     // setSearchData(
     //   json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
@@ -85,7 +88,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     /**Input box to take the data from user to search */
-    <div className="">
+    <div className=" text-center ">
       <input
         /**This is the css using tailwind */
         className="border-2 border-black rounded-lg p-2
@@ -137,19 +140,21 @@ const Body = () => {
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <div className="flex flex-wrap  gap-14  mt-28">
-        {filterData.map((resturant) => (
-          <Link
-            key={resturant.info.id}
-            to={"/restaurants/" + resturant.info.id}
-          >
-            {resturant.info.isOpen ? (
-              <DisplayPromotedCard resData={resturant} />
-            ) : (
-              <RestaurantCard resData={resturant} />
-            )}
-          </Link>
-        ))}
+      <div className="w-screen border border-black bg-red-200 flex items-center ">
+        <div className=" mx-[9%] flex flex-wrap  gap-14  border bg-blue-100 border-black p-8 w-[80%]">
+          {filterData.map((resturant) => (
+            <Link
+              key={resturant.info.id}
+              to={"/restaurants/" + resturant.info.id}
+            >
+              {resturant.info.isOpen ? (
+                <DisplayPromotedCard resData={resturant} />
+              ) : (
+                <RestaurantCard resData={resturant} />
+              )}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
