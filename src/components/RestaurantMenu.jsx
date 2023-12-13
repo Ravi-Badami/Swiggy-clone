@@ -22,17 +22,18 @@ const RestaurantMenu = () => {
   //get the data from the API (API call is made in the useRestaurantMenu file which is a custom hook) and resId is pass to it.
   const resMenu = useRestaurantMenu(resId);
   if (resMenu.resMenu === null) return <Shimmer />;
-  // console.log(resMenu.resMenu);
+  console.log(resMenu.resMenu.cards);
 
   const categories =
-    resMenu.resMenu.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+    resMenu.resMenu.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   // console.log(categories);
+  console.log(resMenu?.resMenu);
   const { name, cuisines, costForTwoMessage, id } =
-    resMenu?.resMenu?.cards[0]?.card?.card?.info;
+    resMenu?.resMenu?.cards[2]?.card?.card?.info;
 
   //if resMenu is undefined than shimmer ui will be shown or else menu will be shown
   return (

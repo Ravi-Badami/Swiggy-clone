@@ -20,13 +20,23 @@ const Body = () => {
   // const [searchData, setSearchData] = useState(restaurantData);
   // const [inputValue2, setInputValues2] = useState("");
 
-  // console.log(filterData);
+  // console.log(restaurantData);
 
   /** This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
     fetchData();
   }, []);
 
+  const objectOfRestaurant = (card) => {
+    if (card.card.card.id === "restaurant_grid_listing") {
+      setRestaurantData(
+        card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+      setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
+    // setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  };
   /** This callback function will fetch the data from API */
   const fetchData = async () => {
     /**
@@ -43,11 +53,13 @@ const Body = () => {
      * - This is the useState function
      * - It will give the data to restaurantData
      */
-    // console.log(json.data.cards);
+    console.log(json.data.cards);
 
-    setRestaurantData(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    json.data.cards.map((card) => objectOfRestaurant(card));
+
+    // setRestaurantData(
+    //   json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
 
     // setRestaurantData(
     //   json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
@@ -58,9 +70,10 @@ const Body = () => {
      * - We want to search another item  even after searching an item
      */
 
-    setFilterData(
-      json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
-    );
+    // setFilterData(
+    //   json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
+    // );
+
     // setSearchData(
     //   json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     // );
