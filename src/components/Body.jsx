@@ -45,6 +45,7 @@ const Body = () => {
      * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
     const data = await fetch(API_DATA);
+    console.log(data);
 
     /** This is converting the data into json formate using .json() method */
     const json = await data.json();
