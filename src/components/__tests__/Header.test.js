@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import Header from "../Header";
+import Header from "../Header/";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 // import { expect, test } from "@jest/globals";

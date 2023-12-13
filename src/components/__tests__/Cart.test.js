@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 import { Provider } from "react-redux";
 import appStore from "../../utils/appStore";
 import { BrowserRouter } from "react-router-dom";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Cart from "../Cart";
 
 global.fetch = jest.fn(() => {
