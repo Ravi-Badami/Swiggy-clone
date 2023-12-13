@@ -1,36 +1,48 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../../utils/useOnlineStatus";
+// import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
+import SignUp from "./SignUp";
 
 const Header = () => {
-  const [register, setRegister] = useState("login");
-
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
   // console.log(cartItems);
 
   return (
-    <div className="flex border-solid border border-black  py-8 justify-around items-center">
-      <div className="">
-        <img
-          className="h-16 drop-shadow-xl shadow-inner rounded-full "
-          src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
-          alt="logo"
-        />
+    <div className="flex items-center justify-center gap-x-20 border   py-8">
+      <div className=" ">
+        <div className=" ">
+          <img
+            className="h-16 rounded-full shadow-inner drop-shadow-xl "
+            src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
+            alt="logo"
+          />
+        </div>
       </div>
-      <div className="border border-black">
-        <Link to="/">Home</Link>
+      <div className=" flex w-4/12 justify-between gap-3  p-5">
+        <div className="">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="header">
+          <Link to="/about">About</Link>
+        </div>
+        <div className="header">
+          <Link to="/contact">Contact</Link>
+        </div>
+        <div className="header">
+          <Link to="/contact" className="flex items-center ">
+            <img
+              className="h-5"
+              src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
+              alt=""
+            />{" "}
+            <span>Search</span>
+          </Link>
+        </div>
       </div>
-      <div className="header">
-        <Link to="/about">About</Link>
-      </div>
-      <div className="header">
-        <Link to="/contact">Contact</Link>
-      </div>
-
-      <div className="flex ">
+      <div className="flex  w-36 items-center justify-between ">
         <div className="header">
           <h1 className="font-bold">
             {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
@@ -47,13 +59,8 @@ const Header = () => {
         {/* <div className="header">
         <Link>{loggedInUser}</Link>
       </div> */}
-        <button
-          onClick={() => {
-            register === "login" ? setRegister("logout") : setRegister("login");
-          }}
-        >
-          {register}
-        </button>
+
+        <SignUp />
       </div>
     </div>
   );
