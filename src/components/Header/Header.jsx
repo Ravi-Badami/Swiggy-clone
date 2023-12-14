@@ -11,7 +11,7 @@ const Header = () => {
   // console.log(cartItems);
 
   return (
-    <div className="flex items-center justify-center gap-x-20 border   py-8">
+    <div className="flex items-center justify-center gap-x-48   py-6">
       <div className=" ">
         <div className=" ">
           <img
@@ -32,12 +32,12 @@ const Header = () => {
           <Link to="/contact">Contact</Link>
         </div>
         <div className="header">
-          <Link to="/contact" className="flex items-center ">
+          <Link to="/Search" className="flex items-center ">
             <img
               className="h-5"
               src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
               alt=""
-            />{" "}
+            />
             <span>Search</span>
           </Link>
         </div>

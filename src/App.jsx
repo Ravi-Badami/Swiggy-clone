@@ -11,8 +11,9 @@ import UserContext from "./utils/UserContext";
 const About = lazy(() => import("./components/About"));
 import { Provider } from "react-redux";
 
-import appStore from "./utils/appStore";
+import appStore from "./utils/redux/appStore";
 import Cart from "./components/Cart";
+import Search from "./components/Search/Search";
 
 function App() {
   const [userName, setUserName] = useState();
@@ -44,6 +45,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
       {
         path: "/about",

@@ -1,5 +1,5 @@
 import { MENU_IMAGE } from "../utils/constants";
-import { addItems } from "../utils/cartSlice";
+import { addItems } from "../utils/redux/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({ data }) => {
@@ -16,28 +16,28 @@ const ItemList = ({ data }) => {
         <div
           data-testid="foodItems"
           key={e.card.info.id}
-          className="m-2 text-left flex  border-b-2  border-black"
+          className="m-2 flex border-b-2  border-black  text-left"
         >
           <div className=" w-10/12">
             {" "}
-            <div className=" font-bold text-sm mt-1">{e.card.info.name}</div>
-            <div className="font-medium text-sm mb-4">
+            <div className=" mt-1 text-sm font-bold">{e.card.info.name}</div>
+            <div className="mb-4 text-sm font-medium">
               {e.card.info.price / 100}
             </div>
-            <div className="font-light text-sm mb-4 ">
+            <div className="mb-4 text-sm font-light ">
               {e.card.info.description}
             </div>
           </div>
           <div className=" ml-10 ">
             <button
-              className="absolute p-2 bg-black text-white font-extrabold rounded-sm text-xs ml-8 "
+              className="absolute ml-8 rounded-sm bg-black p-2 text-xs font-extrabold text-white "
               onClick={() => handleItems(e)}
             >
               ADD+
             </button>
             <img
               src={MENU_IMAGE + e.card.info.imageId}
-              className="w-32 h-24 mb-4 "
+              className="mb-4 h-24 w-32 "
             />
           </div>
         </div>
