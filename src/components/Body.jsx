@@ -6,9 +6,16 @@ import { API_DATA } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import Dish from "./dishNotFound";
+import { useDispatch } from "react-redux";
+import {
+  addRestaurantData,
+  addRestaurantFilterData,
+} from "../utils/redux/restaurantSlice";
 
 /** This is the  main body of the project  */
 const Body = () => {
+  const dispatch = useDispatch();
+
   /** this contains the data fetched from the swiggy API */
   const [restaurantData, setRestaurantData] = useState([]);
 
@@ -18,7 +25,6 @@ const Body = () => {
   /** This contains the filtered data  */
   const [filterData, setFilterData] = useState(restaurantData);
   // const [searchData, setSearchData] = useState(restaurantData);
-  // const [inputValue2, setInputValues2] = useState("");
 
   // console.log(restaurantData);
 
@@ -29,8 +35,20 @@ const Body = () => {
 
   const objectOfRestaurant = (card) => {
     if (card.card.card.id === "restaurant_grid_listing") {
+      card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        dispatch(
+          addRestaurantData(
+            card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+          ),
+        );
+
+      dispatch(
+        addRestaurantFilterData(
+          card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        ),
+      );
       setRestaurantData(
-        card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
       );
       setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
@@ -57,14 +75,6 @@ const Body = () => {
     console.log(json.data.cards);
 
     json.data.cards.map((card) => objectOfRestaurant(card));
-
-    // setRestaurantData(
-    //   json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
-
-    // setRestaurantData(
-    //   json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    // );
 
     /**
      * - This also gives the data to filterData because of searching feature
@@ -105,8 +115,8 @@ const Body = () => {
     <div className=" text-center ">
       <input
         /**This is the css using tailwind */
-        className="border-2 border-black rounded-lg p-2
-           m-4"
+        className="m-4 rounded-lg border-2 border-black
+           p-2"
         data-testid="searchInput"
         /**This is used to display the data take from the input */
         value={inputValue}
@@ -117,14 +127,14 @@ const Body = () => {
       ></input>
       {/** THis is button to search*/}
       <button
-        className="border-2 border-black rounded-lg px-4 py-2 my-4 mr-32 bg-sky-300"
+        className="my-4 mr-32 rounded-lg border-2 border-black bg-sky-300 px-4 py-2"
         /**- The eventHandler will used to filter the data from "restaurantData"  
            - It will take the input from the user and match to each restaurant name present and it will also search if the only few words of the name is given as input [.includes() is responsible for that feature].
            - It will also convert all the input to lowercase and also the name of restaurant from the API data to lowercase and then compares it
         */
         onClick={() => {
           const filteredList = restaurantData.filter((res) =>
-            res.info.name.toLowerCase().includes(inputValue.toLowerCase())
+            res.info.name.toLowerCase().includes(inputValue.toLowerCase()),
           );
 
           if (filteredList.length === 0) {
@@ -138,10 +148,10 @@ const Body = () => {
         Search
       </button>
       <button
-        className="border-2 border-black rounded-lg px-4 py-2"
+        className="rounded-lg border-2 border-black px-4 py-2"
         onClick={() => {
           const filterList = restaurantData.filter(
-            (res) => res.info.avgRatingString > 4
+            (res) => res.info.avgRatingString > 4,
           );
           setFilterData(filterList);
         }}
@@ -150,12 +160,12 @@ const Body = () => {
       </button>
       <input
         type="text "
-        className="border border-black m-2 p-2"
+        className="m-2 border border-black p-2"
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <div className="w-screen border border-black bg-red-200 flex items-center ">
-        <div className=" mx-[9%] flex flex-wrap  gap-14  border bg-blue-100 border-black p-8 w-[80%]">
+      <div className="flex w-screen items-center border border-black bg-red-200 ">
+        <div className=" mx-[9%] flex w-[80%]  flex-wrap  gap-14 border border-black bg-blue-100 p-8">
           {filterData.map((resturant) => (
             <Link
               key={resturant.info.id}

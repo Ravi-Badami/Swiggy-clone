@@ -1,6 +1,15 @@
-import React from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 
 const Search = () => {
+  const [inputValue, setInputValues] = useState("");
+  const dispatch = useDispatch();
+
+  const restaurantData = useSelector(
+    (store) => store.restaurant.restaurantData,
+  );
+
   return (
     <div>
       {" "}
@@ -29,10 +38,10 @@ const Search = () => {
           );
 
           if (filteredList.length === 0) {
-            setFilterData(null);
+            dispatch(addRestaurantFilterData(null));
           } else {
             /** This is used to set the data  */
-            setFilterData(filteredList);
+            dispatch(addRestaurantFilterData(filteredList));
           }
         }}
       >
