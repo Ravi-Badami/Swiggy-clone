@@ -11,7 +11,7 @@ const Header = () => {
   // console.log(cartItems);
 
   return (
-    <div className="flex items-center justify-center gap-x-48   border py-2">
+    <div className="fixed z-10 flex w-full   items-center justify-center gap-x-48  bg-white py-2">
       <div className=" ">
         <Link to="/">
           <button className=" h-20 w-20  text-center">

@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div>
-      <div className="flex h-[90vh]  w-screen items-center justify-between border-b  px-28">
+      <div className="mt-10 flex  h-[90vh] w-screen items-center justify-between  border-b border-gray-400 px-28 ">
         {/** Left */}
         <div className="borde h-[70%]  w-[58%] border-black text-start">
           <p className="text-7xl font-bold">
