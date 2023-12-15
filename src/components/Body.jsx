@@ -15,9 +15,15 @@ import Hero from "./Hero/Hero";
 import HeroCards from "./Hero/HeroCards";
 import AboutUs from "./About/AboutUs";
 import Carousel from "./Carousel/Carousel";
+import { addAllFoodTypes, addName } from "../utils/redux/foodCatagorySlice";
+// import { addName } from "../utils/redux/foodCatagorySlice";
+// import useWhatsOnMind from "../utils/Hooks/useWhatsOnMind";
+// import { addName } from "../utils/redux/foodCatagorySlice";
 
 /** This is the  main body of the project  */
 const Body = () => {
+  // useWhatsOnMind();
+
   const dispatch = useDispatch();
 
   /** this contains the data fetched from the swiggy API */
@@ -35,6 +41,7 @@ const Body = () => {
   /** This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
     fetchData();
+    // getDishes();
   }, []);
 
   const objectOfRestaurant = (card) => {
@@ -51,10 +58,24 @@ const Body = () => {
           card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
         ),
       );
+
+      // useWhatsOnMind();
+
       setRestaurantData(
         card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
       );
       setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+    // console.log(card);
+
+    if (card.card.card.id === "whats_on_your_mind") {
+      // console.log(card.card.card.header.title);
+
+      dispatch(addName(card.card.card.header.title));
+      dispatch(
+        addAllFoodTypes(card?.card?.card?.gridElements?.infoWithStyle?.info),
+      );
+      // console.log();
     }
 
     // setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -94,6 +115,23 @@ const Body = () => {
     // );
   };
   // console.log(restaurantData);
+
+  // const getDishes = async () => {
+  //   const data = await fetch(FOODS_API);
+  //   // console.log(data);
+  //   const json = await data.json();
+  //   console.log(json);
+  //   console.log(json?.data?.cards[1].card.card.gridElements.infoWithStyle.info);
+  //   const headName = json?.data?.cards[1].card.card.header.title;
+
+  //   dispatch(addName("ravi"));
+
+  //   // dispatch(
+  //   //   addAllFoodTypes(
+  //   //     json?.data?.cards[1].card.card.gridElements.infoWithStyle.info,
+  //   //   ),
+  //   // );
+  // };
 
   /** This hook is used to change the value of LoggedInUser which is in the UserContext file */
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -139,7 +177,7 @@ const Body = () => {
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       />
-      {/* <div className="flex w-screen items-center border border-black bg-red-200 ">
+      <div className="flex w-screen items-center border border-black bg-red-200 ">
         <div className=" mx-[9%] flex w-[80%]  flex-wrap  gap-14 border border-black bg-blue-100 p-8">
           {filterData.map((resturant) => (
             <Link
@@ -154,7 +192,7 @@ const Body = () => {
             </Link>
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

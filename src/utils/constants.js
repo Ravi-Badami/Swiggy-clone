@@ -6,3 +6,6 @@ export const API_DATA =
 
 export const MENU_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+export const CAROUSEL_IMAGE =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
