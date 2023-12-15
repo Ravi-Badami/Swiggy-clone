@@ -12,6 +12,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/dapi": "https://www.swiggy.com",
+      "/mapi": "https://www.swiggy.com",
     },
   },
 });

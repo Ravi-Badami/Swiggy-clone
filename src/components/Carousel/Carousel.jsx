@@ -1,7 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import useWhatsOnMind from "../../utils/Hooks/useWhatsOnMind";
 
 const Carousel = () => {
+  useWhatsOnMind();
   return (
     <div>
       <div className=" bg-gray-300 p-10 ">
