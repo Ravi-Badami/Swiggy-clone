@@ -11,15 +11,17 @@ const Header = () => {
   // console.log(cartItems);
 
   return (
-    <div className="flex items-center justify-center gap-x-48   py-6">
+    <div className="flex items-center justify-center gap-x-48   border py-2">
       <div className=" ">
-        <div className=" ">
-          <img
-            className="h-16 rounded-full shadow-inner drop-shadow-xl "
-            src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
-            alt="logo"
-          />
-        </div>
+        <Link to="/">
+          <button className=" h-20 w-20  text-center">
+            <img
+              className="h-16 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem]  "
+              src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
+              alt="logo"
+            />
+          </button>
+        </Link>
       </div>
       <div className=" flex w-4/12 justify-between gap-3  p-5">
         <div className="">
@@ -32,9 +34,9 @@ const Header = () => {
           <Link to="/contact">Contact</Link>
         </div>
         <div className="header">
-          <Link to="/Search" className="flex items-center ">
+          <Link to="/Search" className="flex items-center gap-1 ">
             <img
-              className="h-5"
+              className="mt-[0.10rem] h-4 "
               src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
               alt=""
             />
@@ -44,12 +46,14 @@ const Header = () => {
       </div>
       <div className="flex  w-36 items-center justify-between ">
         <div className="header">
-          <h1 className="font-bold">
+          <h1 className="   font-bold">
             {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
-            {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
-            <Link to="/Cart">
+            <span className="absolute -mt-2 ml-5 select-none ">
+              {cartItems.length}
+            </span>
+            <Link to="/Cart" className="">
               <img
-                className="h-9"
+                className=" h-11 "
                 src="https://i.postimg.cc/wjBFRDQD/cart.png"
                 alt=""
               />
