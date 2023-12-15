@@ -12,6 +12,7 @@ import {
   addRestaurantFilterData,
 } from "../utils/redux/restaurantSlice";
 import Hero from "./Hero/Hero";
+import HeroCards from "./Hero/HeroCards";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -115,6 +116,8 @@ const Body = () => {
     /**Input box to take the data from user to search */
     <div className=" text-center ">
       <Hero />
+
+      <HeroCards />
       <button
         className="rounded-lg border-2 border-black px-4 py-2"
         onClick={() => {
