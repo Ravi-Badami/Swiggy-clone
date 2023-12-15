@@ -22,7 +22,7 @@ const HeroCards = () => {
           {heroCardsData.map((card) => (
             <div
               key={card}
-              className="flex  w-1/3 flex-col   justify-center rounded-3xl  border-t-4 border-red-400 bg-white py-5 shadow-xl drop-shadow-lg "
+              className="flex  w-1/3 flex-col   justify-center rounded-3xl  border-t-4 border-red-400 bg-white  py-5 shadow-xl  drop-shadow-lg"
             >
               <div className=" mx-auto  mb-4  ">{card.icon}</div>
               <span className=" font-bold">{card.content}</span>

@@ -13,6 +13,8 @@ import {
 } from "../utils/redux/restaurantSlice";
 import Hero from "./Hero/Hero";
 import HeroCards from "./Hero/HeroCards";
+import AboutUs from "./About/AboutUs";
+import Carousel from "./Carousel/Carousel";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -118,6 +120,8 @@ const Body = () => {
       <Hero />
 
       <HeroCards />
+      <AboutUs />
+      <Carousel />
       <button
         className="rounded-lg border-2 border-black px-4 py-2"
         onClick={() => {
@@ -135,7 +139,7 @@ const Body = () => {
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <div className="flex w-screen items-center border border-black bg-red-200 ">
+      {/* <div className="flex w-screen items-center border border-black bg-red-200 ">
         <div className=" mx-[9%] flex w-[80%]  flex-wrap  gap-14 border border-black bg-blue-100 p-8">
           {filterData.map((resturant) => (
             <Link
@@ -150,7 +154,7 @@ const Body = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
