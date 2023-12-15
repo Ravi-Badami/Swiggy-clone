@@ -16,7 +16,7 @@ const Carousel = () => {
           </div>
         </div>
 
-        <div className=" flex  overflow-x-auto">
+        <div className=" hide-scrollbar  flex overflow-x-auto">
           <div className="flex">
             <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
             <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
