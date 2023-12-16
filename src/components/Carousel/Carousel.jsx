@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 const Carousel = () => {
   const heading = useSelector((store) => store.foodCatagory.name);
   const foodName = useSelector((store) => store.foodCatagory.foodItems);
-  // console.log(foodName);
 
   return (
     heading && (

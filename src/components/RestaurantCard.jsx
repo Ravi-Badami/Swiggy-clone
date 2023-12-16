@@ -5,6 +5,7 @@ import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { loggedInUser } = useContext(UserContext);
+  // console.log(props);
   // eslint-disable-next-line react/prop-types
   const { resData } = props;
   // eslint-disable-next-line no-unsafe-optional-chaining
@@ -13,7 +14,7 @@ const RestaurantCard = (props) => {
   return (
     <div
       data-testid="resCard"
-      className=" w-56 h-64 border-black border-2 border-solid rounded-lg"
+      className=" h-64 w-56 rounded-lg border-2 border-solid border-black"
     >
       <img src="" alt="" />
       <h3 className="mt-10 font-black">{name}</h3>
@@ -30,7 +31,7 @@ export const PromotedCard = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className=" border-2 border-black bg-black text-white rounded-sm absolute -translate-x-4">
+        <label className=" absolute -translate-x-4 rounded-sm border-2 border-black bg-black text-white">
           Open
         </label>
         <RestaurantCard {...props} />

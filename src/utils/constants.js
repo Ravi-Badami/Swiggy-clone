@@ -9,3 +9,6 @@ export const MENU_IMAGE =
 
 export const CAROUSEL_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+
+export const API_DATA2 =
+  "/dapi/restaurants/list/v5?lat=15.5412934&lng=73.75733919999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
