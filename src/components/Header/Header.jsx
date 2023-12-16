@@ -1,14 +1,14 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Link } from "react-router-dom";
 // import useOnlineStatus from "../../utils/useOnlineStatus";
-import UserContext from "../../utils/UserContext";
+// import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
 import { RxHamburgerMenu } from "react-icons/rx";
 import SignUp from "./SignUp";
 // import useWhatsOnMind from "../../utils/Hooks/useWhatsOnMind";
 
 const Header = () => {
-  const { loggedInUser } = useContext(UserContext);
+  // const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
 
   // console.log(cartItems);
