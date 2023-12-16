@@ -9,8 +9,8 @@ const MenuCards = () => {
 
   return (
     <div>
-      <div className=" borde flex w-screen   border-black   ">
-        <div className="hide-scrollbar mt-10 flex   w-[90.5%] flex-wrap  justify-start gap-20  overflow-y-scroll rounded-lg   px-4 py-10 ">
+      <div className=" flex w-full    md:w-screen   ">
+        <div className="hide-scrollbar flex flex-wrap justify-center gap-5  overflow-y-scroll rounded-lg px-4 py-5 md:mt-10 md:w-[90.5%]  md:justify-start md:gap-20 md:py-10 ">
           {result.map((card) => (
             <Link key={card.info.id} to={"/restaurants/" + card.info.id}>
               <EachCard
