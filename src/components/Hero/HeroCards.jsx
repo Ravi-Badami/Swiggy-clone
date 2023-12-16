@@ -23,7 +23,7 @@ const HeroCards = () => {
   return (
     <div>
       <div className="flex justify-end ">
-        <div className="-mt-10 flex gap-5 pr-8 md:w-1/2 md:pr-8">
+        <div className="-mt-10 flex gap-5 px-4  md:w-1/2 md:pr-8">
           {heroCardsData.map((card) => (
             <div
               key={card.id}

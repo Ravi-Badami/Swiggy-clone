@@ -1,4 +1,3 @@
-import React from "react";
 import { CAROUSEL_IMAGE } from "../../utils/constants";
 
 const FoodItems = ({ image }) => {

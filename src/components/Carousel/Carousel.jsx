@@ -10,7 +10,7 @@ const Carousel = () => {
   return (
     heading && (
       <div>
-        <div className=" px-4  md:p-8 ">
+        <div className=" mt-10  px-4   md:mt-0 md:p-8">
           <div className=" bg mb-1 flex justify-between text-start">
             <div className="">
               <p className="text-2xl font-extrabold md:text-4xl">{heading}</p>
