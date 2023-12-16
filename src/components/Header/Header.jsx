@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 // import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
+import { RxHamburgerMenu } from "react-icons/rx";
 import SignUp from "./SignUp";
 // import useWhatsOnMind from "../../utils/Hooks/useWhatsOnMind";
 
@@ -13,19 +14,19 @@ const Header = () => {
   // console.log(cartItems);
 
   return (
-    <div className="fixed z-10 flex w-full   items-center justify-center gap-x-48  bg-white py-2">
+    <div className="fixed z-10 flex   w-full items-center justify-center gap-24  bg-white py-2 md:gap-x-48">
       <div className=" ">
         <Link to="/">
-          <button className=" h-20 w-20  text-center">
+          <button className="  h-20 w-20 text-center  md:mr-0">
             <img
-              className="h-16 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem]  "
+              className=" h-12 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem] md:h-16 "
               src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
               alt="logo"
             />
           </button>
         </Link>
       </div>
-      <div className=" flex w-4/12 justify-between gap-3  p-5">
+      <div className="  hidden w-4/12 justify-between gap-1 p-5  md:flex ">
         <div className="">
           <Link to="/">Home</Link>
         </div>
@@ -46,27 +47,27 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="flex  w-36 items-center justify-between ">
-        <div className="header">
-          <h1 className="   font-bold">
+      <div className="md:first-letter borde  flex w-40 items-center  justify-between border-black md:w-36">
+        <div className="">
+          <h1 className="   mt-2 font-bold">
             {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
-            <span className="absolute -mt-2 ml-5 select-none ">
+            <span className="absolute -mt-2 ml-[0.85rem] cursor-pointer select-none text-sm md:ml-5 md:text-base ">
               {cartItems.length}
             </span>
             <Link to="/Cart" className="">
               <img
-                className=" h-11 "
+                className=" h-8 md:h-11 "
                 src="https://i.postimg.cc/wjBFRDQD/cart.png"
                 alt=""
               />
             </Link>
           </h1>
         </div>
-        {/* <div className="header">
-        <Link>{loggedInUser}</Link>
-      </div> */}
 
         <SignUp />
+        <div className="-ml-2 p-2 md:hidden">
+          <RxHamburgerMenu className="text-2xl" />
+        </div>
       </div>
     </div>
   );
