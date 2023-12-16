@@ -47,7 +47,7 @@ const Body = () => {
 
   const objectOfRestaurant = (card) => {
     if (card.card.card.id === "restaurant_grid_listing") {
-      console.log(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      // console.log(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       dispatch(
         addRestaurantData(
           card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
@@ -98,7 +98,7 @@ const Body = () => {
      * - This is the useState function
      * - It will give the data to restaurantData
      */
-    console.log(json);
+    // console.log(json);
 
     json.data.cards.map((card) => objectOfRestaurant(card));
     // json2.data.cards.map((card) => objectOfRestaurant(card));
@@ -170,7 +170,7 @@ const Body = () => {
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       /> */}
-      <div className="flex w-screen items-center border border-black bg-red-200 ">
+      {/* <div className="flex w-screen items-center border border-black bg-red-200 ">
         <div className=" mx-[9%] flex w-[80%]  flex-wrap  gap-14 border border-black bg-blue-100 p-8">
           {filterData.map((resturant) => (
             <Link
@@ -185,7 +185,7 @@ const Body = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

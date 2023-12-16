@@ -1,7 +1,30 @@
-import React from "react";
+import { useSelector } from "react-redux";
+import EachCard from "./EachCard";
+import { Link } from "react-router-dom";
 
 const MenuCards = () => {
-  return <div>MenuCards</div>;
+  const result = useSelector((store) => store.restaurant.restaurantFilterData);
+  if (result === null) return;
+  console.log(result);
+
+  return (
+    <div>
+      <div className=" borde flex w-screen   border-black ">
+        <div className="flex w-[95%] flex-wrap  justify-start gap-20  py-10">
+          {result.map((card) => (
+            <Link key={card.info.id} to={"/restaurants/" + card.info.id}>
+              <EachCard
+                areaName={card.info.areaName}
+                avgRating={card.info.avgRating}
+                image={card.info.cloudinaryImageId}
+                cuisine={card.info.cuisines}
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MenuCards;
