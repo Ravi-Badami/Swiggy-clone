@@ -10,10 +10,10 @@ const Carousel = () => {
   return (
     heading && (
       <div>
-        <div className="  p-10 ">
+        <div className=" px-4  md:p-8 ">
           <div className=" bg mb-1 flex justify-between text-start">
             <div className="">
-              <p className="text-4xl font-extrabold">{heading}</p>
+              <p className="text-2xl font-extrabold md:text-4xl">{heading}</p>
             </div>
           </div>
           <div className="hide-scrollbar flex overflow-x-scroll">
