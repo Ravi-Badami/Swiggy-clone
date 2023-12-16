@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Carousel = () => {
   const heading = useSelector((store) => store.foodCatagory.name);
   const foodName = useSelector((store) => store.foodCatagory.foodItems);
-  console.log(foodName);
+  // console.log(foodName);
 
   return (
     heading && (
@@ -20,29 +20,10 @@ const Carousel = () => {
           <div className="hide-scrollbar flex overflow-x-scroll">
             <div className="flex">
               {foodName.map((card) => (
-                <FoodItems
-                  key={card.id}
-                  name={card.action.text}
-                  image={card.imageId}
-                />
+                <FoodItems key={card.id} image={card.imageId} />
               ))}
             </div>
           </div>
-
-          {/* <div className=" hide-scrollbar  flex overflow-x-auto">
-            <div className="flex">
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-              <div className=" mr-16 h-36 w-36 rounded-full border border-black bg-black"></div>
-            </div>
-          </div> */}
         </div>
       </div>
     )
