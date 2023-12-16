@@ -5,7 +5,7 @@ import MenuHead from "./MenuHead";
 const Menu = () => {
   return (
     <div>
-      <div className=" border border-black p-8 text-start">
+      <div className="  w-[95vw]  p-8 text-start">
         <MenuHead />
 
         <MenuFilter />

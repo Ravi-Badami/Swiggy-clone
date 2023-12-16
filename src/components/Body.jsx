@@ -17,6 +17,7 @@ import AboutUs from "./About/AboutUs";
 import Carousel from "./Carousel/Carousel";
 import { addAllFoodTypes, addName } from "../utils/redux/foodCatagorySlice";
 import Menu from "./Menu/Menu";
+import Comments from "./Comments/Comments";
 // import { addName } from "../utils/redux/foodCatagorySlice";
 // import useWhatsOnMind from "../utils/Hooks/useWhatsOnMind";
 // import { addName } from "../utils/redux/foodCatagorySlice";
@@ -86,7 +87,7 @@ const Body = () => {
      * - Fetch is the method which will fetch the data
      * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const data = await fetch(API_DATA);
+    const data = await fetch(API_DATA2);
     // const data2 = await fetch(API_DATA2);
     // console.log(data);
 
@@ -153,6 +154,7 @@ const Body = () => {
       <AboutUs />
       <Carousel />
       <Menu />
+      {/* <Comments /> */}
       {/* <button
         className="rounded-lg border-2 border-black px-4 py-2"
         onClick={() => {
