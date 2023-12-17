@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
+import FilterSection from "./FilterSection";
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
@@ -36,7 +37,7 @@ const MenuFilter = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="mt-2 flex flex-wrap gap-2 md:mt-4 md:gap-4">
         <div className="" onClick={handleClickAll}>
           <FilterButton button={"All"} />
@@ -77,6 +78,11 @@ const MenuFilter = () => {
             Less than Rs. 300
           </button>
         </div> */}
+      </div>
+      <div className=" fixed bottom-0 left-0 right-0 top-0  z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+        <div className="  z-10 h-[63%] w-[55%] rounded-2xl  bg-white">
+          <FilterSection />
+        </div>
       </div>
     </div>
   );
