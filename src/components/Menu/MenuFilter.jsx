@@ -79,7 +79,7 @@ const MenuFilter = () => {
           </button>
         </div> */}
       </div>
-      <div className=" fixed bottom-0 left-0 right-0 top-0  z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+      <div className=" fixed bottom-0 left-0 right-0 top-0 z-50  flex  items-center justify-center bg-gray-900 bg-opacity-50">
         <div className="  z-10 h-[63%] w-[55%] rounded-2xl  bg-white">
           <FilterSection />
         </div>
