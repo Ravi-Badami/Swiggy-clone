@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const MenuCards = () => {
   const result = useSelector((store) => store.restaurant.restaurantFilterData);
   if (result === null) return;
-  console.log(result);
 
   return (
     <div>

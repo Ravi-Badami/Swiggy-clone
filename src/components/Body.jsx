@@ -46,7 +46,7 @@ const Body = () => {
     !result && fetchData();
 
     // getDishes();
-  }, []);
+  }, [result]);
 
   const objectOfRestaurant = (card) => {
     if (card.card.card.id === "restaurant_grid_listing") {
@@ -83,7 +83,7 @@ const Body = () => {
      * - Fetch is the method which will fetch the data
      * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const data = await fetch(API_DATA2);
+    const data = await fetch(API_DATA);
     // const data2 = await fetch(API_DATA2);
     // console.log(data);
 
@@ -106,23 +106,6 @@ const Body = () => {
      */
   };
   // console.log(restaurantData);
-
-  // const getDishes = async () => {
-  //   const data = await fetch(FOODS_API);
-  //   // console.log(data);
-  //   const json = await data.json();
-  //   console.log(json);
-  //   console.log(json?.data?.cards[1].card.card.gridElements.infoWithStyle.info);
-  //   const headName = json?.data?.cards[1].card.card.header.title;
-
-  //   dispatch(addName("ravi"));
-
-  //   // dispatch(
-  //   //   addAllFoodTypes(
-  //   //     json?.data?.cards[1].card.card.gridElements.infoWithStyle.info,
-  //   //   ),
-  //   // );
-  // };
 
   /** This hook is used to change the value of LoggedInUser which is in the UserContext file */
   // const { loggedInUser, setUserName } = useContext(UserContext);
