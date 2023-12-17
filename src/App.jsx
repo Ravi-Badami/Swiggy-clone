@@ -1,19 +1,18 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Body from "./components/Body";
-import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
 /** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 import { Provider } from "react-redux";
-
 import appStore from "./utils/redux/appStore";
-import Cart from "./components/Cart";
-import Search from "./components/Search/Search";
+const Cart = lazy(() => import("./components/Cart"));
+const Search = lazy(() => import("./components/Search/Search"));
+const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
   const [userName, setUserName] = useState();

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 // import useOnlineStatus from "../../utils/useOnlineStatus";
 // import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
-import { RxHamburgerMenu } from "react-icons/rx";
+// import { RxHamburgerMenu } from "react-icons/rx";
 import SignUp from "./SignUp";
+import { SHOPPING_CART } from "../../utils/svg/svg";
 // import useWhatsOnMind from "../../utils/Hooks/useWhatsOnMind";
 
 const Header = () => {
@@ -55,18 +56,14 @@ const Header = () => {
               {cartItems.length}
             </span>
             <Link to="/Cart" className="">
-              <img
-                className=" h-8 md:h-11 "
-                src="https://i.postimg.cc/wjBFRDQD/cart.png"
-                alt=""
-              />
+              <img className=" h-8 md:h-11 " src={SHOPPING_CART} alt="" />
             </Link>
           </h1>
         </div>
 
         <SignUp />
         <div className="-ml-2 p-2 md:hidden">
-          <RxHamburgerMenu className="text-2xl" />
+          <img className="h-8" src="https://svgshare.com/i/10vB.svg" alt="" />
         </div>
       </div>
     </div>

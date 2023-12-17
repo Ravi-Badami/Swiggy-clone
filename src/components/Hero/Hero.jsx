@@ -18,11 +18,11 @@ const Hero = () => {
 
         <div className="rounded-[67px w-[40%] overflow-hidden object-cover drop-shadow-lg md:h-[78%]">
           <div className=" h-full w-full overflow-hidden  rounded-[67px]">
-            <img
+            {/* <img
               className="  w-full rounded-[67px] object-cover  md:h-full "
               src=" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png"
               alt=""
-            />
+            /> */}
           </div>
         </div>
       </div>

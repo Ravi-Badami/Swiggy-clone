@@ -6,7 +6,7 @@ import { API_DATA, API_DATA2 } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import Dish from "./dishNotFound";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addRestaurantData,
   addRestaurantFilterData,
@@ -36,13 +36,15 @@ const Body = () => {
 
   /** This contains the filtered data  */
   const [filterData, setFilterData] = useState(restaurantData);
-  // const [searchData, setSearchData] = useState(restaurantData);
 
-  // console.log(restaurantData);
+  const result = useSelector((store) => store.restaurant.restaurantData);
 
   /** This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
-    fetchData();
+    /** Memoization */
+
+    !result && fetchData();
+
     // getDishes();
   }, []);
 
@@ -61,24 +63,18 @@ const Body = () => {
         ),
       );
 
-      // useWhatsOnMind();
-
       setRestaurantData(
         card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
       );
       setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
-    // console.log(card);
 
     if (card.card.card.id === "whats_on_your_mind") {
       dispatch(addName(card.card.card.header.title));
       dispatch(
         addAllFoodTypes(card?.card?.card?.gridElements?.infoWithStyle?.info),
       );
-      // console.log();
     }
-
-    // setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
   /** This callback function will fetch the data from API */
   const fetchData = async () => {
@@ -129,10 +125,10 @@ const Body = () => {
   // };
 
   /** This hook is used to change the value of LoggedInUser which is in the UserContext file */
-  const { loggedInUser, setUserName } = useContext(UserContext);
+  // const { loggedInUser, setUserName } = useContext(UserContext);
 
   /** This is used to show a Promoted tag on top of the card */
-  const DisplayPromotedCard = PromotedCard(RestaurantCard);
+  // const DisplayPromotedCard = PromotedCard(RestaurantCard);
 
   /** This is used to show offline message when user get disconnected from the internet */
   // if (useOnlineStatus() === false)
@@ -172,22 +168,6 @@ const Body = () => {
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
       /> */}
-      {/* <div className="flex w-screen items-center border border-black bg-red-200 ">
-        <div className=" mx-[9%] flex w-[80%]  flex-wrap  gap-14 border border-black bg-blue-100 p-8">
-          {filterData.map((resturant) => (
-            <Link
-              key={resturant.info.id}
-              to={"/restaurants/" + resturant.info.id}
-            >
-              {resturant.info.isOpen ? (
-                <DisplayPromotedCard resData={resturant} />
-              ) : (
-                <RestaurantCard resData={resturant} />
-              )}
-            </Link>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };
