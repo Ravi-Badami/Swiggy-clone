@@ -8,11 +8,13 @@ const SortSection = () => {
   const [selectedOption, setSelectedOption] = useState(result);
 
   const handleSelectedOption = (event) => {
+    dispatch(updateSort(event.target.value));
+
     setSelectedOption(event.target.value);
   };
   const handleSubmit = (m) => {
+    dispatch(updateSort(m));
     setSelectedOption(m);
-    dispatch(updateSort(selectedOption));
   };
 
   const dataArray = [
@@ -36,7 +38,7 @@ const SortSection = () => {
             value={m}
             checked={selectedOption === m}
             name="filter"
-            onChange={handleSelectedOption}
+            onChange={(e) => handleSelectedOption(e)}
           />
           <span className="ml-2 cursor-pointer  select-none">{m}</span>
         </div>
