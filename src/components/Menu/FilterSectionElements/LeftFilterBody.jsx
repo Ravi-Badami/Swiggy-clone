@@ -1,10 +1,14 @@
 import { useState } from "react";
 import PopFilterButton from "./PopFilterButton";
+import { useDispatch } from "react-redux";
+import { updateButton } from "../../../utils/redux/filterSlice";
 
 const FilterBodyLeft = () => {
   const [selectedButton, setSelectedButton] = useState("Sort");
+  const dispatch = useDispatch();
 
   const handleButtonClick = (button) => {
+    dispatch(updateButton(button));
     setSelectedButton(button);
     // Add your logic for handling the button click here
   };

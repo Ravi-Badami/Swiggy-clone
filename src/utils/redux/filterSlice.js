@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { clearConfigCache } from "prettier";
 
 const filterSlice = createSlice({
   name: "filter",
   initialState: {
     cuisines: [],
+    cusineButton: null,
   },
   reducers: {
     addCuisines: (state, action) => {
@@ -18,11 +18,14 @@ const filterSlice = createSlice({
       state.cuisines.some(
         (cuisine) =>
           cuisine.name === action.payload &&
-          console.log((cuisine.checked = !cuisine.checked)),
+          (cuisine.checked = !cuisine.checked),
       );
+    },
+    updateButton: (state, action) => {
+      state.cusineButton = action.payload;
     },
   },
 });
 
-export const { addCuisines, updateChecked } = filterSlice.actions;
+export const { addCuisines, updateChecked, updateButton } = filterSlice.actions;
 export default filterSlice.reducer;

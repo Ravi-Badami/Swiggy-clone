@@ -4,14 +4,7 @@ import { updateChecked } from "../../../../utils/redux/filterSlice";
 const CuisinesSection = () => {
   const result = useSelector((store) => store.filter.cuisines);
   const dispatch = useDispatch();
-  console.log(result);
   const handleOnChange = (clickedCuisine) => {
-    // const updatedCuisines = result.map((cuisine) =>
-    //   cuisine.id === clickedCuisine.id
-    //     ? { ...cuisine, checked: !cuisine.checked }
-    //     : cuisine,
-    // );
-    // console.log(updatedCuisines);
     dispatch(updateChecked(clickedCuisine));
   };
 
@@ -27,9 +20,15 @@ const CuisinesSection = () => {
                 name="cuisine"
                 // value={!res.cuisine.checked && res}
                 checked={res.checked}
-                onChange={(e) => handleOnChange(res.name, e.target.value)}
+                className=""
+                onChange={() => handleOnChange(res.name)}
               />
-              <span>{res.name}</span>
+              <span
+                className="cursor-pointer select-none"
+                onClick={() => handleOnChange(res.name)}
+              >
+                {res.name}
+              </span>
             </div>
           ))}
         </div>
