@@ -12,19 +12,18 @@ const CuisinesSection = () => {
     <div className="">
       <p>FILTER BY</p>
       <form action="" onSubmit={(e) => e.preventDefault} className="">
-        <div className=" w-32 border border-black">
+        <div className=" w-32 ">
           {result.map((res) => (
-            <div className="" key={res.id}>
+            <div className="mt-2  flex w-[79%] cursor-pointer  " key={res.id}>
               <input
                 type="checkbox"
                 name="cuisine"
-                // value={!res.cuisine.checked && res}
                 checked={res.checked}
-                className=""
+                className=" cursor-pointer"
                 onChange={() => handleOnChange(res.name)}
               />
               <span
-                className="cursor-pointer select-none"
+                className="ml-2 cursor-pointer  select-none"
                 onClick={() => handleOnChange(res.name)}
               >
                 {res.name}

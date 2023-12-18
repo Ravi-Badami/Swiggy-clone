@@ -1,16 +1,20 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSort } from "../../../../utils/redux/filterSlice";
 
 const SortSection = () => {
   const [selectedOption, setSelectedOption] = useState("Relevance");
+  const dispatch = useDispatch();
+  const result = useSelector((store) => store.filter.sort);
+  console.log(result);
 
   const handleSelectedOption = (event) => {
-    // console.log(event.target.value);
     setSelectedOption(event.target.value);
   };
-  const handleSubmit = () => {
-    // console.log(selectedOption);
+  const handleSubmit = (m) => {
+    dispatch(updateSort(selectedOption));
+    setSelectedOption(m);
   };
-
   const dataArray = [
     "Relevance",
     "Rating",
@@ -22,7 +26,11 @@ const SortSection = () => {
       <p> SORT BY</p>
       <form action="" onSubmit={(e) => e.preventDefault()}>
         {dataArray.map((m) => (
-          <div className="" key={m}>
+          <div
+            className="mt-2  flex w-[50.7%] cursor-pointer   "
+            key={m}
+            onClick={() => handleSubmit(m)}
+          >
             <input
               type="radio"
               value={m}
@@ -30,7 +38,7 @@ const SortSection = () => {
               name="filter"
               onChange={handleSelectedOption}
             />
-            <span className="">{m}</span>
+            <span className="ml-2 cursor-pointer  select-none">{m}</span>
           </div>
         ))}
         <button onClick={handleSubmit}>submit</button>
