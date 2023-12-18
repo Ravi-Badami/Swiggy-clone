@@ -1,3 +1,4 @@
+import useCuisineData from "../../utils/Hooks/useCuisineData";
 import MenuCards from "./MenuCards";
 import MenuFilter from "./MenuFilter";
 import MenuHead from "./MenuHead";

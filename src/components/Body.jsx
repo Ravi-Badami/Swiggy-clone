@@ -1,11 +1,6 @@
 import RestaurantCard, { PromotedCard } from "./RestaurantCard";
-import { useContext, useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { API_DATA, API_DATA2 } from "../utils/constants";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
-import Dish from "./dishNotFound";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addRestaurantData,
@@ -17,10 +12,8 @@ import AboutUs from "./About/AboutUs";
 import Carousel from "./Carousel/Carousel";
 import { addAllFoodTypes, addName } from "../utils/redux/foodCatagorySlice";
 import Menu from "./Menu/Menu";
-import Comments from "./Comments/Comments";
-// import { addName } from "../utils/redux/foodCatagorySlice";
-// import useWhatsOnMind from "../utils/Hooks/useWhatsOnMind";
-// import { addName } from "../utils/redux/foodCatagorySlice";
+
+import useCuisineData from "../utils/Hooks/useCuisineData";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -120,6 +113,7 @@ const Body = () => {
   // if (filterData === null) {
   //   return <Dish />;
   // }
+  useCuisineData();
   /**
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
