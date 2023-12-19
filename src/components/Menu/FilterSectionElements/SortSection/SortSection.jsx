@@ -38,6 +38,7 @@ const SortSection = () => {
             value={m}
             checked={selectedOption === m}
             name="filter"
+            className="cursor-pointer"
             onChange={(e) => handleSelectedOption(e)}
           />
           <span className="ml-2 cursor-pointer  select-none">{m}</span>

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const filterSlice = createSlice({
   name: "filter",
   initialState: {
+    display: "hidden",
     sort: "Relevance",
     cuisines: [],
     cusineButton: "Sort",
@@ -23,6 +24,9 @@ const filterSlice = createSlice({
     ],
   },
   reducers: {
+    updateDisplay: (state, action) => {
+      state.display = action.payload;
+    },
     updateSort: (state, action) => {
       state.sort = action.payload;
     },
@@ -58,5 +62,6 @@ export const {
   updateButton,
   updateRating,
   updateSort,
+  updateDisplay,
 } = filterSlice.actions;
 export default filterSlice.reducer;
