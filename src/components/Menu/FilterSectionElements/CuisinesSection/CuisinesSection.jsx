@@ -10,27 +10,43 @@ import {
 } from "../../../../utils/redux/restaurantSlice";
 import { useEffect } from "react";
 import useSortBy from "../../../../utils/Hooks/useSortBy";
+import useSortCheckBox from "../../../../utils/Hooks/useSortCheckBox";
 
 const CuisinesSection = () => {
-  const result = useSelector((store) => store.filter.cuisines);
   const dispatch = useDispatch();
+
+  const result = useSelector((store) => store.filter.cuisines);
 
   const sortByCuisine = useSelector((store) => store.filter.cuisines);
   const filteredData = useSelector(
     (store) => store.restaurant.restaurantFilterData,
   );
-
-  // console.log(sortBy);
-  // const sort = useSortBy("cusine");
+  const sortBy = useSelector((store) => store.filter.sort);
   const cusineArray = [];
   const arr = [];
   useEffect(() => {
     arr.length > 0 && dispatch(addCheckboxFilterData(arr));
+    arr.length > 0 && dispatch(addCheckboxMainArray(arr));
+    arr.length === 0 && dispatch(updateCurrentSort("Sort"));
+    arr.length > 0 && dispatch(updateCurrentSort("Cuisine"));
 
+    if (sortBy === "Relevance") {
+      dispatch(addCheckboxMainArray(arr));
+    }
+    if (sortBy === "Rating" && arr) {
+      console.log("rating");
+      const arrInside = [...arr].sort((a, b) => {
+        const A = a.info.avgRating;
+        const B = b.info.avgRating;
+        return B - A;
+      });
+      console.log(arr);
+      dispatch(addCheckboxMainArray(arrInside));
+    }
+    sortBy === "Cost:Low to High" && console.log("Cost  low to high");
+    sortBy === "Cost:High to Low" && console.log("cost high to low");
     arr.length === 0 && dispatch(addCheckboxFilterData(null));
 
-    arr.length > 0 && dispatch(updateCurrentSort("Cuisine"));
-    arr.length > 0 && dispatch(addCheckboxMainArray(arr));
     arr.length === 0 && dispatch(addCheckboxMainArray(null));
   }, [arr]);
 
@@ -45,9 +61,7 @@ const CuisinesSection = () => {
       }
     });
   });
-  // console.log(arr);
 
-  // const extractNumberOfPrice = (number) => {
   //   return number.info.costForTwo.match(/\d+/)[0];
   // };
 
@@ -97,6 +111,7 @@ const CuisinesSection = () => {
     // sort();
   };
   const handle = () => {};
+  // useSortCheckBox();
 
   return (
     <div className="">

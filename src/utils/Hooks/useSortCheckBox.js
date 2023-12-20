@@ -1,42 +1,44 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRestaurantFilterData } from "../redux/restaurantSlice";
+import { addCheckboxMainArray } from "../redux/restaurantSlice";
 
-const useSortBy = () => {
+const useSortCheckBox = () => {
   const dispatch = useDispatch();
-  const result = useSelector((store) => store.restaurant.restaurantData);
+  const checkboxArray = useSelector((store) => store.restaurant.checkboxData);
   const sortBy = useSelector((store) => store.filter.sort);
-  const current = useSelector((store) => store.filter.currentSort);
   const extractNumberOfPrice = (number) => {
     return number.info.costForTwo.match(/\d+/)[0];
   };
-  if (current === "Sort") {
+  if (!checkboxArray) return;
+  useEffect(() => {
     if (sortBy === "Relevance") {
-      dispatch(addRestaurantFilterData(result));
+      dispatch(addCheckboxMainArray(checkboxArray));
     }
-    if (sortBy === "Rating") {
-      const arr = [...result].sort((a, b) => {
+    if (sortBy === "Rating" && checkboxArray) {
+      console.log("rating");
+      const arr = [...checkboxArray].sort((a, b) => {
         const A = a.info.avgRating;
         const B = b.info.avgRating;
         return B - A;
       });
-      dispatch(addRestaurantFilterData(arr));
+      dispatch(addCheckboxMainArray(arr));
     }
     if (sortBy === "Cost:Low to High") {
-      const arr = [...result].sort((a, b) => {
+      const arr = [...checkboxArray].sort((a, b) => {
         const A = extractNumberOfPrice(a);
         const B = extractNumberOfPrice(b);
         return A - B;
       });
-      dispatch(addRestaurantFilterData(arr));
+      dispatch(addCheckboxMainArray(arr));
     }
     if (sortBy === "Cost:High to Low") {
-      const arr = [...result].sort((a, b) => {
+      const arr = [...checkboxArray].sort((a, b) => {
         const A = extractNumberOfPrice(a);
         const B = extractNumberOfPrice(b);
         return B - A;
       });
-      dispatch(addRestaurantFilterData(arr));
+      dispatch(addCheckboxMainArray(arr));
     }
-  }
+  }, [sortBy]);
 };
-export default useSortBy;
+export default useSortCheckBox;

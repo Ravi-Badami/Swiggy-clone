@@ -23,16 +23,12 @@ const MenuCards = () => {
 
   useEffect(() => {
     setDisplay(mainCheckboxData);
-
-    console.log("main: ", mainCheckboxData);
     !mainCheckboxData && setDisplay(filterData);
-  }, [checkBoxData]);
+  }, [checkBoxData, mainCheckboxData]);
 
   useEffect(() => {
-    // if (filterData === null) return;
-
     setDisplay(filterData);
-    console.log("filter:", filterData);
+    // console.log("filter:", filterData);
   }, [sortBy, filterData]);
 
   if (filterData === null) return;

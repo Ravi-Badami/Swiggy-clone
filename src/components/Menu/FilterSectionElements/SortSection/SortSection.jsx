@@ -1,23 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateSort } from "../../../../utils/redux/filterSlice";
+import {
+  updateCuisineClicked,
+  updateSort,
+} from "../../../../utils/redux/filterSlice";
 import useSortBy from "../../../../utils/Hooks/useSortBy";
+import { addCheckboxMainArray } from "../../../../utils/redux/restaurantSlice";
+import useSortCheckBox from "../../../../utils/Hooks/useSortCheckBox";
 
 const SortSection = () => {
   const dispatch = useDispatch();
-  const result = useSelector((store) => store.filter.sort);
-  const [selectedOption, setSelectedOption] = useState(result);
   const sortBy = useSelector((store) => store.filter.sort);
-  // const sort = sortBy;
+  const [selectedOption, setSelectedOption] = useState(sortBy);
+
+  const mainCheckboxArray = useSelector(
+    (store) => store.restaurant.checkboxMainArray,
+  );
+  const checkboxArray = useSelector((store) => store.restaurant.checkboxData);
+  // console.log(sortBy2);
+  // console.log(sortBy);
+
+  useEffect(() => {
+    if (sortBy === "Relevance") {
+      dispatch(addCheckboxMainArray(checkboxArray));
+    }
+  }, [sortBy]);
+  useSortCheckBox();
+
   useSortBy("sort");
   const handleSelectedOption = (event) => {
     dispatch(updateSort(event.target.value));
-
     setSelectedOption(event.target.value);
   };
   const handleSubmit = (m) => {
+    // console.log("clicked");
+    dispatch(updateCuisineClicked());
+
     dispatch(updateSort(m));
     setSelectedOption(m);
+    // console.log("clicked");
   };
 
   const dataArray = [

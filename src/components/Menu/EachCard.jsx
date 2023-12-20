@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
 
 import { RESTUARATANT_IMAGE } from "../../utils/constants";
-
-// import { useContext } from "react";
-// import UserContext from "../utils/UserContext";
-
 const EachCard = ({ areaName, avgRating, image, cuisine }) => {
   //   const { loggedInUser } = useContext(UserContext);
 
