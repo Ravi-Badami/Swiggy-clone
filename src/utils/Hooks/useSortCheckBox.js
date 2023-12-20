@@ -9,9 +9,11 @@ const useSortCheckBox = () => {
   const extractNumberOfPrice = (number) => {
     return number.info.costForTwo.match(/\d+/)[0];
   };
-  if (!checkboxArray) return;
+  // if (!checkboxArray) return;
+  if (!checkboxArray || checkboxArray.length === 0) return;
+
   useEffect(() => {
-    if (sortBy === "Relevance") {
+    if (sortBy === "Relevance" && checkboxArray) {
       dispatch(addCheckboxMainArray(checkboxArray));
     }
     if (sortBy === "Rating" && checkboxArray) {
@@ -23,7 +25,7 @@ const useSortCheckBox = () => {
       });
       dispatch(addCheckboxMainArray(arr));
     }
-    if (sortBy === "Cost:Low to High") {
+    if (sortBy === "Cost:Low to High" && checkboxArray) {
       const arr = [...checkboxArray].sort((a, b) => {
         const A = extractNumberOfPrice(a);
         const B = extractNumberOfPrice(b);
@@ -31,7 +33,7 @@ const useSortCheckBox = () => {
       });
       dispatch(addCheckboxMainArray(arr));
     }
-    if (sortBy === "Cost:High to Low") {
+    if (sortBy === "Cost:High to Low" && checkboxArray) {
       const arr = [...checkboxArray].sort((a, b) => {
         const A = extractNumberOfPrice(a);
         const B = extractNumberOfPrice(b);

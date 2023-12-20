@@ -17,8 +17,6 @@ const SortSection = () => {
     (store) => store.restaurant.checkboxMainArray,
   );
   const checkboxArray = useSelector((store) => store.restaurant.checkboxData);
-  // console.log(sortBy2);
-  // console.log(sortBy);
 
   useEffect(() => {
     if (sortBy === "Relevance") {

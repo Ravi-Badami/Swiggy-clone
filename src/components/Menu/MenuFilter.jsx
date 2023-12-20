@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { lazy } from "react";
+import { lazy, useState } from "react";
 import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 const FilterSection = lazy(() => import("./FilterSection"));
 import { updateDisplay } from "../../utils/redux/filterSlice";
+import SortSection from "./FilterSectionElements/SortSection/SortSection";
+import { CLOSE_SVG } from "../../utils/svg/svg";
 
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
   const display = useSelector((store) => store.filter.display);
+  const [show, setShow] = useState("hidden");
 
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);
@@ -20,9 +23,7 @@ const MenuFilter = () => {
 
     dispatch(addRestaurantFilterData(filteredData));
   };
-  const handleClickAll = () => {
-    dispatch(addRestaurantFilterData(result));
-  };
+
   const handleClickLessThan300 = () => {
     const filteredData = result.filter((res) => {
       // Extract numeric value from the costForTwo string
@@ -45,18 +46,39 @@ const MenuFilter = () => {
     dispatch(updateDisplay("block"));
   };
 
+  const handleShow = () => {
+    if (show === "block") {
+      setShow("hidden");
+    }
+    if (show === "hidden") {
+      setShow("block");
+    }
+  };
+
   return (
     <div className="">
       <div className="mt-2 flex flex-wrap gap-2 md:mt-4 md:gap-4">
-        <div className="" onClick={handleClickAll}>
-          <FilterButton button={"All"} />
-        </div>
-
         <div className="" onClick={handleUpdateDisplay}>
           <FilterButton button={"Filter"} />
         </div>
         <div className="">
-          <FilterButton button={"Sort"} />
+          <div className="" onClick={handleShow}>
+            <FilterButton button={"Sort"} />
+          </div>
+          <div
+            className={` absolute z-10 mt-3 ${show} br-4 rounded-lg border-b-[4px] border-r-[4px] border-red-500 bg-white p-4 shadow-lg drop-shadow-lg`}
+          >
+            <div className=" cursor-pointer  ">
+              <img
+                src={CLOSE_SVG}
+                onClick={() => setShow("hidden")}
+                className=" ml-[85%]  h-6 "
+                alt=""
+              />
+            </div>
+
+            <SortSection />
+          </div>
         </div>
         <div className="" onClick={handleClickRating}>
           <FilterButton button={"Rating 4.0+"} />

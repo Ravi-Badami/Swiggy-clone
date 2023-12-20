@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { updateDisplay } from "../../../utils/redux/filterSlice";
+import { CLOSE_SVG } from "../../../utils/svg/svg";
 
 const FilterHead = () => {
   const dispatch = useDispatch();
@@ -10,11 +11,7 @@ const FilterHead = () => {
         className="cursor-pointer"
         onClick={() => dispatch(updateDisplay("hidden"))}
       >
-        <img
-          src="https://www.svgrepo.com/show/514098/cross-round.svg"
-          className="h-7 "
-          alt=""
-        />
+        <img src={CLOSE_SVG} className="h-7 " alt="" />
       </div>
     </div>
   );
