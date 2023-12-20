@@ -4,6 +4,8 @@ import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 import FilterSection from "./FilterSection";
 import { updateDisplay } from "../../utils/redux/filterSlice";
+import { CLOSE_SVG } from "../../utils/svg/svg";
+import SortSection from "./FilterSectionElements/SortSection/SortSection";
 
 const MenuFilter = () => {
   const dispatch = useDispatch();
@@ -43,14 +45,14 @@ const MenuFilter = () => {
     dispatch(updateDisplay("block"));
   };
 
-  const handleShow = () => {
-    if (show === "block") {
-      setShow("hidden");
-    }
-    if (show === "hidden") {
-      setShow("block");
-    }
-  };
+  // const handleShow = () => {
+  //   if (show === "block") {
+  //     setShow("hidden");
+  //   }
+  //   if (show === "hidden") {
+  //     setShow("block");
+  //   }
+  // };
 
   return (
     <div className="">
@@ -58,25 +60,23 @@ const MenuFilter = () => {
         <div className="" onClick={handleUpdateDisplay}>
           <FilterButton button={"Filter"} />
         </div>
-        <div className="">
-          <div className="" onClick={handleShow}>
+        {/* <div className="">
+          <div className="">
             <FilterButton button={"Sort"} />
           </div>
           <div
-            className={` absolute z-10 mt-3 ${show} br-4 rounded-lg border-b-[4px] border-r-[4px] border-red-500 bg-white p-4 shadow-lg drop-shadow-lg`}
+            className={` br-4 absolute z-10 mt-3 rounded-lg border-b-[4px] border-r-[4px] border-red-500 bg-white p-4 shadow-lg drop-shadow-lg`}
           >
             <div className=" cursor-pointer  ">
               <img
                 src={CLOSE_SVG}
-                onClick={() => setShow("hidden")}
+                // onClick={() => setShow("hidden")}
                 className=" ml-[85%]  h-6 "
                 alt=""
               />
             </div>
-
-            <SortSection />
           </div>
-        </div>
+        </div> */}
         <div className="" onClick={handleClickRating}>
           <FilterButton button={"Rating 4.0+"} />
         </div>
