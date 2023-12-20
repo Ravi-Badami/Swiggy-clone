@@ -22,6 +22,8 @@ const CuisinesSection = () => {
     (store) => store.restaurant.restaurantFilterData,
   );
   const sortBy = useSelector((store) => store.filter.sort);
+  const rating = useSelector((store) => store.filter.Rating);
+
   const cusineArray = [];
   const arr = [];
   const extractNumberOfPrice = (number) => {
@@ -64,7 +66,7 @@ const CuisinesSection = () => {
     }
     arr.length === 0 && dispatch(addCheckboxFilterData(null));
     arr.length === 0 && dispatch(addCheckboxMainArray(null));
-  }, [arr]);
+  }, [arr, rating]);
 
   sortByCuisine.map((r) => {
     r.checked && cusineArray.push(r.name);

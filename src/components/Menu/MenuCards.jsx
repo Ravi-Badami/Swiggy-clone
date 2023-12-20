@@ -1,35 +1,61 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import EachCard from "./EachCard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { addCheckboxMainArray } from "../../utils/redux/restaurantSlice";
 
 const MenuCards = () => {
   const sortBy = useSelector((store) => store.filter.sort);
-  const cusineClick = useSelector((store) => store.filter.cuisineClicked);
-  const dispatch = useDispatch();
   const filterData = useSelector(
     (store) => store.restaurant.restaurantFilterData,
   );
+
   const mainCheckboxData = useSelector(
     (store) => store.restaurant.checkboxMainArray,
   );
+
   const [display, setDisplay] = useState();
 
-  // console.log(mainCheckboxData);
   const checkBoxData = useSelector((store) => store.restaurant.checkboxData);
-  // console.log(checkBoxData);
-  // dispatch(addCheckboxMainArray(checkBoxData));
+  const rating = useSelector((store) => store.filter.Rating);
+  const current = useSelector((store) => store.filter.currentSort);
 
   useEffect(() => {
     setDisplay(mainCheckboxData);
     !mainCheckboxData && setDisplay(filterData);
+    if (current === "Cuisine") {
+      mainCheckboxData &&
+        rating.map((m) => {
+          if (m.checked) {
+            const string = m.rate;
+            const rateInNum = string.match(/(\d+(\.\d+)?)/)[0];
+            const ratingFiltered = mainCheckboxData.filter(
+              (f) => f.info.avgRatingString >= rateInNum,
+            );
+
+            setDisplay(ratingFiltered);
+          }
+        });
+    }
+
+    // console.log("-----------------------");
   }, [checkBoxData, mainCheckboxData]);
 
   useEffect(() => {
     setDisplay(filterData);
-    // console.log("filter:", filterData);
-  }, [sortBy, filterData]);
+
+    if (current === "Sort") {
+      rating.map((m) => {
+        if (m.checked) {
+          const string = m.rate;
+          const rateInNum = string.match(/(\d+(\.\d+)?)/)[0];
+          const ratingFiltered = filterData.filter(
+            (f) => f.info.avgRatingString >= rateInNum,
+          );
+          setDisplay(ratingFiltered);
+        }
+      });
+    }
+  }, [sortBy, filterData, rating]);
 
   if (filterData === null) return;
 

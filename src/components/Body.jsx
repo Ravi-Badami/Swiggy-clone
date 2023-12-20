@@ -76,7 +76,7 @@ const Body = () => {
      * - Fetch is the method which will fetch the data
      * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const data = await fetch(API_DATA2);
+    const data = await fetch(API_DATA);
     // const data2 = await fetch(API_DATA2);
     // console.log(data);
 
