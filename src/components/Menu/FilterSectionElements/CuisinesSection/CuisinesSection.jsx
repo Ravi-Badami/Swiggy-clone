@@ -24,6 +24,9 @@ const CuisinesSection = () => {
   const sortBy = useSelector((store) => store.filter.sort);
   const cusineArray = [];
   const arr = [];
+  const extractNumberOfPrice = (number) => {
+    return number.info.costForTwo.match(/\d+/)[0];
+  };
   useEffect(() => {
     arr.length > 0 && dispatch(addCheckboxFilterData(arr));
     arr.length > 0 && dispatch(addCheckboxMainArray(arr));
@@ -40,13 +43,26 @@ const CuisinesSection = () => {
         const B = b.info.avgRating;
         return B - A;
       });
-      console.log(arr);
+
       dispatch(addCheckboxMainArray(arrInside));
     }
-    sortBy === "Cost:Low to High" && console.log("Cost  low to high");
-    sortBy === "Cost:High to Low" && console.log("cost high to low");
+    if (sortBy === "Cost:Low to High" && arr) {
+      const arrInside = [...arr].sort((a, b) => {
+        const A = extractNumberOfPrice(a);
+        const B = extractNumberOfPrice(b);
+        return A - B;
+      });
+      dispatch(addCheckboxMainArray(arrInside));
+    }
+    if (sortBy === "Cost:High to Low" && arr) {
+      const arrInside = [...arr].sort((a, b) => {
+        const A = extractNumberOfPrice(a);
+        const B = extractNumberOfPrice(b);
+        return B - A;
+      });
+      dispatch(addCheckboxMainArray(arrInside));
+    }
     arr.length === 0 && dispatch(addCheckboxFilterData(null));
-
     arr.length === 0 && dispatch(addCheckboxMainArray(null));
   }, [arr]);
 
@@ -61,58 +77,11 @@ const CuisinesSection = () => {
       }
     });
   });
-
-  //   return number.info.costForTwo.match(/\d+/)[0];
-  // };
-
-  // if (sortBy === "Relevance") {
-  //   console.log("relevance");
-  //   dispatch(addCheckboxFilterData(arr));
-  // }
-  // if (sortBy === "Rating") {
-  //   console.log("raiting");
-  //   const arr2 = [...arr].sort((a, b) => {
-  //     const A = a.info.avgRating;
-  //     const B = b.info.avgRating;
-
-  //     return B - A;
-  //   });
-  //   // console.log(arr);
-  //   dispatch(addCheckboxFilterData(arr2));
-  // }
-
-  // if (sortBy === "Cost:Low to High") {
-  //   const arr2 = [...arr].sort((a, b) => {
-  //     const A = extractNumberOfPrice(a);
-  //     const B = extractNumberOfPrice(b);
-  //     return A - B;
-  //   });
-  //   //  console.log(arr);
-  //   dispatch(addCheckboxFilterData(arr2));
-  // }
-  // if (sortBy === "Cost:High to Low") {
-  //   const arr2 = [...arr].sort((a, b) => {
-  //     const A = extractNumberOfPrice(a);
-  //     const B = extractNumberOfPrice(b);
-  //     return B - A;
-  //   });
-  //   //  console.log(arr);
-  //   dispatch(addCheckboxFilterData(arr2));
-  // }
-
-  // console.log(arr);
-
-  // Dispatch the action with the array using the spread operator
-
   const handleOnChange = (clickedCuisine) => {
-    // console.log(clickedCuisine);
     dispatch(updateChecked(clickedCuisine));
     dispatch(updateCuisineClicked());
-    // sort();
   };
   const handle = () => {};
-  // useSortCheckBox();
-
   return (
     <div className="">
       <p>FILTER BY</p>
