@@ -5,6 +5,8 @@ const restaurantSlice = createSlice({
   initialState: {
     restaurantData: null,
     restaurantFilterData: null,
+    checkboxData: null,
+    checkboxMainArray: null,
   },
   reducers: {
     addRestaurantData: (state, action) => {
@@ -13,9 +15,19 @@ const restaurantSlice = createSlice({
     addRestaurantFilterData: (state, action) => {
       state.restaurantFilterData = action.payload;
     },
+    addCheckboxFilterData: (state, action) => {
+      state.checkboxData = action.payload;
+    },
+    addCheckboxMainArray: (state, action) => {
+      state.checkboxMainArray = action.payload;
+    },
   },
 });
 
-export const { addRestaurantData, addRestaurantFilterData } =
-  restaurantSlice.actions;
+export const {
+  addRestaurantData,
+  addRestaurantFilterData,
+  addCheckboxFilterData,
+  addCheckboxMainArray,
+} = restaurantSlice.actions;
 export default restaurantSlice.reducer;

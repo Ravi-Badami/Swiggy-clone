@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSort } from "../../../../utils/redux/filterSlice";
+import useSortBy from "../../../../utils/Hooks/useSortBy";
 
 const SortSection = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.filter.sort);
   const [selectedOption, setSelectedOption] = useState(result);
-
+  const sortBy = useSelector((store) => store.filter.sort);
+  const sort = sortBy;
+  useSortBy(sort);
   const handleSelectedOption = (event) => {
     dispatch(updateSort(event.target.value));
 

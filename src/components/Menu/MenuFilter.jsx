@@ -3,11 +3,53 @@ import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 import FilterSection from "./FilterSection";
 import { updateDisplay } from "../../utils/redux/filterSlice";
+import useSortBy from "../../utils/Hooks/useSortBy";
+
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
   const display = useSelector((store) => store.filter.display);
-  // console.log(display);
+
+  // const sortBy = useSelector((store) => store.filter.sort);
+  // const sort = sortBy;
+  // useSortBy(sort);
+  // const extractNumberOfPrice = (number) => {
+  //   return number.info.costForTwo.match(/\d+/)[0];
+  // };
+
+  // if (sortBy === "Relevance") {
+  //   // console.log("relevance");
+  //   dispatch(addRestaurantFilterData(result));
+  // }
+  // if (sortBy === "Rating") {
+  //   const arr = [...result].sort((a, b) => {
+  //     const A = a.info.avgRating;
+  //     const B = b.info.avgRating;
+  //     return B - A;
+  //   });
+  //   // console.log(arr);
+  //   dispatch(addRestaurantFilterData(arr));
+  // }
+
+  // if (sortBy === "Cost:Low to High") {
+  //   const arr = [...result].sort((a, b) => {
+  //     const A = extractNumberOfPrice(a);
+  //     const B = extractNumberOfPrice(b);
+  //     return A - B;
+  //   });
+  //   //  console.log(arr);
+  //   dispatch(addRestaurantFilterData(arr));
+  // }
+  // if (sortBy === "Cost:High to Low") {
+  //   const arr = [...result].sort((a, b) => {
+  //     const A = extractNumberOfPrice(a);
+  //     const B = extractNumberOfPrice(b);
+  //     return B - A;
+  //   });
+  //   //  console.log(arr);
+  //   dispatch(addRestaurantFilterData(arr));
+  // }
+
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);
 
@@ -65,31 +107,6 @@ const MenuFilter = () => {
         <div className="" onClick={handleClickLessThan300}>
           <FilterButton button={"Less than Rs. 300"} />
         </div>
-        {/* <div className="">
-          <button className="  rounded-full  bg-[#F04949] px-6 py-2 font-medium text-white drop-shadow-xl">
-            Filter
-          </button>
-        </div>
-        <div className="">
-          <button className="  rounded-full  bg-[#F04949] px-6 py-2 font-medium text-white drop-shadow-xl">
-            Sort
-          </button>
-        </div>
-        <div className="">
-          <button className="  rounded-full  bg-[#F04949] px-6 py-2 font-medium text-white drop-shadow-xl">
-            Rating 4.0+
-          </button>
-        </div>
-        <div className="">
-          <button className="  rounded-full  bg-[#F04949] px-6 py-2 font-medium text-white drop-shadow-xl">
-            Pure Veg
-          </button>
-        </div>
-        <div className="">
-          <button className="  rounded-full  bg-[#F04949] px-6 py-2 font-medium text-white drop-shadow-xl">
-            Less than Rs. 300
-          </button>
-        </div> */}
       </div>
       <div
         className={` ${display} fixed bottom-0 left-0 right-0 top-0 z-50 flex    items-center justify-center bg-gray-900 bg-opacity-50`}
