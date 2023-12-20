@@ -1,54 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
+import { lazy } from "react";
 import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
-import FilterSection from "./FilterSection";
+const FilterSection = lazy(() => import("./FilterSection"));
 import { updateDisplay } from "../../utils/redux/filterSlice";
-import useSortBy from "../../utils/Hooks/useSortBy";
 
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
   const display = useSelector((store) => store.filter.display);
-
-  // const sortBy = useSelector((store) => store.filter.sort);
-  // const sort = sortBy;
-  // useSortBy(sort);
-  // const extractNumberOfPrice = (number) => {
-  //   return number.info.costForTwo.match(/\d+/)[0];
-  // };
-
-  // if (sortBy === "Relevance") {
-  //   // console.log("relevance");
-  //   dispatch(addRestaurantFilterData(result));
-  // }
-  // if (sortBy === "Rating") {
-  //   const arr = [...result].sort((a, b) => {
-  //     const A = a.info.avgRating;
-  //     const B = b.info.avgRating;
-  //     return B - A;
-  //   });
-  //   // console.log(arr);
-  //   dispatch(addRestaurantFilterData(arr));
-  // }
-
-  // if (sortBy === "Cost:Low to High") {
-  //   const arr = [...result].sort((a, b) => {
-  //     const A = extractNumberOfPrice(a);
-  //     const B = extractNumberOfPrice(b);
-  //     return A - B;
-  //   });
-  //   //  console.log(arr);
-  //   dispatch(addRestaurantFilterData(arr));
-  // }
-  // if (sortBy === "Cost:High to Low") {
-  //   const arr = [...result].sort((a, b) => {
-  //     const A = extractNumberOfPrice(a);
-  //     const B = extractNumberOfPrice(b);
-  //     return B - A;
-  //   });
-  //   //  console.log(arr);
-  //   dispatch(addRestaurantFilterData(arr));
-  // }
 
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);
