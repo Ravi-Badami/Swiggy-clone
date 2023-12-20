@@ -1,26 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addCheckboxFilterData,
-  addCheckboxMainArray,
-  addRestaurantFilterData,
-} from "../redux/restaurantSlice";
+import { addRestaurantFilterData } from "../redux/restaurantSlice";
 
-const useSortBy = (sortBy) => {
-  //   const sortBy = useSelector((store) => store.filter.sort);
-  console.log(sortBy);
+const useSortBy = (section) => {
   const result = useSelector((store) => store.restaurant.restaurantData);
-  const checkBox = useSelector((store) => store.restaurant.checkboxData);
-  console.log(checkBox);
   const dispatch = useDispatch();
+  const sortBy = useSelector((store) => store.filter.sort);
 
   const extractNumberOfPrice = (number) => {
     return number.info.costForTwo.match(/\d+/)[0];
   };
-
+  //   if (section === "cusine") {
+  //     console.log("cusine");
+  //     console.log(result);
+  //   }
+  //   if (section === "sort") {
+  //     console.log("sort");
+  //   }
+  //   section === "sort" && console.log("sort");
   if (sortBy === "Relevance") {
     // console.log("relevance");
     dispatch(addRestaurantFilterData(result));
-    dispatch(addCheckboxMainArray(checkBox));
+    //   dispatch(addCheckboxMainArray(checkBox));
   }
   if (sortBy === "Rating") {
     const arr = [...result].sort((a, b) => {

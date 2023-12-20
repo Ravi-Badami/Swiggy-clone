@@ -5,7 +5,9 @@ const filterSlice = createSlice({
   initialState: {
     display: "hidden",
     sort: "Relevance",
+    currentSort: "Sort",
     cuisines: [],
+    cuisineClicked: 1,
     cusineButton: "Sort",
     Rating: [
       {
@@ -24,6 +26,14 @@ const filterSlice = createSlice({
     ],
   },
   reducers: {
+    updateCuisineClicked: (state) => {
+      state.cuisineClicked = state.cuisineClicked + 1;
+    },
+
+    updateCurrentSort: (state, action) => {
+      state.currentSort = action.payload;
+    },
+
     updateDisplay: (state, action) => {
       state.display = action.payload;
     },
@@ -61,7 +71,9 @@ export const {
   updateChecked,
   updateButton,
   updateRating,
+  updateCurrentSort,
   updateSort,
+  updateCuisineClicked,
   updateDisplay,
 } = filterSlice.actions;
 export default filterSlice.reducer;

@@ -1,24 +1,37 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateChecked } from "../../../../utils/redux/filterSlice";
-import { addCheckboxFilterData } from "../../../../utils/redux/restaurantSlice";
+import {
+  updateChecked,
+  updateCuisineClicked,
+  updateCurrentSort,
+} from "../../../../utils/redux/filterSlice";
+import {
+  addCheckboxFilterData,
+  addCheckboxMainArray,
+} from "../../../../utils/redux/restaurantSlice";
 import { useEffect } from "react";
+import useSortBy from "../../../../utils/Hooks/useSortBy";
 
 const CuisinesSection = () => {
   const result = useSelector((store) => store.filter.cuisines);
   const dispatch = useDispatch();
-  const sortBy = useSelector((store) => store.filter.sort);
 
   const sortByCuisine = useSelector((store) => store.filter.cuisines);
   const filteredData = useSelector(
     (store) => store.restaurant.restaurantFilterData,
   );
+
   // console.log(sortBy);
+  // const sort = useSortBy("cusine");
   const cusineArray = [];
   const arr = [];
   useEffect(() => {
     arr.length > 0 && dispatch(addCheckboxFilterData(arr));
 
     arr.length === 0 && dispatch(addCheckboxFilterData(null));
+
+    arr.length > 0 && dispatch(updateCurrentSort("Cuisine"));
+    arr.length > 0 && dispatch(addCheckboxMainArray(arr));
+    arr.length === 0 && dispatch(addCheckboxMainArray(null));
   }, [arr]);
 
   sortByCuisine.map((r) => {
@@ -78,7 +91,10 @@ const CuisinesSection = () => {
   // Dispatch the action with the array using the spread operator
 
   const handleOnChange = (clickedCuisine) => {
+    // console.log(clickedCuisine);
     dispatch(updateChecked(clickedCuisine));
+    dispatch(updateCuisineClicked());
+    // sort();
   };
   const handle = () => {};
 

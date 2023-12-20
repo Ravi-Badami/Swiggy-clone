@@ -8,8 +8,8 @@ const SortSection = () => {
   const result = useSelector((store) => store.filter.sort);
   const [selectedOption, setSelectedOption] = useState(result);
   const sortBy = useSelector((store) => store.filter.sort);
-  const sort = sortBy;
-  useSortBy(sort);
+  // const sort = sortBy;
+  useSortBy("sort");
   const handleSelectedOption = (event) => {
     dispatch(updateSort(event.target.value));
 
