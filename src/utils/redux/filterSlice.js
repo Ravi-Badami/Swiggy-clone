@@ -54,6 +54,10 @@ const filterSlice = createSlice({
           (cuisine.checked = !cuisine.checked),
       );
     },
+
+    replaceCuisine: (state, action) => {
+      state.cuisines = action.payload;
+    },
     updateButton: (state, action) => {
       state.cusineButton = action.payload;
     },
@@ -74,6 +78,7 @@ export const {
   updateCurrentSort,
   updateSort,
   updateCuisineClicked,
+  replaceCuisine,
   updateDisplay,
 } = filterSlice.actions;
 export default filterSlice.reducer;

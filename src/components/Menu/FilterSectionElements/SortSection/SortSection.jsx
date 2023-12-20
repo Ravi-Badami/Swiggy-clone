@@ -11,7 +11,7 @@ import useSortCheckBox from "../../../../utils/Hooks/useSortCheckBox";
 const SortSection = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector((store) => store.filter.sort);
-  const [selectedOption, setSelectedOption] = useState(sortBy);
+  // const [selectedOption, setSelectedOption] = useState(sortBy);
 
   const mainCheckboxArray = useSelector(
     (store) => store.restaurant.checkboxMainArray,
@@ -22,20 +22,20 @@ const SortSection = () => {
     if (sortBy === "Relevance") {
       dispatch(addCheckboxMainArray(checkboxArray));
     }
-  }, [sortBy]);
+  }, [sortBy, mainCheckboxArray]);
   useSortCheckBox();
 
-  useSortBy("sort");
+  useSortBy();
   const handleSelectedOption = (event) => {
     dispatch(updateSort(event.target.value));
-    setSelectedOption(event.target.value);
+    // setSelectedOption(event.target.value);
   };
   const handleSubmit = (m) => {
     // console.log("clicked");
     dispatch(updateCuisineClicked());
 
     dispatch(updateSort(m));
-    setSelectedOption(m);
+    // setSelectedOption(m);
     // console.log("clicked");
   };
 
@@ -58,7 +58,7 @@ const SortSection = () => {
           <input
             type="radio"
             value={m}
-            checked={selectedOption === m}
+            checked={sortBy === m}
             name="filter"
             className="cursor-pointer"
             onChange={(e) => handleSelectedOption(e)}

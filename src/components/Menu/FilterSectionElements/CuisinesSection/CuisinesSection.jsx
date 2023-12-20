@@ -39,7 +39,7 @@ const CuisinesSection = () => {
       dispatch(addCheckboxMainArray(arr));
     }
     if (sortBy === "Rating" && arr) {
-      console.log("rating");
+      // console.log("rating");
       const arrInside = [...arr].sort((a, b) => {
         const A = a.info.avgRating;
         const B = b.info.avgRating;
@@ -80,6 +80,7 @@ const CuisinesSection = () => {
     });
   });
   const handleOnChange = (clickedCuisine) => {
+    // console.log(clickedCuisine);
     dispatch(updateChecked(clickedCuisine));
     dispatch(updateCuisineClicked());
   };

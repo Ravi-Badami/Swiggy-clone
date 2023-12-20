@@ -13,7 +13,6 @@ const RatingSection = () => {
 
   useEffect(() => {
     if (current === "Cuisine") {
-      console.log("Rating : Cuisine");
       mainCheckboxData &&
         rating.map((m) => {
           if (m.checked) {
@@ -26,8 +25,6 @@ const RatingSection = () => {
           }
         });
     }
-
-    console.log("-----------------------");
   }, [rating]);
 
   const handleOnChange = (rate) => {

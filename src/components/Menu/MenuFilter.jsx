@@ -1,15 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { lazy } from "react";
 import FilterButton from "./FilterButton";
-import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
+import {
+  addCheckboxFilterData,
+  addRestaurantFilterData,
+} from "../../utils/redux/restaurantSlice";
 import FilterSection from "./FilterSection";
-import { updateDisplay } from "../../utils/redux/filterSlice";
+import {
+  updateChecked,
+  updateDisplay,
+  updateRating,
+  updateSort,
+} from "../../utils/redux/filterSlice";
 import { CLOSE_SVG } from "../../utils/svg/svg";
 import SortSection from "./FilterSectionElements/SortSection/SortSection";
 
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
+  const cuisine = useSelector((store) => store.filter.cuisines);
+  const rating = useSelector((store) => store.filter.Rating);
+
   const display = useSelector((store) => store.filter.display);
 
   const handleClickRating = () => {
@@ -44,7 +55,15 @@ const MenuFilter = () => {
   const handleUpdateDisplay = () => {
     dispatch(updateDisplay("block"));
   };
-
+  const handleClearFilters = () => {
+    dispatch(updateSort("Relevance"));
+    cuisine.map((m) => {
+      if (m.checked) {
+        dispatch(updateChecked(m.name));
+      }
+    });
+    rating.map((r) => r.checked && dispatch(updateRating(r.rate)));
+  };
   // const handleShow = () => {
   //   if (show === "block") {
   //     setShow("hidden");
@@ -85,6 +104,9 @@ const MenuFilter = () => {
         </div>
         <div className="" onClick={handleClickLessThan300}>
           <FilterButton button={"Less than Rs. 300"} />
+        </div>
+        <div className="" onClick={handleClearFilters}>
+          <FilterButton button={"Clear filters"} />
         </div>
       </div>
       <div
