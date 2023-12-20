@@ -22,7 +22,7 @@ const RightFilterBody = () => {
   // };
 
   return (
-    <div className="w-9/12 border-t-2 p-4 pl-10">
+    <div className="w-9/12  border-t-2 p-3 pl-10 md:p-4">
       {/* <form action="" onSubmit={submit}> */}
       {ravi === "Sort" && <SortSection a={a} />}
       {ravi === "Cuisines" && <CuisinesSection a={a} />}

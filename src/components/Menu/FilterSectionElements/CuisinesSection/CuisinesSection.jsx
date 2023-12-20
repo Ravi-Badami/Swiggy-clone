@@ -86,26 +86,30 @@ const CuisinesSection = () => {
   };
   const handle = () => {};
   return (
-    <div className="">
-      <p>FILTER BY</p>
+    <div className="overflow-y-scroll scroll-smooth">
+      <p className="fixed w-[30%] bg-white">FILTER BY</p>
 
-      <div className=" w-32 ">
-        {result.map((res) => (
-          <div
-            className="mt-2  flex w-[92%] cursor-pointer   "
-            key={res.id}
-            onClick={() => handleOnChange(res.name)}
-          >
-            <input
-              type="checkbox"
-              name="cuisine"
-              checked={res.checked}
-              className=" cursor-pointer"
-              onChange={handle}
-            />
-            <span className="ml-2 cursor-pointer  select-none">{res.name}</span>
-          </div>
-        ))}
+      <div className=" hide-scrollbar mt-5 flex w-32  flex-col  ">
+        <div className="flex h-40 flex-col">
+          {result.map((res) => (
+            <div
+              className="mt-2  flex w-[92%] cursor-pointer   "
+              key={res.id}
+              onClick={() => handleOnChange(res.name)}
+            >
+              <input
+                type="checkbox"
+                name="cuisine"
+                checked={res.checked}
+                className=" cursor-pointer"
+                onChange={handle}
+              />
+              <span className="ml-2 cursor-pointer  select-none">
+                {res.name}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

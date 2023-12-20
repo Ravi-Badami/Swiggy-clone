@@ -47,7 +47,9 @@ const SortSection = () => {
   ];
   return (
     <div className="">
-      <p> SORT BY</p>
+      <p className=" text-[0.75rem] font-bold md:text-base md:font-normal">
+        SORT BY
+      </p>
 
       {dataArray.map((m) => (
         <div
@@ -63,7 +65,12 @@ const SortSection = () => {
             className="cursor-pointer"
             onChange={(e) => handleSelectedOption(e)}
           />
-          <span className="ml-2 cursor-pointer  select-none">{m}</span>
+          <span
+            className="ml-2 cursor-pointer  select-none text-[0.63rem] md:text-base
+          "
+          >
+            {m}
+          </span>
         </div>
       ))}
       {/* <button onClick={handleButton}>submit</button> */}

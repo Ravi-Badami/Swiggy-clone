@@ -6,12 +6,12 @@ const FilterHead = () => {
   const dispatch = useDispatch();
   return (
     <div className="flex justify-between p-6">
-      <div className="border  text-2xl font-extrabold">FilterHead</div>
+      <div className=" font-extrabold md:text-2xl">FilterHead</div>
       <div
         className="cursor-pointer"
         onClick={() => dispatch(updateDisplay("hidden"))}
       >
-        <img src={CLOSE_SVG} className="h-7 " alt="" />
+        <img src={CLOSE_SVG} className=" h-6 md:h-7 " alt="" />
       </div>
     </div>
   );
