@@ -1,7 +1,6 @@
-import { lazy } from "react";
+import useCuisineData from "../../utils/Hooks/useCuisineData";
 import MenuCards from "./MenuCards";
-
-const MenuFilter = lazy(() => import("./MenuFilter"));
+import MenuFilter from "./MenuFilter";
 import MenuHead from "./MenuHead";
 
 const Menu = () => {

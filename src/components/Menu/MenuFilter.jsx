@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { lazy, useState } from "react";
+import { lazy } from "react";
 import FilterButton from "./FilterButton";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
-const FilterSection = lazy(() => import("./FilterSection"));
+import FilterSection from "./FilterSection";
 import { updateDisplay } from "../../utils/redux/filterSlice";
-import SortSection from "./FilterSectionElements/SortSection/SortSection";
-import { CLOSE_SVG } from "../../utils/svg/svg";
 
 const MenuFilter = () => {
   const dispatch = useDispatch();
   const result = useSelector((store) => store.restaurant.restaurantData);
   const display = useSelector((store) => store.filter.display);
-  const [show, setShow] = useState("hidden");
 
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);

@@ -36,6 +36,8 @@ const MenuCards = () => {
           }
         });
     }
+
+    // console.log("-----------------------");
   }, [checkBoxData, mainCheckboxData]);
 
   useEffect(() => {

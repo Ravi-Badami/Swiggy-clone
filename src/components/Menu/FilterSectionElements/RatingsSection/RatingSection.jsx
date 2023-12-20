@@ -26,6 +26,8 @@ const RatingSection = () => {
           }
         });
     }
+
+    console.log("-----------------------");
   }, [rating]);
 
   const handleOnChange = (rate) => {
