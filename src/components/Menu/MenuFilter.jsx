@@ -112,7 +112,10 @@ const MenuFilter = () => {
       <div
         className={` ${display} fixed bottom-0 left-0 right-0 top-0 z-50 flex    items-center justify-center bg-gray-900 bg-opacity-50`}
       >
-        <div className="  z-10 h-[50%] w-[55%]   overflow-hidden rounded-2xl bg-white ">
+        <div
+          className="  z-10 h-[33%] w-[55%]   overflow-hidden rounded-2xl 
+        bg-white md:h-[50%] "
+        >
           <FilterSection />
         </div>
       </div>

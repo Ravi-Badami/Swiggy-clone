@@ -47,7 +47,7 @@ const SortSection = () => {
   ];
   return (
     <div className="">
-      <p className=" text-[0.75rem] font-bold md:text-base md:font-normal">
+      <p className=" text-[0.70rem] font-bold md:text-base md:font-normal">
         SORT BY
       </p>
 
@@ -62,11 +62,11 @@ const SortSection = () => {
             value={m}
             checked={sortBy === m}
             name="filter"
-            className="cursor-pointer"
+            className="h-2 cursor-pointer md:h-auto"
             onChange={(e) => handleSelectedOption(e)}
           />
           <span
-            className="ml-2 cursor-pointer  select-none text-[0.63rem] md:text-base
+            className=" ml-1 cursor-pointer select-none  text-[0.60rem] md:ml-2 md:text-base
           "
           >
             {m}
