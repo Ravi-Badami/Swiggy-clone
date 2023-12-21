@@ -2,7 +2,7 @@
 import { useState } from "react";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 
-import RestaurantCategory from "../RestaurantCategory";
+import RestaurantCategory from "./RestaurantCategory";
 
 import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
@@ -68,7 +68,7 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } = catch2[0].card.card.info;
   //*if resMenu is undefined than shimmer ui will be shown or else menu will be shown
   return (
-    <div className=" mt-24 min-h-screen   scroll-smooth text-center ">
+    <div className=" mt-24  min-h-screen   scroll-smooth text-center ">
       <h1 className="select-none  font-extrabold">{name}</h1>
       <p className="select-none font-extrabold ">
         {cuisines.join(", ")} - {costForTwoMessage}

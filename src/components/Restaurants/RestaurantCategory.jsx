@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showList, setShowList }) => {
-  // console.log("data=", showList);
   const handleClick = () => {
     setShowList();
   };
@@ -14,7 +14,7 @@ const RestaurantCategory = ({ data, showList, setShowList }) => {
           showList
             ? "  bg-[#F04949] font-medium text-white shadow-sm shadow-gray-600 drop-shadow-md"
             : " hover:bg-white hover:text-black"
-        }   rounded-full  p-2 px-4 hover:bg-[#F04949] hover:font-medium hover:text-white`}
+        }   rounded-full  p-2 px-4 hover:bg-[#F04949] hover:font-medium `}
         onClick={handleClick}
       >
         <div className="flex">

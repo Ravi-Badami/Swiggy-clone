@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { MENU_IMAGE } from "../utils/constants";
-import { addItems } from "../utils/redux/cartSlice";
+import { MENU_IMAGE } from "../../utils/constants";
+import { addItems } from "../../utils/redux/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({ data }) => {
