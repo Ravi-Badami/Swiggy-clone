@@ -22,23 +22,22 @@ const Body = () => {
   const dispatch = useDispatch();
 
   /** this contains the data fetched from the swiggy API */
-  const [restaurantData, setRestaurantData] = useState([]);
+  // const [restaurantData, setRestaurantData] = useState([]);
 
-  /** This contains the input value of searching*/
+  /**
+   * * This contains the input value of searching*/
   // const [inputValue, setInputValues] = useState("");
 
   /** This contains the filtered data  */
-  const [filterData, setFilterData] = useState(restaurantData);
+  // const [filterData, setFilterData] = useState(restaurantData);
 
   const result = useSelector((store) => store.restaurant.restaurantData);
 
-  /** This useState hook will call the function which is fetching the data from the API  */
+  /**
+   *  *This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
     /** Memoization */
-
     !result && fetchData();
-
-    // getDishes();
   }, [result]);
 
   const objectOfRestaurant = (card) => {
@@ -69,21 +68,18 @@ const Body = () => {
       );
     }
   };
-  /** This callback function will fetch the data from API */
+  /**
+   * *This callback function will fetch the data from API */
   const fetchData = async () => {
     /**
-     * - This variable will contain the data fetched from the API
-     * - Fetch is the method which will fetch the data
-     * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
+     * *- This variable will contain the data fetched from the API
+     * *- Fetch is the method which will fetch the data
+     * *- await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
     const data = await fetch(API_DATA);
-    // const data2 = await fetch(API_DATA2);
-    // console.log(data);
-
-    /** This is converting the data into json formate using .json() method */
+    /**
+     * *This is converting the data into json formate using .json() method */
     const json = await data.json();
-    // const json2 = await data2.json();
-
     /**
      * - This is the useState function
      * - It will give the data to restaurantData

@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+//React import
+import { useEffect } from "react";
+
+//Redux imports
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateCuisineClicked,
@@ -11,8 +14,6 @@ import useSortCheckBox from "../../../../utils/Hooks/useSortCheckBox";
 const SortSection = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector((store) => store.filter.sort);
-  // const [selectedOption, setSelectedOption] = useState(sortBy);
-
   const mainCheckboxArray = useSelector(
     (store) => store.restaurant.checkboxMainArray,
   );
@@ -23,20 +24,17 @@ const SortSection = () => {
       dispatch(addCheckboxMainArray(checkboxArray));
     }
   }, [sortBy, mainCheckboxArray]);
-  useSortCheckBox();
 
+  useSortCheckBox();
   useSortBy();
+
   const handleSelectedOption = (event) => {
     dispatch(updateSort(event.target.value));
-    // setSelectedOption(event.target.value);
   };
-  const handleSubmit = (m) => {
-    // console.log("clicked");
-    dispatch(updateCuisineClicked());
 
+  const handleSubmit = (m) => {
+    dispatch(updateCuisineClicked());
     dispatch(updateSort(m));
-    // setSelectedOption(m);
-    // console.log("clicked");
   };
 
   const dataArray = [
@@ -45,12 +43,12 @@ const SortSection = () => {
     "Cost:Low to High",
     "Cost:High to Low",
   ];
+
   return (
     <div className="">
       <p className=" text-[0.70rem] font-bold md:text-base md:font-normal">
         SORT BY
       </p>
-
       {dataArray.map((m) => (
         <div
           className="mt-2  flex w-[50.7%] cursor-pointer   "

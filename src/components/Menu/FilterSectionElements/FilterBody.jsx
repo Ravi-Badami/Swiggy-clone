@@ -1,3 +1,4 @@
+//Component import
 import FilterBodyLeft from "./LeftFilterBody";
 import RightFilterBody from "./RightFilterBody";
 
