@@ -15,3 +15,6 @@ export const API_DATA2 =
 
 export const RESTUARATANT_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
+export const MOBILE_MENU_DATA =
+  "/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.3803485&lng=73.8349952&restaurantId=329793&isMenuUx4=true&submitAction=ENTER";

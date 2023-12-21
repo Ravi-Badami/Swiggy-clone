@@ -96,13 +96,16 @@ const Body = () => {
   };
   // console.log(restaurantData);
 
-  /** This hook is used to change the value of LoggedInUser which is in the UserContext file */
+  /*
+   * This hook is used to change the value of LoggedInUser which is in the UserContext file */
   // const { loggedInUser, setUserName } = useContext(UserContext);
 
-  /** This is used to show a Promoted tag on top of the card */
+  /**
+   * * This is used to show a Promoted tag on top of the card */
   // const DisplayPromotedCard = PromotedCard(RestaurantCard);
 
-  /** This is used to show offline message when user get disconnected from the internet */
+  /*
+   * This is used to show offline message when user get disconnected from the internet */
   // if (useOnlineStatus() === false)
   //   return <h1 className="onlineStatus">you are offline</h1>;
 

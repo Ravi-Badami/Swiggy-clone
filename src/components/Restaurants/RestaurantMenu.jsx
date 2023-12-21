@@ -17,33 +17,59 @@ const RestaurantMenu = () => {
     setShowList(showList === index ? null : index);
   };
 
-  //extracts the resId from url
+  //*extracts the resId from url
   const { resId } = useParams();
 
-  //get the data from the API (API call is made in the useRestaurantMenu file which is a custom hook) and resId is pass to it.
+  //*get the data from the API (API call is made in the useRestaurantMenu file which is a custom hook) and resId is pass to it.
   const resMenu = useRestaurantMenu(resId);
   if (resMenu.resMenu === null) return <Shimmer />;
-  console.log(resMenu.resMenu.cards);
 
-  const categories =
-    resMenu?.resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
-      (c) =>
-        c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
-    );
+  const onlyData = resMenu.resMenu.cards.map((card) => {
+    if (card.groupedCard === undefined) {
+      return null;
+    }
+    {
+      return card?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    }
+  });
+
+  /* 
+  ? since onlyData returns [undefined,undefined,undefined,undefined,arr]
+  ? filter.(Boolean) will only pick the true value which is arr
+*/
+
+  const final = onlyData.filter(Boolean);
+
+  console.log(final[0]);
+
+  const categories = final[0].filter(
+    (c) =>
+      c.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+  );
   if (!categories) return;
 
   // console.log(categories);
-  console.log(resMenu?.resMenu);
-  const { name, cuisines, costForTwoMessage } =
-    resMenu.resMenu.cards[0].card.card.info;
+  const ravi = resMenu?.resMenu;
+  console.log(ravi);
 
-  // console.log(resMenu.resMenu);
+  const catch2 = ravi.cards.filter((a) => {
+    if (
+      a?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
+    ) {
+      return a.card.card.info;
+    }
+    return null;
+  });
+  // console.log(catch2);
 
-  //if resMenu is undefined than shimmer ui will be shown or else menu will be shown
+  // resMenu?.resMenu.filter((a) => console.log(a));
+  const { name, cuisines, costForTwoMessage } = catch2[0].card.card.info;
+  //*if resMenu is undefined than shimmer ui will be shown or else menu will be shown
   return (
     <div className=" text-center">
-      <h1 className="font-extrabold">{name}</h1>
+      <h1 className="pt-28 font-extrabold">{name}</h1>
       <p className="font-extrabold">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
