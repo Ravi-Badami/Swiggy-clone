@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import ItemList from "./ItemList";
+import ItemList from "../components/Restaurants/ItemList";
 import { clearCart } from "../utils/redux/cartSlice";
 
 const Cart = () => {
@@ -18,7 +18,7 @@ const Cart = () => {
       >
         clear cart
       </button>
-      <div className="m-2 mx-auto w-6/12 cursor-pointer p-2   px-3 shadow-2xl">
+      <div className="m-2 mx-auto   w-[80%]  cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
         {cartItems.length === 0 ? (
           <h1>Nothing in the cart</h1>
         ) : (
