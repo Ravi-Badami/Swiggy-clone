@@ -52,11 +52,11 @@ const Header = () => {
         <div className="">
           <h1 className="   mt-2 font-bold">
             {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
-            <span className="absolute -mt-2 ml-[0.85rem] cursor-pointer select-none text-sm md:ml-5 md:text-base ">
+            <span className="absolute -mt-2 ml-[0.69rem] cursor-pointer select-none text-sm md:-mt-3 md:ml-4 md:text-base ">
               {cartItems.length}
             </span>
             <Link to="/Cart" className="">
-              <img className=" h-8 md:h-11 " src={SHOPPING_CART} alt="" />
+              <img className=" h-7 md:h-9 " src={SHOPPING_CART} alt="" />
             </Link>
           </h1>
         </div>
