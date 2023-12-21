@@ -39,7 +39,7 @@ const MenuFilter = () => {
         const costForTwoNumeric = parseInt(match[0], 10); // Use the first match
         return costForTwoNumeric <= 300;
       }
-      // If there is no numeric value, exclude it from the filtered result
+      // *If there is no numeric value, exclude it from the filtered result
       return false;
     });
 
@@ -94,7 +94,6 @@ const MenuFilter = () => {
     },
   ];
 
-  console.log(buttonObject[0].button);
   return (
     <>
       <div className="mt-2 flex flex-wrap gap-2 md:mt-4 md:gap-4">

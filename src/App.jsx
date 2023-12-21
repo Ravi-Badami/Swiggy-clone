@@ -3,24 +3,29 @@ import Header from "./components/Header/Header";
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import Error from "./components/Error";
 import Body from "./components/Body";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, startTransition, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
 /** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
-const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+const RestaurantMenu = lazy(
+  () => import("./components/Restaurants/RestaurantMenu"),
+);
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
 const Cart = lazy(() => import("./components/Cart"));
-const Search = lazy(() => import("./components/Search/Search"));
+let Search;
+Search = lazy(() => import("./components/Search/Search"));
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
   const [userName, setUserName] = useState();
   useEffect(() => {
-    const data = {
-      name: "ravi",
-    };
-    setUserName(data.name);
+    startTransition(() => {
+      const data = {
+        name: "ravi",
+      };
+      setUserName(data.name);
+    });
   }, []);
 
   return (
@@ -47,7 +52,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Search />,
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Search />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
@@ -59,15 +68,27 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
       {
         path: "/Cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Cart />
+          </Suspense>
+        ),
       },
     ],
   },

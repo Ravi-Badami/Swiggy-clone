@@ -55,10 +55,10 @@ const Body = () => {
         ),
       );
 
-      setRestaurantData(
-        card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-      );
-      setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      // setRestaurantData(
+      //   card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+      // );
+      // setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     if (card.card.card.id === "whats_on_your_mind") {

@@ -1,9 +1,10 @@
 // import useOnlineStatus from "../utils/useOnlineStatus";
 import { useState } from "react";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
-import RestaurantCategory from "./RestaurantCategory";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
 
-import Shimmer from "./Shimmer";
+import RestaurantCategory from "../RestaurantCategory";
+
+import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
@@ -25,15 +26,19 @@ const RestaurantMenu = () => {
   console.log(resMenu.resMenu.cards);
 
   const categories =
-    resMenu.resMenu.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter(
+    resMenu?.resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
     );
+  if (!categories) return;
+
   // console.log(categories);
   console.log(resMenu?.resMenu);
-  const { name, cuisines, costForTwoMessage, id } =
-    resMenu?.resMenu?.cards[2]?.card?.card?.info;
+  const { name, cuisines, costForTwoMessage } =
+    resMenu.resMenu.cards[0].card.card.info;
+
+  // console.log(resMenu.resMenu);
 
   //if resMenu is undefined than shimmer ui will be shown or else menu will be shown
   return (
