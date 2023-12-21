@@ -40,7 +40,7 @@ const RestaurantMenu = () => {
 
   const final = onlyData.filter(Boolean);
 
-  console.log(final[0]);
+  // console.log(final[0]);
 
   const categories = final[0].filter(
     (c) =>
@@ -51,7 +51,7 @@ const RestaurantMenu = () => {
 
   // console.log(categories);
   const ravi = resMenu?.resMenu;
-  console.log(ravi);
+  // console.log(ravi);
 
   const catch2 = ravi.cards.filter((a) => {
     if (
@@ -68,9 +68,9 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } = catch2[0].card.card.info;
   //*if resMenu is undefined than shimmer ui will be shown or else menu will be shown
   return (
-    <div className=" text-center">
-      <h1 className="pt-28 font-extrabold">{name}</h1>
-      <p className="font-extrabold">
+    <div className=" mt-24 min-h-screen   scroll-smooth text-center ">
+      <h1 className="select-none  font-extrabold">{name}</h1>
+      <p className="select-none font-extrabold ">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
       {/**show each catagory  */}
