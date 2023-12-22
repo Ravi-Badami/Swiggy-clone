@@ -2,6 +2,8 @@ import RestaurantCard, { PromotedCard } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { API_DATA, API_DATA2 } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+
 import {
   addRestaurantData,
   addRestaurantFilterData,
@@ -76,7 +78,7 @@ const Body = () => {
      * *- Fetch is the method which will fetch the data
      * *- await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const data = await fetch(API_DATA);
+    const data = await axios.get("/api/proxy");
     /**
      * *This is converting the data into json formate using .json() method */
     const json = await data.json();
