@@ -78,10 +78,10 @@ const Body = () => {
      * *- Fetch is the method which will fetch the data
      * *- await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const data = await axios.get("/api/proxy");
+    const response = await axios.get("/api/proxy");
     /**
      * *This is converting the data into json formate using .json() method */
-    const json = await data.json();
+    const json = response.data;
     /**
      * - This is the useState function
      * - It will give the data to restaurantData
