@@ -6,7 +6,7 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://tajbite.vercel.app"
+          "value": "https://www.tajbite.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
