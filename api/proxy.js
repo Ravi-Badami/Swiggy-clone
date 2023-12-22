@@ -1,8 +1,8 @@
 // api/proxy.js
 
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
     const url = `https://www.tajbite.vercel.app${req.url}`;
     const response = await fetch(url, {
@@ -21,8 +21,7 @@ module.exports = async (req, res) => {
     const data = await response.json();
     res.json(data);
   } catch (error) {
-
     console.log(error);
-    
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
