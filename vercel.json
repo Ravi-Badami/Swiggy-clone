@@ -1,8 +1,0 @@
-{
-  "headers": [
-    {
-      "source": "/dapi/*",
-      "headers": ["Access-Control-Allow-Origin", "*"]
-    }
-  ]
-}
