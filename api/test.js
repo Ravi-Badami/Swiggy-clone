@@ -1,9 +1,6 @@
 const allowCors = (fn) => async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://www.tajbite.vercel.app/",
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   // another common pattern
   // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   res.setHeader(
@@ -26,6 +23,4 @@ const handler = (req, res) => {
   res.end(d.toString());
 };
 
-// Using the allowCors middleware with the handler
-const corsHandler = allowCors(handler);
-module.exports = corsHandler;
+module.exports = allowCors(handler);
