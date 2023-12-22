@@ -12,13 +12,6 @@ export default defineConfig({
   server: {
     proxy: {
       "/dapi": "https://www.swiggy.com",
-      // changeOrigin: true,
-      // rewrite: (path) =>
-      //   path.replace(
-      //     /^\/dapi/,
-      //     "https://tajbite-fet2ek3ch-ravikumars-projects-4a656752.vercel.app",
-      //   ),
-      // "/mapi": "https://www.swiggy.com",
     },
   },
 });
