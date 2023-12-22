@@ -1,8 +1,8 @@
 {
-  "routes": [
+  "headers": [
     {
-      "src": "/dapi/(.*)",
-      "dest": "api/proxy.js"
+      "source": "/dapi/*",
+      "headers": ["Access-Control-Allow-Origin", "https://tajbite.vercel.app"]
     }
   ]
 }
