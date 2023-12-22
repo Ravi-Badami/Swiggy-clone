@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     );
     res.json(response.data);
   } catch (error) {
-    console.error("Error proxying request:", error.message);
-    res.status(500).send("Internal Server Error");
+    console.log(error);
   }
 }
