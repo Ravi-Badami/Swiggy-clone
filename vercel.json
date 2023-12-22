@@ -1,10 +1,4 @@
 {
-  "functions": {
-    "api/proxy.js": {
-      "runtime": "nodejs14.x",
-      "includeFiles": ["api/**/*"]
-    }
-  },
   "routes": [
     {
       "src": "/dapi/(.*)",
