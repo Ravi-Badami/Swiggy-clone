@@ -13,7 +13,11 @@ export default defineConfig({
     proxy: {
       "/dapi": "https://www.swiggy.com",
       changeOrigin: true,
-      rewrite: (path) => path.replace(/^\/dapi/, "https://tajbite.vercel.app"),
+      rewrite: (path) =>
+        path.replace(
+          /^\/dapi/,
+          "https://swiggy-clone-2t4dthpd3-ravikumars-projects-4a656752.vercel.app/",
+        ),
       // "/mapi": "https://www.swiggy.com",
     },
   },
