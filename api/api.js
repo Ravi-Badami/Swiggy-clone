@@ -23,4 +23,6 @@ const handler = (req, res) => {
   res.end(d.toString());
 };
 
-module.exports = allowCors(handler);
+// Using the allowCors middleware with the handler
+const corsHandler = allowCors(handler);
+module.exports = corsHandler;
