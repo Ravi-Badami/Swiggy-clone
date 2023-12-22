@@ -13,7 +13,7 @@ export default defineConfig({
     proxy: {
       "/dapi": "https://www.swiggy.com",
       changeOrigin: true,
-      rewrite: (path) => path.replace(/^\/dapi/, "https://www.swiggy.com"),
+      rewrite: (path) => path.replace(/^\/dapi/, "https://www.swiggy.com/dapi"),
       // "/mapi": "https://www.swiggy.com",
     },
   },
