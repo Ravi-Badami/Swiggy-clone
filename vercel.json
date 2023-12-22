@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/dapi/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         {
