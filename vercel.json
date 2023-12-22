@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/proxy.js": {
-      "runtime": "nodejs14.x",
+      "runtime": "node@14",
       "maxDuration": 10
     }
   }
