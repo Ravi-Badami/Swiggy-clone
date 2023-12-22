@@ -14,7 +14,10 @@ export default defineConfig({
       "/dapi": "https://www.swiggy.com",
       changeOrigin: true,
       rewrite: (path) =>
-        path.replace(/^\/dapi/, " https://tajbite.vercel.app/"),
+        path.replace(
+          /^\/dapi/,
+          " https://https://tajbite-g65c51z7a-ravikumars-projects-4a656752.vercel.app",
+        ),
       // "/mapi": "https://www.swiggy.com",
     },
   },
