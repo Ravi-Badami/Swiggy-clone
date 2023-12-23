@@ -127,7 +127,7 @@ const Body = () => {
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
    * */
-  return result ? (
+  return !result ? (
     /**Input box to take the data from user to search */
     <div className=" scroll-smooth  ">
       <ShimmerHero />
