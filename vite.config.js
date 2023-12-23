@@ -9,9 +9,9 @@ export default defineConfig({
 
   // vite.config.js
   /** To solve the cors issue */
-  server: {
-    proxy: {
-      "/dapi": "https://www.swiggy.com",
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/dapi": "https://www.swiggy.com",
+  //   },
+  // },
 });
