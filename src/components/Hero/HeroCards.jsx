@@ -42,7 +42,7 @@ const HeroCards = () => {
     },
   ];
   return (
-    <div>
+    <>
       <div className="flex select-none justify-end ">
         <div className="-mt-10 flex gap-5 px-6  md:w-1/2 md:pr-8">
           {heroCardsData.map((card) => (
@@ -60,7 +60,7 @@ const HeroCards = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

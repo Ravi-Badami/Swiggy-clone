@@ -15,6 +15,11 @@ import { addAllFoodTypes, addName } from "../utils/redux/foodCatagorySlice";
 import Menu from "./Menu/Menu";
 
 import useCuisineData from "../utils/Hooks/useCuisineData";
+import ShimmerCards from "./Hero/Shimmer/ShimmerCards";
+import ShimmerHero from "./Hero/Shimmer/ShimmerHero";
+import AboutUsShimmer from "./About/Shimmer/AboutShimmer";
+import CarouselShimmer from "./Carousel/CarouselShimmer";
+import ShimmerMenu from "./Menu/Shimmer/ShimmerMenu";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -33,6 +38,7 @@ const Body = () => {
   // const [filterData, setFilterData] = useState(restaurantData);
 
   const result = useSelector((store) => store.restaurant.restaurantData);
+  // if (!result) return <>h1</>;
 
   /**
    *  *This useState hook will call the function which is fetching the data from the API  */
@@ -116,16 +122,27 @@ const Body = () => {
   //   return <Dish />;
   // }
   useCuisineData();
+
   /*
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
    * */
-  return (
+  return result ? (
     /**Input box to take the data from user to search */
+    <div className=" scroll-smooth  ">
+      <ShimmerHero />
+      <ShimmerCards />
+      <AboutUsShimmer />
+      <CarouselShimmer />
+
+      <ShimmerMenu />
+    </div>
+  ) : (
     <div className=" scroll-smooth  text-center">
       <Hero />
       <HeroCards />
       <AboutUs />
+
       <Carousel />
       <Menu />
       {/* <Comments /> */}

@@ -10,3 +10,21 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* Add this to your styles or a separate CSS file */ /* Add this to your styles or a separate CSS file */
+.shimmer-icon {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #64b5f6 25%, #2196f3 50%, #64b5f6 75%);
+  background-size: 200% 200%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem; /* Adjust the border-radius as needed */
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 200%;
+  }
+  100% {
+    background-position: -200% -200%;
+  }
+}

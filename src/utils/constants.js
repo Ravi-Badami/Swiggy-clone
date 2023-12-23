@@ -25,3 +25,7 @@ export const RESTUARATANT_IMAGE =
 
 export const MOBILE_MENU_DATA =
   "/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.3803485&lng=73.8349952&restaurantId=329793&isMenuUx4=true&submitAction=ENTER";
+export const RESTAURANT_IMAGE = "";
+// " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";
+export const HERO_IMAGE = "";
+// (" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png");

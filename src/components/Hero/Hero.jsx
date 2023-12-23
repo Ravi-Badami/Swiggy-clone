@@ -1,4 +1,6 @@
+import { HERO_IMAGE } from "../../utils/constants";
 import HeroButton from "./HeroButton";
+import HeroButtonShimmer from "./Shimmer/HeroButtomShimmer";
 
 const Hero = () => {
   return (
@@ -20,8 +22,8 @@ const Hero = () => {
           <div className="  w-[90%] overflow-hidden  rounded-[67px] ">
             <img
               className="  w-full rounded-[67px] object-cover  md:h-full "
-              src=" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png"
-              alt=""
+              src={HERO_IMAGE}
+              alt="hero image"
             />
           </div>
         </div>
