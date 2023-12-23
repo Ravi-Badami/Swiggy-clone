@@ -3,11 +3,11 @@ import HeroButton from "./HeroButton";
 const Hero = () => {
   return (
     <>
-      <div className=" mt-20 flex h-[30vh] w-screen  select-none justify-between  border-b border-gray-400 px-5 py-[10%]  md:mt-10 md:h-[90vh]  md:items-center md:px-28 md:py-0 ">
+      <div className=" mt-20 flex h-[38vh] w-screen  select-none justify-around border-b border-gray-400 px-1 py-[10%]  md:mt-10 md:h-[90vh]  md:items-center md:px-28 md:py-0 ">
         {/** Left */}
-        <div className=" borde   w-[43%] border-black pl-5 text-start md:h-[70%]">
-          <p className="text-2xl font-bold md:text-7xl">
-            Culinary artistry in every bite – welcome to TajByte
+        <div className=" borde   w-[50%] border-black pl-5 text-start md:h-[70%]">
+          <p className="text-2xl font-extrabold md:text-7xl">
+            Culinary artistry in every bite – welcome to TAJBITE
           </p>
           <div className="mt-4  w-[120%] md:mt-8 ">
             <HeroButton button={"Menu"} />
@@ -16,13 +16,13 @@ const Hero = () => {
         </div>
         {/** Right */}
 
-        <div className="rounded-[67px w-[40%] overflow-hidden object-cover drop-shadow-lg md:h-[78%]">
+        <div className="w-[48%] overflow-hidden rounded-[67px] object-cover drop-shadow-lg md:h-[78%]">
           <div className=" h-full w-full overflow-hidden  rounded-[67px]">
-            {/* <img
+            <img
               className="  w-full rounded-[67px] object-cover  md:h-full "
               src=" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png"
               alt=""
-            /> */}
+            />
           </div>
         </div>
       </div>

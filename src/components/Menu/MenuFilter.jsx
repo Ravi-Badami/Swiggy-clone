@@ -79,13 +79,12 @@ const MenuFilter = () => {
       button: handleClickRating,
     },
     {
-      name: "Pure Veg",
-      button: handleClickPureVeg,
-    },
-
-    {
       name: "Less than Rs. 300",
       button: handleClickLessThan300,
+    },
+    {
+      name: "Pure Veg",
+      button: handleClickPureVeg,
     },
 
     {

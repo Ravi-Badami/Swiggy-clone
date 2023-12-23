@@ -31,7 +31,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <div className="overflow-hidden ">
+        <div className="overflow-hidden scroll-smooth ">
           <Header />
           <Outlet />
         </div>
