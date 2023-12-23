@@ -55,11 +55,6 @@ const Body = () => {
           card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
         ),
       );
-
-      // setRestaurantData(
-      //   card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-      // );
-      // setFilterData(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     if (card.card.card.id === "whats_on_your_mind") {
@@ -72,17 +67,17 @@ const Body = () => {
   /**
    * *This callback function will fetch the data from API */
   const fetchData = async () => {
-    /**
-     * *- This variable will contain the data fetched from the API
-     * *- Fetch is the method which will fetch the data
-     * *- await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
+    /*
+     * - This variable will contain the data fetched from the API
+     * - Fetch is the method which will fetch the data
+     * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
     const response = await fetch(API_DATA);
-    /**
-     * *This is converting the data into json formate using .json() method */
+    /*
+      *This is converting the data into json formate using .json() method */
     console.log(response);
     const json = await response.json();
-    /**
+    /*
      * - This is the useState function
      * - It will give the data to restaurantData
      */
@@ -91,12 +86,12 @@ const Body = () => {
     json.data.cards.map((card) => objectOfRestaurant(card));
     // json2.data.cards.map((card) => objectOfRestaurant(card));
 
-    /**
+    /*
      * - This also gives the data to filterData because of searching feature
      * - We want to search another item  even after searching an item
      */
   };
-  // console.log(restaurantData);
+
 
   /*
    * This hook is used to change the value of LoggedInUser which is in the UserContext file */
@@ -115,7 +110,7 @@ const Body = () => {
   //   return <Dish />;
   // }
   useCuisineData();
-  /**
+  /*
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
    * */

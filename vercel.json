@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/proxy.js": {
-      "runtime": "node14",
-      "maxDuration": 10
-    }
-  }
-}
