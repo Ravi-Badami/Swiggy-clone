@@ -10,14 +10,16 @@ const Carousel = () => {
   return (
     heading && (
       <div>
-        <div className=" mt-10  px-4   md:mt-0 md:p-8">
-          <div className=" bg mb-1 flex justify-between text-start">
+        <div className="   px-4  md:p-8">
+          <div className=" bg flex justify-between text-start md:mb-1">
             <div className="">
-              <p className="text-2xl font-extrabold md:text-4xl">{heading}</p>
+              <p className="select-none text-2xl font-extrabold md:text-4xl">
+                {heading}
+              </p>
             </div>
           </div>
           <div className="hide-scrollbar flex overflow-x-scroll">
-            <div className="flex">
+            <div className="flex select-none">
               {foodName.map((card) => (
                 <FoodItems key={card.id} image={card.imageId} />
               ))}

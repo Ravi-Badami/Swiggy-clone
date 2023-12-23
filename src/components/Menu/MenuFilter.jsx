@@ -32,17 +32,17 @@ const MenuFilter = () => {
 
   const handleClickLessThan300 = () => {
     const filteredData = result.filter((res) => {
-      // Extract numeric value from the costForTwo string
-      const match = res.info.costForTwo.match(/\d+/); // This regex extracts all digits
-      // Check if there is a numeric value and if it is less than 300
+      //* Extract numeric value from the costForTwo string
+      const match = res.info.costForTwo.match(/\d+/); //* This regex extracts all digits
+
+      //* Check if there is a numeric value and if it is less than 300
       if (match) {
-        const costForTwoNumeric = parseInt(match[0], 10); // Use the first match
+        const costForTwoNumeric = parseInt(match[0], 10); // *Use the first match
         return costForTwoNumeric <= 300;
       }
       // *If there is no numeric value, exclude it from the filtered result
       return false;
     });
-
     dispatch(addRestaurantFilterData(filteredData));
   };
 
@@ -96,7 +96,7 @@ const MenuFilter = () => {
 
   return (
     <>
-      <div className="mt-2 flex flex-wrap gap-2 md:mt-4 md:gap-4">
+      <div className="mt-2 flex select-none flex-wrap gap-2 md:mt-4 md:gap-4 ">
         {buttonObject.map((b) => (
           <div key={b.name} className="" onClick={b?.button}>
             <FilterButton button={b?.name} />

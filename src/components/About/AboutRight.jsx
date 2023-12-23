@@ -17,7 +17,7 @@ const AboutRight = () => {
           </span>
         </span>
       </div>
-      <div className="-ml-1 -mt-4 md:-ml-0 md:-mt-0">
+      <div className="-ml-1 -mt-8 md:-ml-0 md:-mt-0">
         <HeroButton button={"More"} />
       </div>
     </div>
