@@ -79,7 +79,10 @@ const Body = () => {
      * *- Fetch is the method which will fetch the data
      * *- await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
      */
-    const response = await fetch(corsAnywhereUrl + API_DATA);
+    const response = await fetch(
+      corsAnywhereUrl +
+        "http://www.swiggy.com/dapi/restaurants/list/v5?lat=15.3803485&lng=73.8349952&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    );
     /**
      * *This is converting the data into json formate using .json() method */
     console.log(response);
