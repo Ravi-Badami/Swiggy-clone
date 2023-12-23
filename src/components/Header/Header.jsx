@@ -8,12 +8,12 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="fixed z-20  flex  w-full select-none  items-center justify-between gap-24 bg-white  px-14 py-2 md:gap-x-48">
-      <div className=" ">
+    <div className="fixed z-20   flex  w-full items-center justify-between gap-24 bg-white px-4  py-2 md:justify-center md:gap-x-48 ">
+      <div className="ml-5 md:ml-0 ">
         <Link to="/">
           <button className="  h-20 w-20 text-center  md:mr-0">
             <img
-              className=" h-12 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem] md:h-16 "
+              className=" h-14 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem] md:h-20 "
               src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
               alt="logo"
             />
