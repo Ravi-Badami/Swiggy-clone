@@ -3,9 +3,9 @@ import HeroButton from "./HeroButton";
 const Hero = () => {
   return (
     <div>
-      <div className=" flex h-[50vh] w-screen  items-center justify-between border-b border-gray-400  px-5 md:mt-10 md:h-[90vh] md:px-28 ">
+      <div className=" mt-20 flex h-[30vh] w-screen  justify-between border-b border-gray-400 px-5 py-[10%]  md:mt-10 md:h-[90vh]  md:items-center md:px-28 md:py-0 ">
         {/** Left */}
-        <div className="borde h-[50%]  w-[58%] border-black  text-start md:h-[70%]">
+        <div className=" borde   w-[43%] border-black pl-5 text-start md:h-[70%]">
           <p className="text-2xl font-bold md:text-7xl">
             Culinary artistry in every bite – welcome to TajByte
           </p>

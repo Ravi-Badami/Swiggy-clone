@@ -1,21 +1,14 @@
-// import { useContext } from "react";
 import { Link } from "react-router-dom";
-// import useOnlineStatus from "../../utils/useOnlineStatus";
-// import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
-// import { RxHamburgerMenu } from "react-icons/rx";
 import SignUp from "./SignUp";
 import { SHOPPING_CART } from "../../utils/svg/svg";
-// import useWhatsOnMind from "../../utils/Hooks/useWhatsOnMind";
 
 const Header = () => {
   // const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
 
-  // console.log(cartItems);
-
   return (
-    <div className="fixed z-20   flex  w-full items-center justify-center gap-24  bg-white py-2 md:gap-x-48">
+    <div className="fixed z-20  flex  w-full items-center justify-between gap-24 bg-white  px-14 py-2 md:gap-x-48">
       <div className=" ">
         <Link to="/">
           <button className="  h-20 w-20 text-center  md:mr-0">

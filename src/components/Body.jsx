@@ -74,7 +74,7 @@ const Body = () => {
      */
     const response = await fetch(API_DATA);
     /*
-      *This is converting the data into json formate using .json() method */
+     *This is converting the data into json formate using .json() method */
     console.log(response);
     const json = await response.json();
     /*
@@ -91,7 +91,6 @@ const Body = () => {
      * - We want to search another item  even after searching an item
      */
   };
-
 
   /*
    * This hook is used to change the value of LoggedInUser which is in the UserContext file */
@@ -116,7 +115,7 @@ const Body = () => {
    * */
   return (
     /**Input box to take the data from user to search */
-    <div className=" text-center ">
+    <div className=" scroll-smooth  text-center">
       <Hero />
 
       <HeroCards />
