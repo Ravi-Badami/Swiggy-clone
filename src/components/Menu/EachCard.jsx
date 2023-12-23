@@ -11,7 +11,7 @@ const EachCard = ({ areaName, avgRating, image, cuisine }) => {
   return (
     <div
       data-testid="resCard"
-      className=" mb-6 h-48 w-[9.6rem] cursor-pointer rounded-lg border-2 shadow-md shadow-gray-300  drop-shadow-xl transition-all hover:-translate-y-1 hover:bg-gray-100 md:mb-0 md:h-72 md:w-60 "
+      className=" mb-6 h-60 w-[13rem] cursor-pointer rounded-lg  border-2 shadow-md  shadow-gray-300 drop-shadow-xl transition-all hover:-translate-y-1 hover:bg-gray-100 md:mb-0 md:h-72 md:w-60  "
     >
       <img
         className="h-[60%] w-full rounded-lg"

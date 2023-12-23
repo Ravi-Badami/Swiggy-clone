@@ -8,7 +8,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="fixed z-20  flex  w-full items-center justify-between gap-24 bg-white  px-14 py-2 md:gap-x-48">
+    <div className="fixed z-20  flex  w-full select-none  items-center justify-between gap-24 bg-white  px-14 py-2 md:gap-x-48">
       <div className=" ">
         <Link to="/">
           <button className="  h-20 w-20 text-center  md:mr-0">

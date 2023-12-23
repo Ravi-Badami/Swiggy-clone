@@ -2,8 +2,8 @@ import HeroButton from "./HeroButton";
 
 const Hero = () => {
   return (
-    <div>
-      <div className=" mt-20 flex h-[30vh] w-screen  justify-between border-b border-gray-400 px-5 py-[10%]  md:mt-10 md:h-[90vh]  md:items-center md:px-28 md:py-0 ">
+    <>
+      <div className=" mt-20 flex h-[30vh] w-screen  select-none justify-between  border-b border-gray-400 px-5 py-[10%]  md:mt-10 md:h-[90vh]  md:items-center md:px-28 md:py-0 ">
         {/** Left */}
         <div className=" borde   w-[43%] border-black pl-5 text-start md:h-[70%]">
           <p className="text-2xl font-bold md:text-7xl">
@@ -26,7 +26,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
