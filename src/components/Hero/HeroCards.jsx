@@ -51,7 +51,7 @@ const HeroCards = () => {
               className="flex  flex-col justify-center  rounded-3xl border-t-4   border-red-400 bg-white px-4   py-7 shadow-xl drop-shadow-lg  md:w-1/3 md:px-0 md:py-7"
             >
               <div className=" mx-auto  mb-2 md:mb-4">{card.icon}</div>
-              <span className=" text-[0.7rem] font-bold  md:text-base">
+              <span className=" text-[0.7em] font-bold  md:text-base">
                 {card.content}
               </span>
             </div>

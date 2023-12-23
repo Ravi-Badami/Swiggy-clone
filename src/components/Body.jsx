@@ -1,6 +1,6 @@
 import RestaurantCard, { PromotedCard } from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import { API_DATA, API_DATA2 } from "../utils/constants";
+import { API_DATA, API_DATA2, API_DATA_MOBILE } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -67,29 +67,36 @@ const Body = () => {
   /**
    * *This callback function will fetch the data from API */
   const fetchData = async () => {
-    /*
-     * - This variable will contain the data fetched from the API
-     * - Fetch is the method which will fetch the data
-     * - await is used in order to wait until the data is fetched from the API and then only give it to "data" variable
-     */
-    const response = await fetch(API_DATA);
-    /*
-     *This is converting the data into json formate using .json() method */
-    console.log(response);
-    const json = await response.json();
-    /*
-     * - This is the useState function
-     * - It will give the data to restaurantData
-     */
-    // console.log(json);
+    try {
+      // Attempt to fetch data from API_DATA
+      // If fetching from API_DATA fails, attempt to fetch from API_DATA_MOBILE
+      const mobileResponse = await fetch(API_DATA_MOBILE);
+      if (mobileResponse.ok) {
+        const mobileJson = await mobileResponse.json();
+        mobileJson.data.cards.map((card) => objectOfRestaurant(card));
+      } else {
+        throw new Error(
+          `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse.status}`,
+        );
+      }
+    } catch (error) {
+      console.error(error);
 
-    json.data.cards.map((card) => objectOfRestaurant(card));
-    // json2.data.cards.map((card) => objectOfRestaurant(card));
-
-    /*
-     * - This also gives the data to filterData because of searching feature
-     * - We want to search another item  even after searching an item
-     */
+      try {
+        const response = await fetch(API_DATA);
+        if (response.ok) {
+          const json = await response.json();
+          json.data.cards.map((card) => objectOfRestaurant(card));
+        } else {
+          throw new Error(
+            `Failed to fetch data from API_DATA, status: ${response.status}`,
+          );
+        }
+      } catch (mobileError) {
+        console.error(mobileError);
+        // Handle the error for the mobile request here
+      }
+    }
   };
 
   /*
@@ -117,7 +124,6 @@ const Body = () => {
     /**Input box to take the data from user to search */
     <div className=" scroll-smooth  text-center">
       <Hero />
-
       <HeroCards />
       <AboutUs />
       <Carousel />

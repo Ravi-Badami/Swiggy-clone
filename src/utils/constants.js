@@ -7,6 +7,9 @@ export const MENU_API =
 export const API_DATA =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.3803485&lng=73.8349952&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const API_DATA_MOBILE =
+  corsAnywhereUrl +
+  "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=15.3803485&lng=73.8349952&carousel=true&third_party_vendor=1";
 
 export const MENU_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
