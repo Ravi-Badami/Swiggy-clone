@@ -31,7 +31,7 @@ const Header = () => {
           <Link to="/contact">Contact</Link>
         </div>
         <div className="header">
-          <Link to="/Search" className="flex items-center gap-1 ">
+          <Link to="/search" className="flex items-center gap-1 ">
             <img
               className="mt-[0.10rem] h-4 "
               src="https://i.postimg.cc/m2yKWnMb/magnifier.png"

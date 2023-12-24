@@ -11,7 +11,7 @@ const Search = () => {
   );
 
   return (
-    <div className=" text-center">
+    <div className=" mt-24 border  border-black text-center">
       {" "}
       <input
         /**This is the css using tailwind */

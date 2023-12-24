@@ -13,8 +13,8 @@ const RestaurantMenu = lazy(
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
 const Cart = lazy(() => import("./components/Cart"));
-let Search;
-Search = lazy(() => import("./components/Search/Search"));
+
+const Search = lazy(() => import("./components/Search/Search"));
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
