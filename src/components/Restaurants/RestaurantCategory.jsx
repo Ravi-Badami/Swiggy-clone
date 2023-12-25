@@ -3,6 +3,7 @@ import React from "react";
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showList, setShowList }) => {
+  // console.log(data);
   const handleClick = () => {
     setShowList();
   };

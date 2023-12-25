@@ -7,6 +7,7 @@ export const MENU_API =
 export const API_DATA =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.3803485&lng=73.8349952&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 export const API_DATA_MOBILE =
   corsAnywhereUrl +
   "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=15.3803485&lng=73.8349952&carousel=true&third_party_vendor=1";
@@ -29,3 +30,7 @@ export const RESTAURANT_IMAGE = "";
 // " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";
 export const HERO_IMAGE = "";
 // (" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png");
+
+export const SEARCH_API_D =
+  corsAnywhereUrl +
+  "https://www.swiggy.com/mapi/restaurants/search/suggest?lat=15.3803485&lng=73.8349952&str=";
