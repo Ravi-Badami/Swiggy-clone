@@ -131,6 +131,19 @@ const Body = () => {
     /**Input box to take the data from user to search */
     <div className=" scroll-smooth  ">
       <ShimmerHero />
+      <div className=" absolute ml-[60%] mt-[20%] h-10  md:-mt-[45%] md:ml-[50%]">
+        <div className="">
+          if reload takes too much time than
+          <button>
+            <a
+              href="https://cors-anywhere.herokuapp.com/corsdemo"
+              className="border border-black px-4 py-2 "
+            >
+              Click here
+            </a>
+          </button>
+        </div>
+      </div>
       <ShimmerCards />
       <AboutUsShimmer />
       <CarouselShimmer />
