@@ -5,20 +5,20 @@ const useSearchApi = (input) => {
   const [search, setSearch] = useState();
 
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch(SEARCH_API_D + input);
+      const json = await data.json();
+      setSearch(json);
+    };
     const timer = setTimeout(() => {
       if (input === undefined) return;
-      fetchData(input);
+      fetchData();
     }, 200);
     return () => {
       clearTimeout(timer);
     };
   }, [input]);
 
-  const fetchData = async (input) => {
-    const data = await fetch(SEARCH_API_D + input);
-    const json = await data.json();
-    setSearch(json);
-  };
   // console.log(search);
   if (search) return { search };
 };

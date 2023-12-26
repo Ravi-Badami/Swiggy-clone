@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 import useSearchApi from "../../utils/useSearchApi";
+import DisplayCards from "./DisplayCards/DisplayCards";
+import { CLOSE_SVG } from "../../utils/svg/svg";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
@@ -11,7 +13,14 @@ const Search = () => {
     (store) => store.restaurant.restaurantData,
   );
   const data = useSearchApi(inputValue);
-  data?.search.statusCode === 0 && console.log(data);
+  data &&
+    data?.search.statusCode === 0 &&
+    console.log(data?.search?.data?.suggestions);
+
+  const handleClick = () => {
+    setInputValues("");
+  };
+  // cardsArray && console.log(cardsArray);
 
   // const filterRestaurantData = useSelector(
   //   (store) => store.restaurant.restaurantFilterData,
@@ -20,11 +29,11 @@ const Search = () => {
 
   return (
     <div className=" mt-24 text-center">
-      <div className="border  border-black ">
+      <div className="">
         <input
           /**This is the css using tailwind */
-          className="m-4 rounded-md border-2 border-black
-             p-2 pr-6"
+          className="m-4 w-1/3 
+             rounded-md border-2 p-2 pr-6"
           data-testid="searchInput"
           placeholder=" What do want to eat"
           /**This is used to display the data take from the input */
@@ -34,29 +43,23 @@ const Search = () => {
             setInputValues(e.target.value);
           }}
         ></input>
-        {/** THis is button to search*/}
-        <button
-          className="my-4 mr-32 rounded-lg bg-sky-300 px-4 py-2 drop-shadow-lg"
-          /**- The eventHandler will used to filter the data from "restaurantData"
-             - It will take the input from the user and match to each restaurant name present and it will also search if the only few words of the name is given as input [.includes() is responsible for that feature].
-             - It will also convert all the input to lowercase and also the name of restaurant from the API data to lowercase and then compares it
-          */
-          onClick={() => {
-            const filteredList = restaurantData.filter((res) =>
-              res.info.name.toLowerCase().includes(inputValue.toLowerCase()),
-            );
-            if (filteredList.length === 0) {
-              dispatch(addRestaurantFilterData(null));
-            } else {
-              /** This is used to set the data  */
-              dispatch(addRestaurantFilterData(filteredList));
-            }
-          }}
-        >
-          Search
+        <button className="absolute -ml-12 mt-7  " onClick={handleClick}>
+          <img src={CLOSE_SVG} className="h-5 " alt="" />
         </button>
+        {/** THis is button to search*/}
       </div>
-      <div className="">{}</div>
+      <div className=" flex flex-col items-center ">
+        {data &&
+          data?.search.statusCode === 0 &&
+          data?.search?.data?.suggestions.map((card, index) => (
+            <DisplayCards
+              key={index}
+              text={card.text}
+              type={card.type}
+              imgId={card.cloudinaryId}
+            />
+          ))}
+      </div>
     </div>
   );
 };
