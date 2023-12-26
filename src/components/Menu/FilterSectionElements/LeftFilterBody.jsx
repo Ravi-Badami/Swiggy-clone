@@ -13,7 +13,7 @@ const FilterBodyLeft = () => {
     // Add your logic for handling the button click here
   };
   return (
-    <div className="LEFT   w-3/12 border-t-2 ">
+    <div className="LEFT   w-4/12 border-t-2 ">
       <div className=" flex  flex-col items-start gap-2 border-r p-2 ">
         <PopFilterButton
           button={"Sort"}

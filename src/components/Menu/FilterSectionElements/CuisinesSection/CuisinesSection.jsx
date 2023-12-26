@@ -87,15 +87,15 @@ const CuisinesSection = () => {
   const handle = () => {};
   return (
     <div className="overflow-x-hidden overflow-y-scroll scroll-smooth">
-      <p className="fixed -mt-1 w-[30%] bg-white text-[0.75rem] font-bold md:-mt-0 md:h-auto md:text-base">
+      <p className="fixed -mt-1 w-[30%] bg-white  font-bold md:-mt-0 md:h-auto md:text-base">
         FILTER BY
       </p>
 
       <div className="  mt-4 flex w-32 flex-col  md:mt-5  ">
-        <div className=" flex h-24 flex-col md:h-40">
+        <div className=" flex h-32 flex-col  md:h-40">
           {result.map((res) => (
             <div
-              className="mt-1  flex w-[92%] cursor-pointer md:mt-2  "
+              className="mt-2  flex w-[92%] cursor-pointer md:mt-2  "
               key={res.id}
               onClick={() => handleOnChange(res.name)}
             >
@@ -103,10 +103,10 @@ const CuisinesSection = () => {
                 type="checkbox"
                 name="cuisine"
                 checked={res.checked}
-                className=" h-2 cursor-pointer md:h-auto"
+                className=" h-4 cursor-pointer md:h-auto"
                 onChange={handle}
               />
-              <span className="ml-1 cursor-pointer select-none  text-[0.60rem] md:ml-2 md:text-base">
+              <span className="ml-1 cursor-pointer select-none  text-sm md:ml-2 md:text-base">
                 {res.name}
               </span>
             </div>

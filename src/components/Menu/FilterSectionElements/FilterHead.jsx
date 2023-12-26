@@ -5,7 +5,7 @@ import { CLOSE_SVG } from "../../../utils/svg/svg";
 const FilterHead = () => {
   const dispatch = useDispatch();
   return (
-    <div className="flex justify-between p-6">
+    <div className="flex justify-between p-4">
       <div className=" font-extrabold md:text-2xl">FilterHead</div>
       <div
         className="cursor-pointer"

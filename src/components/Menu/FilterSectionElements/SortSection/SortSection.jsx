@@ -46,9 +46,7 @@ const SortSection = () => {
 
   return (
     <div className="">
-      <p className=" text-[0.70rem] font-bold md:text-base md:font-normal">
-        SORT BY
-      </p>
+      <p className="  font-bold md:text-base md:font-normal">SORT BY</p>
       {dataArray.map((m) => (
         <div
           className="mt-2  flex w-[50.7%] cursor-pointer   "
@@ -60,11 +58,11 @@ const SortSection = () => {
             value={m}
             checked={sortBy === m}
             name="filter"
-            className="h-2 cursor-pointer md:h-auto"
+            className="h-4 cursor-pointer md:h-auto"
             onChange={(e) => handleSelectedOption(e)}
           />
           <span
-            className=" ml-1 cursor-pointer select-none  text-[0.60rem] md:ml-2 md:text-base
+            className=" ml-1 cursor-pointer select-none  text-sm md:ml-2 md:text-base
           "
           >
             {m}

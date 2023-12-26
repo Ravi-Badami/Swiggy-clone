@@ -33,11 +33,11 @@ const RatingSection = () => {
   const handle = () => {};
   return (
     <div>
-      <p> FILTER BY</p>
+      <p className="font-bold md:text-base md:font-normal"> FILTER BY</p>
       <div className="">
         {rating.map((rate) => (
           <div
-            className="mt-2  flex w-[24%] cursor-pointer  "
+            className="mt-2  flex  cursor-pointer border  "
             key={rate.rate}
             onClick={() => handleOnChange(rate)}
           >
@@ -48,7 +48,9 @@ const RatingSection = () => {
               checked={rate.checked}
               onChange={handle}
             />
-            <h1 className="ml-2 cursor-pointer select-none  ">{rate.rate}</h1>
+            <h1 className="ml-2 cursor-pointer select-none   text-sm">
+              {rate.rate}
+            </h1>
           </div>
         ))}
       </div>
