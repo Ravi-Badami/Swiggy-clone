@@ -49,7 +49,7 @@ const SortSection = () => {
       <p className="  font-bold md:text-base md:font-normal">SORT BY</p>
       {dataArray.map((m) => (
         <div
-          className="mt-2  flex w-[50.7%] cursor-pointer   "
+          className="mt-2  flex cursor-pointer md:w-[50.7%]   "
           key={m}
           onClick={() => handleSubmit(m)}
         >
