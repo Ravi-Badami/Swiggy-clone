@@ -29,11 +29,11 @@ const Search = () => {
 
   return (
     <div className=" mt-24 text-center">
-      <div className="">
+      <div className="fixed -mt-20 w-full  bg-white">
         <input
           /**This is the css using tailwind */
-          className="m-4 w-1/3 
-             rounded-md border-2 p-2 pr-6"
+          className="m-4 rounded-sm 
+             border-2 p-2 pr-6 md:w-1/3"
           data-testid="searchInput"
           placeholder=" What do want to eat"
           /**This is used to display the data take from the input */
@@ -48,17 +48,19 @@ const Search = () => {
         </button>
         {/** THis is button to search*/}
       </div>
-      <div className=" flex flex-col items-center ">
-        {data &&
-          data?.search.statusCode === 0 &&
-          data?.search?.data?.suggestions.map((card, index) => (
-            <DisplayCards
-              key={index}
-              text={card.text}
-              type={card.type}
-              imgId={card.cloudinaryId}
-            />
-          ))}
+      <div className=" mt-44 flex flex-col items-center gap-7 ">
+
+          {data &&
+            data?.search.statusCode === 0 &&
+            data?.search?.data?.suggestions.map((card, index) => (
+              <DisplayCards
+                key={index}
+                text={card.text}
+                type={card.type}
+                imgId={card.cloudinaryId}
+              />
+            ))}
+     
       </div>
     </div>
   );
