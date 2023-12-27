@@ -22,6 +22,10 @@ export const SEARCH_API_D =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/search/suggest?lat=15.3803485&lng=73.8349952&str=";
 
+export const AFTER_SEARCH =
+  corsAnywhereUrl +
+  "https://www.swiggy.com/dapi/restaurants/search/v3?lat=15.3803485&lng=73.8349952&str=Biryani&submitAction=SUGGESTION&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NA%22%2C%22cloudinaryId%22%3A%22c7f6f3341a7d0aa9e5bd4e8ef97f28ae%22%2C%22dishFamilyId%22%3A%22846613%22%2C%22dishFamilyIds%22%3A%5B%22846613%22%5D%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D";
+
 //?image
 export const RESTAURANT_IMAGE = "";
 // " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";

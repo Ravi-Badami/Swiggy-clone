@@ -12,6 +12,7 @@ const RestaurantMenu = lazy(
 );
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
+import DishDisplay from "./components/Search/DIshDisplay/DishDisplay";
 const Cart = lazy(() => import("./components/Cart"));
 
 const Search = lazy(() => import("./components/Search/Search"));
@@ -89,6 +90,10 @@ const appRouter = createBrowserRouter([
             <Cart />
           </Suspense>
         ),
+      },
+      {
+        path: "/searchAPi/:dishId",
+        element: <DishDisplay />,
       },
     ],
   },

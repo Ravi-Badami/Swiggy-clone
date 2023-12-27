@@ -4,6 +4,8 @@ import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 import useSearchApi from "../../utils/useSearchApi";
 import DisplayCards from "./DisplayCards/DisplayCards";
 import { CLOSE_SVG } from "../../utils/svg/svg";
+import { Link } from "react-router-dom";
+import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
@@ -16,16 +18,11 @@ const Search = () => {
   data &&
     data?.search.statusCode === 0 &&
     console.log(data?.search?.data?.suggestions);
+  useAfterSearchApi();
 
   const handleClick = () => {
     setInputValues("");
   };
-  // cardsArray && console.log(cardsArray);
-
-  // const filterRestaurantData = useSelector(
-  //   (store) => store.restaurant.restaurantFilterData,
-  // );
-  // console.log(filterRestaurantData);
 
   return (
     <div className=" mt-24 text-center">
@@ -49,18 +46,20 @@ const Search = () => {
         {/** THis is button to search*/}
       </div>
       <div className=" mt-44 flex flex-col items-center gap-7 ">
+        {data &&
+          data?.search.statusCode === 0 &&
+          data?.search?.data?.suggestions.map((card) => (
+       
 
-          {data &&
-            data?.search.statusCode === 0 &&
-            data?.search?.data?.suggestions.map((card, index) => (
+            <Link key={card.text} to={`/searchApi/` + inputValue}>
               <DisplayCards
-                key={index}
                 text={card.text}
                 type={card.type}
                 imgId={card.cloudinaryId}
+                cta={card?.cta.link.replace("swiggy://explore?", "")}
               />
-            ))}
-     
+            </Link>
+          ))}
       </div>
     </div>
   );
