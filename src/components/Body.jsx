@@ -20,12 +20,14 @@ import ShimmerHero from "./Hero/Shimmer/ShimmerHero";
 import AboutUsShimmer from "./About/Shimmer/AboutShimmer";
 import CarouselShimmer from "./Carousel/CarouselShimmer";
 import ShimmerMenu from "./Menu/Shimmer/ShimmerMenu";
+import { updateShowCard } from "../utils/redux/searchSlice";
 
 /** This is the  main body of the project  */
 const Body = () => {
   // useWhatsOnMind();
 
   const dispatch = useDispatch();
+  dispatch(updateShowCard(false));
 
   /** this contains the data fetched from the swiggy API */
   // const [restaurantData, setRestaurantData] = useState([]);

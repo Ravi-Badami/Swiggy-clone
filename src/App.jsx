@@ -92,8 +92,12 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/searchAPi/:dishId",
-        element: <DishDisplay />,
+        path: "/search?query=:dishId",
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Search />
+          </Suspense>
+        ),
       },
     ],
   },

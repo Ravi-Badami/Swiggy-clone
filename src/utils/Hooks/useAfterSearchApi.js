@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { AFTER_SEARCH } from "../constants";
+import { SEARCH_BY_CLICK } from "../constants";
 
 const useAfterSearchApi = () => {
   useEffect(() => {
@@ -7,7 +7,7 @@ const useAfterSearchApi = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(AFTER_SEARCH);
+    const data = await fetch(SEARCH_BY_CLICK);
 
     const json = await data.json();
     console.log(json);

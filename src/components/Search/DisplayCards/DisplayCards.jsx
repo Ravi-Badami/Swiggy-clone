@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
 import { SEARCH_ITEMS_IMAGE } from "../../../utils/constants";
+import { updateShowCard } from "../../../utils/redux/searchSlice";
 
 const DisplayCards = ({ text, type, imgId }) => {
+  const dispatch = useDispatch();
   return (
     <>
-      <div className="-ml-9  flex  w-2/3 text-start  hover:bg-gray-200 md:p-4">
+      <div
+        className="  flex  w-2/3 text-start  hover:bg-gray-200 md:p-4 "
+        onClick={() => dispatch(updateShowCard(true))}
+      >
         <div className="  ">
           <img
             src={SEARCH_ITEMS_IMAGE + imgId}
