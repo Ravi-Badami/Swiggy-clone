@@ -3,7 +3,7 @@ import { SEARCH_ITEMS_IMAGE } from "../../../utils/constants";
 const DisplayCards = ({ text, type, imgId }) => {
   return (
     <>
-      <div className="-ml-9  flex  w-2/3 text-start  md:p-4">
+      <div className="-ml-9  flex  w-2/3 text-start  hover:bg-gray-200 md:p-4">
         <div className="  ">
           <img
             src={SEARCH_ITEMS_IMAGE + imgId}

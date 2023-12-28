@@ -45,12 +45,10 @@ const Search = () => {
         </button>
         {/** THis is button to search*/}
       </div>
-      <div className=" mt-44 flex flex-col items-center gap-7 ">
+      <div className=" ml-[30%] mt-44 flex flex-col gap-7 ">
         {data &&
           data?.search.statusCode === 0 &&
           data?.search?.data?.suggestions.map((card) => (
-       
-
             <Link key={card.text} to={`/searchApi/` + inputValue}>
               <DisplayCards
                 text={card.text}
