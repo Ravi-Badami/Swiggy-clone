@@ -6,44 +6,54 @@ import DisplayCards from "./DisplayCards/DisplayCards";
 import { CLOSE_SVG } from "../../utils/svg/svg";
 import { Link } from "react-router-dom";
 import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const restaurantData = useSelector(
     (store) => store.restaurant.restaurantData,
   );
   const data = useSearchApi(inputValue);
-  data &&
-    data?.search.statusCode === 0 &&
-    console.log(data?.search?.data?.suggestions);
+  // data &&
+  //   data?.search.statusCode === 0 &&
+  //   console.log(data?.search?.data?.suggestions);
   useAfterSearchApi();
 
-  const handleClick = () => {
-    setInputValues("");
+  // const handleClick = () => {
+  //   // setInputValues("");
+  // };
+  const onSubmitHandle = (e) => {
+    e.preventDefault();
+    console.log("enter");
+    navigate(`/searchApi/${inputValue}`);
   };
 
   return (
     <div className=" mt-24 text-center">
       <div className="fixed -mt-20 w-full  bg-white">
-        <input
-          /**This is the css using tailwind */
-          className="m-4 rounded-sm 
+        <form action="" onSubmit={onSubmitHandle}>
+          <input
+            /**This is the css using tailwind */
+            className="m-4 rounded-sm 
              border-2 p-2 pr-6 md:w-1/3"
-          data-testid="searchInput"
-          placeholder=" What do want to eat"
-          /**This is used to display the data take from the input */
-          value={inputValue}
-          /** This is used to set the data inorder to display furthur */
-          onChange={(e) => {
-            setInputValues(e.target.value);
-          }}
-        ></input>
-        <button className="absolute -ml-12 mt-7  " onClick={handleClick}>
-          <img src={CLOSE_SVG} className="h-5 " alt="" />
-        </button>
-        {/** THis is button to search*/}
+            data-testid="searchInput"
+            placeholder=" What do want to eat"
+            /**This is used to display the data take from the input */
+            value={inputValue}
+            /** This is used to set the data inorder to display furthur */
+            onChange={(e) => {
+              setInputValues(e.target.value);
+            }}
+          ></input>
+          {inputValue && (
+            <button className="absolute -ml-12 mt-7  ">
+              <img src={CLOSE_SVG} className="h-5 " alt="" />
+            </button>
+          )}
+        </form>
       </div>
       <div className=" ml-[30%] mt-44 flex flex-col gap-7 ">
         {data &&
