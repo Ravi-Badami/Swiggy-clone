@@ -11,6 +11,8 @@ const useAfterSearchApi = (inputValue) => {
   const result = useSelector((store) => store.search.type);
   const card = useSelector((store) => store.search.showCard);
   const CTA = useSelector((store) => store.search.cta);
+  const category = useSelector((store) => store.search.displayCategory);
+
   const finalCta = CTA.replace("swiggy://explore?query=", "");
   const searchParams = new URLSearchParams(finalCta.split("&")[1]);
   const metadata = searchParams.get("metadata");
@@ -30,16 +32,33 @@ const useAfterSearchApi = (inputValue) => {
   const fetchDataClick = async () => {
     console.log("Search by click");
 
-    const data = await fetch(
-      SEARCH_BY_CLICK +
-        inputValue +
-        SEARCH_BY_CLICK_2 +
-        metadata +
-        "&selectedPLTab=DISH",
-    );
+    if (category === "Restaurant") {
+      const data = await fetch(
+        SEARCH_BY_CLICK +
+          inputValue +
+          SEARCH_BY_CLICK_2 +
+          metadata +
+          "Restaurant",
+      );
 
-    const json = await data.json();
-    setJsonData(json);
+      const json = await data.json();
+      setJsonData(json);
+      console.log("restaurant", json);
+    }
+    if (category === "Dish") {
+      const data = await fetch(
+        SEARCH_BY_CLICK +
+          inputValue +
+          SEARCH_BY_CLICK_2 +
+          metadata +
+          "&selectedPLTab=DISH",
+      );
+
+      const json = await data.json();
+      setJsonData(json);
+      console.log("Dish", json);
+    }
+
     // console.log(json.data.cards[0].groupedCard.cardGroupMap.DISH);
   };
   const fetchDataKeyboard = async () => {
