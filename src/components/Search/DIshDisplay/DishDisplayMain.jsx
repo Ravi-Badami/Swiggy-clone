@@ -13,11 +13,13 @@ import SearchBody from "./Body/SearchBody";
 
 const DishDisplayMain = () => {
   const dispatch = useDispatch();
-  const [selected, setSelected] = useState("Restaurant");
+  const category = useSelector((store) => store.search.displayCategory);
+
   const { dishId } = useParams();
 
   // console.log(dishId);
   const navigate = useNavigate();
+  const [selected, setSelected] = useState(category);
 
   useEffect(() => {
     // TODO:Remove the data of getMovieNames and getMovie from the redux store if you go back to the browse page
@@ -55,9 +57,9 @@ const DishDisplayMain = () => {
           isSelected={selected === "Restaurant"}
         />
         <TypeButton
-          button="dishes"
-          onclick={() => handleOnClick("dishes")}
-          isSelected={selected === "dishes"}
+          button="Dish"
+          onclick={() => handleOnClick("Dish")}
+          isSelected={selected === "Dish"}
         />
       </div>
       <div

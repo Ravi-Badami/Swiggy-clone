@@ -7,7 +7,7 @@ const searchSlice = createSlice({
     showCard: false,
     type: "",
     cta: "",
-    displayCategory: "restaurants",
+    displayCategory: "",
   },
   reducers: {
     addRecommendation: (state, action) => {

@@ -9,8 +9,8 @@ const SearchBody = () => {
     <div>
       <div className="mt-10 border border-black"></div>
 
-      {category === "restaurants" && <RestaurantBody />}
-      {category === "dishes" && <DishesBody />}
+      {category === "Restaurant" && <RestaurantBody />}
+      {category === "Dish" && <DishesBody />}
     </div>
   );
 };
