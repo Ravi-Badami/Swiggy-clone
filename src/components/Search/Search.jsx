@@ -6,8 +6,11 @@ import { CLOSE_SVG } from "../../utils/svg/svg";
 import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
 import { useNavigate } from "react-router-dom";
 import Suggestion from "./Display/Suggestion";
-import { updateShowCard } from "../../utils/redux/searchSlice";
-import DishDisplay from "./DIshDisplay/DishDisplay";
+import {
+  updateSearchType,
+  updateShowCard,
+} from "../../utils/redux/searchSlice";
+import DishDisplay from "./DIshDisplay/DishDisplayMain";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
@@ -36,12 +39,12 @@ const Search = () => {
   const onSubmitHandle = (e) => {
     e.preventDefault();
     dispatch(updateShowCard(true));
-    // console.log("enter");
-    navigate(`/search?query=${inputValue}`);
+    dispatch(updateSearchType("keyboard"));
+    navigate(`/search/${inputValue}`);
   };
 
   return (
-    <div className=" mt-24 text-center">
+    <div className="  text-center">
       <div className="fixed -mt-20 w-full  bg-white">
         {displayCard && (
           <button
@@ -55,7 +58,7 @@ const Search = () => {
           <input
             /**This is the css using tailwind */
             className="m-4 rounded-sm 
-             border-2 p-2 pl-7 pr-6 md:w-1/3"
+             border-2 p-2 pl-7 pr-6 md:w-2/3"
             data-testid="searchInput"
             placeholder=" What do want to eat"
             /**This is used to display the data take from the input */
@@ -73,7 +76,7 @@ const Search = () => {
           </button>
         )}
       </div>
-      <div className=" ml-[30%] mt-44 flex flex-col gap-7 ">
+      <div className="  mt-44 flex flex-col items-center gap-7  ">
         {displayCard ? <DishDisplay /> : <Suggestion data={data} />}
       </div>
     </div>

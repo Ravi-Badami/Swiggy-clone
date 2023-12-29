@@ -1,14 +1,26 @@
 import { useDispatch } from "react-redux";
 import { SEARCH_ITEMS_IMAGE } from "../../../utils/constants";
-import { updateShowCard } from "../../../utils/redux/searchSlice";
+import {
+  updateCta,
+  updateDisplayCategory,
+  updateSearchType,
+  updateShowCard,
+} from "../../../utils/redux/searchSlice";
+import { clearConfigCache } from "prettier";
 
-const DisplayCards = ({ text, type, imgId }) => {
+const DisplayCards = ({ text, type, imgId, cta, subCategory }) => {
   const dispatch = useDispatch();
   return (
     <>
       <div
-        className="  flex  w-2/3 text-start  hover:bg-gray-200 md:p-4 "
-        onClick={() => dispatch(updateShowCard(true))}
+        className="  flex   text-start  hover:bg-gray-200 md:p-4 "
+        onClick={() => {
+          dispatch(updateShowCard(true));
+          dispatch(updateSearchType("card"));
+          console.log(cta);
+          dispatch(updateCta(cta));
+          dispatch(updateDisplayCategory(subCategory));
+        }}
       >
         <div className="  ">
           <img

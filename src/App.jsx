@@ -12,7 +12,7 @@ const RestaurantMenu = lazy(
 );
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
-import DishDisplay from "./components/Search/DIshDisplay/DishDisplay";
+import DishDisplay from "./components/Search/DIshDisplay/DishDisplayMain";
 const Cart = lazy(() => import("./components/Cart"));
 
 const Search = lazy(() => import("./components/Search/Search"));
@@ -92,7 +92,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/search?query=:dishId",
+        path: "/search/:dishId",
         element: (
           <Suspense fallback={<h1>Loading</h1>}>
             <Search />

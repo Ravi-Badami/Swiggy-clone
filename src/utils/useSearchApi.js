@@ -19,7 +19,7 @@ const useSearchApi = (input) => {
     };
   }, [input]);
 
-  // console.log(search);
+  // console.log("suggestions", search);
   if (search) return { search };
 };
 export default useSearchApi;
