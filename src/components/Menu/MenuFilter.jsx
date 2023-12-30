@@ -10,7 +10,10 @@ import {
 
 //Component imports
 import FilterButton from "./FilterButton";
-import FilterSection from "./FilterSection";
+import { Suspense, lazy } from "react";
+
+// import FilterSection from "./FilterSection";
+const FilterSection = lazy(() => import("./FilterSection"));
 
 // TODO clear filter not working for Pure veg, less than 300 and Rating 4.0+
 const MenuFilter = () => {
@@ -20,6 +23,7 @@ const MenuFilter = () => {
   const rating = useSelector((store) => store.filter.Rating);
   const display = useSelector((store) => store.filter.display);
 
+  console.log(display);
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);
     dispatch(addRestaurantFilterData(filteredData));
@@ -119,16 +123,20 @@ const MenuFilter = () => {
           </div>
         </div> */}
       </div>
-      <div
-        className={` ${display} fixed bottom-0 left-0 right-0 top-0 z-50 flex    items-center justify-center bg-gray-900 bg-opacity-50`}
-      >
-        <div
-          className="  z-10 h-[33%] w-[55%]   overflow-hidden rounded-2xl 
+      <Suspense fallback={<h1>loading</h1>}>
+        {display === "block" && (
+          <div
+            className={` ${display} fixed bottom-0 left-0 right-0 top-0 z-50 flex    items-center justify-center bg-gray-900 bg-opacity-50`}
+          >
+            <div
+              className="  z-10 h-[33%] w-[55%]   overflow-hidden rounded-2xl 
         bg-white md:h-[50%] "
-        >
-          <FilterSection />
-        </div>
-      </div>
+            >
+              <FilterSection />
+            </div>
+          </div>
+        )}
+      </Suspense>
     </>
   );
 };

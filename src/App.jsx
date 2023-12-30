@@ -1,22 +1,23 @@
+/* eslint-disable react-refresh/only-export-components */
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import Error from "./components/Error";
+// import Error from "./components/Error";
 import Body from "./components/Body";
 import { lazy, startTransition, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/redux/appStore";
+
 /** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
 const RestaurantMenu = lazy(
   () => import("./components/Restaurants/RestaurantMenu"),
 );
-import { Provider } from "react-redux";
-import appStore from "./utils/redux/appStore";
-import DishDisplay from "./components/Search/DIshDisplay/DishDisplayMain";
 const Cart = lazy(() => import("./components/Cart"));
-
 const Search = lazy(() => import("./components/Search/Search"));
 const Contact = lazy(() => import("./components/Contact"));
+const Error = lazy(() => import("./components/Error"));
 
 function App() {
   const [userName, setUserName] = useState();
@@ -45,7 +46,11 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Error />,
+    errorElement: (
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Error />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
