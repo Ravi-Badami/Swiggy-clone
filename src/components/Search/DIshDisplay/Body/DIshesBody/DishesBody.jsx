@@ -1,6 +1,7 @@
 import DishesBodyCards from "./DishesBodyCards";
 
 const DishesBody = () => {
+  
   return (
     <div>
       <div className="min-h-screen">

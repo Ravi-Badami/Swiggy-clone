@@ -27,6 +27,11 @@ export const SEARCH_BY_ENTER =
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=15.3803485&lng=73.8349952&str=";
 
 export const SEARCH_BY_ENTER_2 = "&trackingId=null&submitAction=ENTER";
+export const SEARCH_BY_ENTER_2_RESTAURANT =
+  "&trackingId=null&submitAction=ENTER&selectedPLTab=RESTAURANT";
+
+export const SEARCH_BY_ENTER_2_DISH =
+  "&trackingId=null&submitAction=ENTER&selectedPLTab=DISH";
 
 export const SEARCH_BY_CLICK =
   corsAnywhereUrl +

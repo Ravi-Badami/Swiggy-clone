@@ -7,9 +7,22 @@ const searchSlice = createSlice({
     showCard: false,
     type: "",
     cta: "",
-    displayCategory: "",
+    cardCategory: "",
+    keyboardCategory: "",
+    currentButton: "",
+    restaurantData: [],
+    dishData: [],
   },
   reducers: {
+    updateCurrentButton: (state, action) => {
+      state.currentButton = action.payload;
+    },
+    addRestaurantData: (state, action) => {
+      state.restaurantData = action.payload;
+    },
+    addDishData: (state, action) => {
+      state.dishData = action.payload;
+    },
     addRecommendation: (state, action) => {
       state.recommendation = action.payload;
     },
@@ -23,7 +36,10 @@ const searchSlice = createSlice({
       state.cta = action.payload;
     },
     updateDisplayCategory: (state, action) => {
-      state.displayCategory = action.payload;
+      state.cardCategory = action.payload;
+    },
+    updateKeyboardCategory: (state, action) => {
+      state.keyboardCategory = action.payload;
     },
   },
 });
@@ -31,9 +47,13 @@ const searchSlice = createSlice({
 export const {
   updateSearchType,
   updateCta,
+  updateCurrentButton,
   addRecommendation,
   updateShowCard,
+  addDishData,
+  addRestaurantData,
   updateDisplayCategory,
+  updateKeyboardCategory,
 } = searchSlice.actions;
 
 export default searchSlice.reducer;

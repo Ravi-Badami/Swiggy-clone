@@ -3,7 +3,7 @@ import DishesBody from "./DIshesBody/DishesBody";
 import RestaurantBody from "./RestaurantBody/RestaurantBody";
 
 const SearchBody = () => {
-  const category = useSelector((store) => store.search.displayCategory);
+  const category = useSelector((store) => store.search.cardCategory);
 
   return (
     <div>

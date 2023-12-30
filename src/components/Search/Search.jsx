@@ -10,7 +10,7 @@ import {
   updateSearchType,
   updateShowCard,
 } from "../../utils/redux/searchSlice";
-import DishDisplay from "./DIshDisplay/DishDisplayMain";
+import SearchDisplayResults from "./DIshDisplay/SearchDisplayResults";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
@@ -20,11 +20,11 @@ const Search = () => {
   const displayCard = useSelector((store) => store.search.showCard);
   const data = useSearchApi(inputValue);
 
-  data &&
-    data?.search.statusCode === 0 &&
-    dispatch(
-      updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
-    );
+  // data &&
+  //   data?.search.statusCode === 0 &&
+  //   dispatch(
+  //     updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
+  //   );
 
   useAfterSearchApi();
 
@@ -44,11 +44,11 @@ const Search = () => {
     dispatch(updateSearchType("keyboard"));
     navigate(`/search/${inputValue}`);
 
-    data &&
-      data?.search.statusCode === 0 &&
-      dispatch(
-        updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
-      );
+    // data &&
+    //   data?.search.statusCode === 0 &&
+    //   dispatch(
+    //     updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
+    //   );
   };
 
   return (
@@ -85,7 +85,7 @@ const Search = () => {
         )}
       </div>
       <div className="  mt-44 flex flex-col items-center gap-7  ">
-        {displayCard ? <DishDisplay /> : <Suggestion data={data} />}
+        {displayCard ? <SearchDisplayResults /> : <Suggestion data={data} />}
       </div>
     </div>
   );
