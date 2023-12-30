@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useSearchApi from "../../utils/useSearchApi";
 import { CLOSE_SVG } from "../../utils/svg/svg";
@@ -14,18 +14,20 @@ import DishDisplay from "./DIshDisplay/DishDisplayMain";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
-  // const [cat, setCat] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const displayCard = useSelector((store) => store.search.showCard);
   const data = useSearchApi(inputValue);
 
+  data &&
+    data?.search.statusCode === 0 &&
+    dispatch(
+      updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
+    );
+
   useAfterSearchApi();
-  // useEffect(() => {
-  //   data &&
-  //     data?.search.statusCode === 0 &&
-  //     setCat(data?.search?.data?.suggestions[0].subCategory);
-  // }, []);
+
   const handleClick = () => {
     setInputValues("");
     dispatch(updateShowCard(false));
@@ -41,6 +43,7 @@ const Search = () => {
     dispatch(updateShowCard(true));
     dispatch(updateSearchType("keyboard"));
     navigate(`/search/${inputValue}`);
+
     data &&
       data?.search.statusCode === 0 &&
       dispatch(

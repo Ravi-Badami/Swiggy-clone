@@ -38,6 +38,10 @@ const DishDisplayMain = () => {
       window.removeEventListener("popstate", handlePopState);
     };
   }, []);
+
+  useEffect(() => {
+    setSelected(category);
+  }, [category]);
   const data = useAfterSearchApi(dishId);
 
   const handleOnClick = (click) => {
@@ -47,6 +51,7 @@ const DishDisplayMain = () => {
   };
 
   if (!data) return;
+  selected && console.log(selected);
 
   return (
     <div className="  w-2/3 ">
