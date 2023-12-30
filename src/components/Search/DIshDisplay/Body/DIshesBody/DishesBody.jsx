@@ -1,4 +1,3 @@
-import React from "react";
 import DishesBodyCards from "./DishesBodyCards";
 
 const DishesBody = () => {

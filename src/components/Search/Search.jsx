@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useSearchApi from "../../utils/useSearchApi";
 import { CLOSE_SVG } from "../../utils/svg/svg";
@@ -14,17 +14,18 @@ import DishDisplay from "./DIshDisplay/DishDisplayMain";
 
 const Search = () => {
   const [inputValue, setInputValues] = useState("");
+  // const [cat, setCat] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const displayCard = useSelector((store) => store.search.showCard);
   const data = useSearchApi(inputValue);
 
-  // data &&
-  //   data?.search.statusCode === 0 &&
-  //   console.log(data?.search?.data?.suggestions);
-
   useAfterSearchApi();
-
+  // useEffect(() => {
+  //   data &&
+  //     data?.search.statusCode === 0 &&
+  //     setCat(data?.search?.data?.suggestions[0].subCategory);
+  // }, []);
   const handleClick = () => {
     setInputValues("");
     dispatch(updateShowCard(false));
