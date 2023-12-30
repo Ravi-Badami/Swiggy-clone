@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
 import useSearchApi from "../../utils/useSearchApi";
 import { CLOSE_SVG } from "../../utils/svg/svg";
 import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
 import { useNavigate } from "react-router-dom";
 import Suggestion from "./Display/Suggestion";
 import {
+  updateDisplayCategory,
   updateSearchType,
   updateShowCard,
 } from "../../utils/redux/searchSlice";
@@ -16,24 +16,23 @@ const Search = () => {
   const [inputValue, setInputValues] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const restaurantData = useSelector(
-    (store) => store.restaurant.restaurantData,
-  );
   const displayCard = useSelector((store) => store.search.showCard);
   const data = useSearchApi(inputValue);
+
   // data &&
   //   data?.search.statusCode === 0 &&
   //   console.log(data?.search?.data?.suggestions);
+
   useAfterSearchApi();
 
   const handleClick = () => {
     setInputValues("");
     dispatch(updateShowCard(false));
+    navigate("/search");
   };
+  
   const handleClick2 = () => {
     setInputValues("");
-    dispatch(updateShowCard(false));
   };
 
   const onSubmitHandle = (e) => {
@@ -41,6 +40,11 @@ const Search = () => {
     dispatch(updateShowCard(true));
     dispatch(updateSearchType("keyboard"));
     navigate(`/search/${inputValue}`);
+    data &&
+      data?.search.statusCode === 0 &&
+      dispatch(
+        updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
+      );
   };
 
   return (
