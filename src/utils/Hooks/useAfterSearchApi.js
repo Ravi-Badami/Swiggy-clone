@@ -23,6 +23,10 @@ const useAfterSearchApi = (inputValue) => {
   const category = useSelector((store) => store.search.cardCategory);
   const keyboardCat = useSelector((store) => store.search.keyboardCategory);
   const currentBtn = useSelector((store) => store.search.currentButton);
+  const searchRestaurantData = useSelector(
+    (store) => store.search.restaurantData,
+  );
+  const searchDishData = useSelector((store) => store.search.dishData);
 
   const finalCta = CTA.replace("swiggy://explore?query=", "");
 
@@ -104,26 +108,34 @@ const useAfterSearchApi = (inputValue) => {
     if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH) {
       dispatch(updateCurrentButton("Dish"));
       dispatch(updateKeyboardCategory("Dish"));
+      dispatch(addDishData(json.data));
     } else if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT) {
       dispatch(updateCurrentButton("Restaurant"));
       dispatch(updateKeyboardCategory("Restaurant"));
+      dispatch(addRestaurantData(json.data));
     }
   };
 
   const fetchKeyboardSwitch = async () => {
-    if (keyboardCat === "Dish" && currentBtn === "Restaurant") {
-      const data = await fetch(
-        SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2_RESTAURANT,
-      );
-      const json = await data.json();
-      console.log("when switched to restaurant", json);
+    if (!searchRestaurantData) {
+      if (keyboardCat === "Dish" && currentBtn === "Restaurant") {
+        const data = await fetch(
+          SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2_RESTAURANT,
+        );
+        const json = await data.json();
+        dispatch(addRestaurantData(json.data));
+        console.log("when switched to restaurant", json);
+      }
     }
-    if (keyboardCat === "Restaurant" && currentBtn === "Dish") {
-      const data = await fetch(
-        SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2_DISH,
-      );
-      const json = await data.json();
-      console.log("when switched to dish", json);
+    if (!searchDishData) {
+      if (keyboardCat === "Restaurant" && currentBtn === "Dish") {
+        const data = await fetch(
+          SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2_DISH,
+        );
+        const json = await data.json();
+        dispatch(addDishData(json.data));
+        console.log("when switched to dish", json);
+      }
     }
   };
   return jsonData;

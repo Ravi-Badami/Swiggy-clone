@@ -10,8 +10,8 @@ const searchSlice = createSlice({
     cardCategory: "",
     keyboardCategory: "",
     currentButton: "",
-    restaurantData: [],
-    dishData: [],
+    restaurantData: "",
+    dishData: "",
   },
   reducers: {
     updateCurrentButton: (state, action) => {

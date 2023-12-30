@@ -6,6 +6,8 @@ import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
 import { useNavigate } from "react-router-dom";
 import Suggestion from "./Display/Suggestion";
 import {
+  addDishData,
+  addRestaurantData,
   updateDisplayCategory,
   updateSearchType,
   updateShowCard,
@@ -32,6 +34,8 @@ const Search = () => {
     setInputValues("");
     dispatch(updateShowCard(false));
     navigate("/search");
+    dispatch(addRestaurantData(""));
+    dispatch(addDishData(""));
   };
 
   const handleClick2 = () => {
