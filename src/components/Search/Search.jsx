@@ -30,7 +30,7 @@ const Search = () => {
     dispatch(updateShowCard(false));
     navigate("/search");
   };
-  
+
   const handleClick2 = () => {
     setInputValues("");
   };

@@ -7,7 +7,7 @@ const SearchBody = () => {
 
   return (
     <div>
-      <div className="mt-10 border border-black"></div>
+      <div className=" mt-12  border-black bg-white"></div>
 
       {category === "Restaurant" && <RestaurantBody />}
       {category === "Dish" && <DishesBody />}

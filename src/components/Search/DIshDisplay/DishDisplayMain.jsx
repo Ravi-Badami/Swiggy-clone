@@ -49,8 +49,8 @@ const DishDisplayMain = () => {
   if (!data) return;
 
   return (
-    <div className=" w-2/3  ">
-      <div className="fixed flex gap-2  ">
+    <div className="  w-2/3 ">
+      <div className="borde fixed z-10 -mt-3 flex w-[67%] gap-2 border-black bg-white p-4 ">
         <TypeButton
           button="Restaurant"
           onclick={() => handleOnClick("Restaurant")}
@@ -62,10 +62,7 @@ const DishDisplayMain = () => {
           isSelected={selected === "Dish"}
         />
       </div>
-      <div
-        className="
-      "
-      >
+      <div className="">
         <SearchBody />
       </div>
       {/* <div className="relative">{data && <CardDishDisplay data={data} />}</div> */}
