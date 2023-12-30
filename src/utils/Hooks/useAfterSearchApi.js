@@ -117,6 +117,7 @@ const useAfterSearchApi = (inputValue) => {
   };
 
   const fetchKeyboardSwitch = async () => {
+    //memoization
     if (!searchRestaurantData) {
       if (keyboardCat === "Dish" && currentBtn === "Restaurant") {
         const data = await fetch(
@@ -127,6 +128,8 @@ const useAfterSearchApi = (inputValue) => {
         console.log("when switched to restaurant", json);
       }
     }
+
+    //memoization
     if (!searchDishData) {
       if (keyboardCat === "Restaurant" && currentBtn === "Dish") {
         const data = await fetch(

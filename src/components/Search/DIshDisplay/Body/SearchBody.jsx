@@ -3,14 +3,14 @@ import DishesBody from "./DIshesBody/DishesBody";
 import RestaurantBody from "./RestaurantBody/RestaurantBody";
 
 const SearchBody = () => {
-  const category = useSelector((store) => store.search.cardCategory);
+  const currentBtn = useSelector((store) => store.search.currentButton);
 
   return (
     <div>
       <div className=" mt-12  border-black bg-white"></div>
 
-      {category === "Restaurant" && <RestaurantBody />}
-      {category === "Dish" && <DishesBody />}
+      {currentBtn === "Restaurant" && <RestaurantBody />}
+      {currentBtn === "Dish" && <DishesBody />}
     </div>
   );
 };
