@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import RestaurantBodyCard from "../RestaurantBody/RestaurantBody";
 import CardOfRestaurant from "./CardOfRestaurant/CardOfRestaurant";
+import { Link } from "react-router-dom";
 
 const RestaurantBody = () => {
   const data = useSelector((store) => store.search.restaurantData);
@@ -16,7 +17,9 @@ const RestaurantBody = () => {
           {displayCards &&
             displayCards.map((card) => (
               <h1 key={card?.card?.card?.info?.id}>
-                <CardOfRestaurant data={card.card.card} />
+                <Link to={"/restaurants/" + card?.card?.card?.info?.id}>
+                  <CardOfRestaurant data={card.card.card} />
+                </Link>
               </h1>
             ))}
         </div>
