@@ -1,16 +1,24 @@
-import DishesBodyCards from "../DIshesBody/DishesBodyCards";
 import { useSelector } from "react-redux";
+import RestaurantBodyCard from "../RestaurantBody/RestaurantBody";
+import CardOfRestaurant from "./CardOfRestaurant/CardOfRestaurant";
 
 const RestaurantBody = () => {
   const data = useSelector((store) => store.search.restaurantData);
-  data && console.log(data);
+  if (data === null || data === undefined) return <>loading</>;
+  const displayCards = data.cards;
+  // displayCards && console.log(displayCards);
+  // if (!data.cards) return;
 
   return (
     <div>
       <div className="min-h-screen">
         <div className="flex   flex-wrap gap-10 border p-4">
-          {data?.cards &&
-            data?.cards.map((card, index) => <DishesBodyCards key={index} />)}
+          {displayCards &&
+            displayCards.map((card) => (
+              <h1 key={card?.card?.card?.info?.id}>
+                <CardOfRestaurant data={card.card.card} />
+              </h1>
+            ))}
         </div>
       </div>
     </div>

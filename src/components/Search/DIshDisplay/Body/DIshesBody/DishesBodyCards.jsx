@@ -2,8 +2,9 @@ import DishesCardBottom from "./DIshesBodyCards/DishesCardBottom";
 import DishesCardTop from "./DIshesBodyCards/DishesCardTop";
 
 const DishesBodyCards = ({ data }) => {
-  const { name, ribbon, price } = data.card.card.info;
-  const { areaName, avgRating } = data.card.card.restaurant.info;
+  if (!data.card.card || data === undefined) return;
+  const { name, ribbon, price } = data?.card?.card?.info;
+  const { areaName, avgRating } = data?.card?.card?.restaurant?.info;
   const bestSeller = ribbon;
 
   return (
