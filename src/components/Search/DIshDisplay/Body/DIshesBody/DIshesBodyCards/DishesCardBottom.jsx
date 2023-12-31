@@ -1,12 +1,12 @@
 import React from "react";
 
-const DishesCardBottom = () => {
+const DishesCardBottom = ({ bestSeller, name, price }) => {
   return (
     <div className="flex justify-between">
-      <div className=" w-2/5 border">
-        <span>Promoted Dish lorem</span>
-        <span>Name</span>
-        <span>Price</span>
+      <div className=" flex w-3/5 flex-col border">
+        <span>{bestSeller}</span>
+        <span>{name}</span>
+        <span>{price / 100}</span>
       </div>
       <div className="">
         <img src="" alt="food img" />

@@ -3,13 +3,18 @@ import DishesBodyCards from "./DishesBodyCards";
 
 const DishesBody = () => {
   const data = useSelector((store) => store.search.dishData);
-  data && console.log(data);
+  // data && console.log(data);
 
   return (
     <div>
       <div className="min-h-screen">
         <div className="flex   flex-wrap gap-10 border p-4">
-          {data && data.map((card) => <DishesBodyCards key={card} />)}
+          {data &&
+            data.map((card, index) => (
+              <DishesBodyCards key={index} data={card} />
+            ))}
+          {data === "" && <>Loading....</>}
+          {data == undefined && <>no dish found</>}
         </div>
       </div>
     </div>

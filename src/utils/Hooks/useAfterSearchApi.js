@@ -31,7 +31,9 @@ const useAfterSearchApi = (inputValue) => {
   const searchParams = new URLSearchParams(finalCta.split("&")[1]);
   const metadata = searchParams.get("metadata");
   const [jsonData, setJsonData] = useState("");
+  const [count, setCount] = useState(0);
 
+  // console.log(searchDishData);
   useEffect(() => {
     if (card) {
       if (typeOfSearch === "card") {
@@ -53,7 +55,7 @@ const useAfterSearchApi = (inputValue) => {
   }, [currentBtn]);
 
   const fetchDataClick = async () => {
-    console.log("Search by card");
+    // console.log("Search by card");
     const data = await fetch(
       SEARCH_BY_CLICK + inputValue + SEARCH_BY_CLICK_2 + metadata,
     );
@@ -70,16 +72,16 @@ const useAfterSearchApi = (inputValue) => {
       dispatch(addDishData(""));
     }
 
-    console.log(json.data.cards[1].groupedCard.cardGroupMap.RESTAURANT);
+    // console.log(json.data.cards[1].groupedCard.cardGroupMap.RESTAURANT);
     if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH) {
-      console.log("clicked on card search Dish");
+      // console.log("clicked on card search Dish");
       dispatch(updateCurrentButton("Dish"));
       dispatch(updateDisplayCategory("Dish"));
       dispatch(
         addDishData(json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH.cards),
       );
     } else if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT) {
-      console.log("clicked on card search Restaurant");
+      // console.log("clicked on card search Restaurant");
       dispatch(updateCurrentButton("Restaurant"));
       dispatch(updateDisplayCategory("Restaurant"));
       dispatch(
@@ -97,13 +99,12 @@ const useAfterSearchApi = (inputValue) => {
         );
         const json = await data.json();
 
-        json?.data?.cards[0]?.groupedCard?.cardGroupMap.RESTAURANT.cards &&
-          dispatch(
-            addRestaurantData(
-              json?.data?.cards[0]?.groupedCard?.cardGroupMap.RESTAURANT.cards,
-            ),
-          );
-        console.log("when switched to restaurant", json);
+        dispatch(
+          addRestaurantData(
+            json?.data?.cards[0]?.groupedCard?.cardGroupMap.RESTAURANT,
+          ),
+        );
+        // console.log("when switched to restaurant", json);
       }
     }
 
@@ -116,30 +117,54 @@ const useAfterSearchApi = (inputValue) => {
         const json = await data.json();
         dispatch(
           addDishData(
-            json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH.cards,
+            json?.data?.cards[0]?.groupedCard?.cardGroupMap.DISH.cards,
           ),
         );
-        console.log("when switched to dish", json);
+        // console.log("when switched to dish", json);
       }
     }
   };
 
   const fetchDataKeyboard = async () => {
-    console.log("Search by keyboard");
+    // console.log("Search by keyboard");
     const data = await fetch(SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2);
 
     const json = await data.json();
     setJsonData(json);
-    console.log(json);
+    // console.log(json);
+    // if (
+    //   json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT === undefined
+    // ) {
+    //   dispatch(addRestaurantData(""));
+    // }
+    //
+    if (
+      json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT === undefined
+    ) {
+      dispatch(addRestaurantData(null));
+    }
+    // console.log(json);
+    if (keyboardCat === "Dish") {
+      if (json?.data?.cards[0]?.groupedCard?.cardGroupMap.DISH === undefined) {
+        dispatch(addDishData(null));
+      }
+    }
+
     if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH) {
       dispatch(updateCurrentButton("Dish"));
       dispatch(updateKeyboardCategory("Dish"));
       dispatch(
         addDishData(json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH.cards),
       );
-    } else if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT) {
+    }
+    if (json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT) {
       dispatch(updateCurrentButton("Restaurant"));
       dispatch(updateKeyboardCategory("Restaurant"));
+      if (
+        json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT === undefined
+      ) {
+        dispatch(addRestaurantData(null));
+      }
       dispatch(
         addRestaurantData(
           json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT,
@@ -158,10 +183,10 @@ const useAfterSearchApi = (inputValue) => {
         const json = await data.json();
         dispatch(
           addRestaurantData(
-            json?.data?.cards[1]?.groupedCard?.cardGroupMap.RESTAURANT,
+            json?.data?.cards[0]?.groupedCard?.cardGroupMap.RESTAURANT,
           ),
         );
-        console.log("when switched to restaurant", json);
+        // console.log("when switched to restaurant", json);
       }
     }
 
@@ -172,12 +197,27 @@ const useAfterSearchApi = (inputValue) => {
           SEARCH_BY_ENTER + inputValue + SEARCH_BY_ENTER_2_DISH,
         );
         const json = await data.json();
-        dispatch(
-          addDishData(
-            json?.data?.cards[1]?.groupedCard?.cardGroupMap.DISH.cards,
-          ),
-        );
-        console.log("when switched to dish", json);
+        const finalData =
+          await json?.data?.cards[0]?.groupedCard?.cardGroupMap.DISH.cards;
+
+        if (finalData) {
+          dispatch(addDishData(finalData));
+        }
+        // else if (finalData === undefined) {
+        //   dispatch(addDishData(""));
+
+        //   console.log("first count", count);
+        // }
+        if (searchDishData === undefined) {
+          // console.log("data null");
+          dispatch(addDishData("No result"));
+        }
+        // finalData === undefined && dispatch(addDishData(null));
+        // console.log(
+        //   "when switched to dish",
+        //   json?.data?.cards[0]?.groupedCard?.cardGroupMap.DISH.cards,
+        // );
+        dispatch(addDishData(finalData));
       }
     }
   };
