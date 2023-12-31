@@ -5,8 +5,6 @@ import useAfterSearchApi from "../../../utils/Hooks/useAfterSearchApi";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateCurrentButton,
-  updateDisplayCategory,
-  updateKeyboardCategory,
   updateShowCard,
 } from "../../../utils/redux/searchSlice";
 
@@ -15,8 +13,8 @@ import SearchBody from "./Body/SearchBody";
 
 const SearchDisplayResults = () => {
   const dispatch = useDispatch();
-  const category = useSelector((store) => store.search.cardCategory);
-  const keyboardCat = useSelector((store) => store.search.keyboardCategory);
+  // const category = useSelector((store) => store.search.cardCategory);
+  // const keyboardCat = useSelector((store) => store.search.keyboardCategory);
   const currentButton = useSelector((store) => store.search.currentButton);
 
   const { dishId } = useParams();

@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { SEARCH_ITEMS_IMAGE } from "../../../utils/constants";
 import {
   updateCta,
+  updateCurrentButton,
   updateDisplayCategory,
   updateSearchType,
   updateShowCard,
@@ -20,6 +21,7 @@ const DisplayCards = ({ text, type, imgId, cta, subCategory }) => {
           console.log(cta);
           dispatch(updateCta(cta));
           dispatch(updateDisplayCategory(subCategory));
+          dispatch(updateCurrentButton(subCategory));
         }}
       >
         <div className="  ">

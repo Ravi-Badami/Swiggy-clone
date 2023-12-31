@@ -22,6 +22,7 @@ export const SEARCH_API_D =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/search/suggest?lat=15.3803485&lng=73.8349952&str=";
 
+//? Search By keyboard
 export const SEARCH_BY_ENTER =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=15.3803485&lng=73.8349952&str=";
@@ -33,10 +34,14 @@ export const SEARCH_BY_ENTER_2_RESTAURANT =
 export const SEARCH_BY_ENTER_2_DISH =
   "&trackingId=null&submitAction=ENTER&selectedPLTab=DISH";
 
+//? Search by click
 export const SEARCH_BY_CLICK =
   corsAnywhereUrl +
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=15.3803485&lng=73.8349952&str=";
 export const SEARCH_BY_CLICK_2 = "&submitAction=SUGGESTION&";
+
+
+
 
 //?image
 export const RESTAURANT_IMAGE = "";
