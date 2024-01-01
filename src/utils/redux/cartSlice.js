@@ -24,20 +24,23 @@ const cartSlice = createSlice({
       state.items.length = 0;
     },
     deleteItem: (state, action) => {
-      // const indexToDelete = state.items.findIndex(
-      //   (card) => card.cardData.info.id === action.payload,
-      // );
+      const itemIdToDelete = action.payload;
 
-      // if (indexToDelete !== -1) {
-      //   state.items.splice(indexToDelete, 1);
-      // }
-      const data = action.payload;
-      const isPresent = state.items.some((card) => card.id === data.id);
-      if (isPresent) {
-        const foundObject = state.items.find((card) => card.id === data.id);
-        foundObject.count = foundObject.count - 1;
-      } else {
-        state.items.push(action.payload);
+      // Find the index of the item to be deleted
+      const indexToDelete = state.items.findIndex(
+        (card) => card.cardData.info.id === itemIdToDelete,
+      );
+
+      if (indexToDelete !== -1) {
+        const itemToDelete = state.items[indexToDelete];
+
+        // Decrement the count by 1
+        itemToDelete.count = itemToDelete.count - 1;
+
+        // Remove the item if the count is 0
+        if (itemToDelete.count === 0) {
+          state.items.splice(indexToDelete, 1);
+        }
       }
     },
   },
