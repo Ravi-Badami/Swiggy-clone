@@ -3,7 +3,6 @@ import DishesBodyCards from "./DishesBodyCards";
 
 const DishesBody = () => {
   const data = useSelector((store) => store.search.dishData);
-  // data && console.log(data);
 
   return (
     <div>

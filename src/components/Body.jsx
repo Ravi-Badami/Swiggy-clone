@@ -25,23 +25,9 @@ import { updateShowCard } from "../utils/redux/searchSlice";
 /** This is the  main body of the project  */
 const Body = () => {
   // useWhatsOnMind();
-
   const dispatch = useDispatch();
   dispatch(updateShowCard(false));
-
-  /** this contains the data fetched from the swiggy API */
-  // const [restaurantData, setRestaurantData] = useState([]);
-
-  /**
-   * * This contains the input value of searching*/
-  // const [inputValue, setInputValues] = useState("");
-
-  /** This contains the filtered data  */
-  // const [filterData, setFilterData] = useState(restaurantData);
-
   const result = useSelector((store) => store.restaurant.restaurantData);
-  // if (!result) return <>h1</>;
-
   /**
    *  *This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
@@ -84,11 +70,11 @@ const Body = () => {
         mobileJson.data.cards.map((card) => objectOfRestaurant(card));
       } else {
         throw new Error(
-          `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse.status}`,
+          `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse}`,
         );
       }
     } catch (error) {
-      console.error(error);
+      // console.error("error is", error);
 
       try {
         const response = await fetch(API_DATA);
@@ -97,11 +83,11 @@ const Body = () => {
           json.data.cards.map((card) => objectOfRestaurant(card));
         } else {
           throw new Error(
-            `Failed to fetch data from API_DATA, status: ${response.status}`,
+            `Failed to fetch data from API_DATA, status: ${response}`,
           );
         }
       } catch (mobileError) {
-        console.error(mobileError);
+        // console.error(mobileError);
         // Handle the error for the mobile request here
       }
     }

@@ -16,9 +16,9 @@ const RestaurantBody = () => {
         <div className="flex   flex-wrap gap-10 border p-4">
           {displayCards &&
             displayCards.map((card) => (
-              <h1 key={card?.card?.card?.info?.id}>
+              <h1 key={card?.card?.card?.info?.id} >
                 <Link to={"/restaurants/" + card?.card?.card?.info?.id}>
-                  <CardOfRestaurant data={card.card.card} />
+                  <CardOfRestaurant data={card.card.card}  />
                 </Link>
               </h1>
             ))}
