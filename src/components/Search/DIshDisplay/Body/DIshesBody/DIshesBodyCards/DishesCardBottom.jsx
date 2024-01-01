@@ -9,7 +9,6 @@ const DishesCardBottom = ({ bestSeller, name, price, card }) => {
   const cartItem = useSelector((store) => store.cart.items);
   const [count, setCount] = useState(0);
 
-  console.log(cartItem);
   useEffect(() => {
     setCount(count);
   }, [count, cartItem]);
@@ -18,7 +17,7 @@ const DishesCardBottom = ({ bestSeller, name, price, card }) => {
     dispatch(
       addItems({
         id: card.card.info.id,
-        cardData: card.card,
+        card: card.card,
         count: 1,
       }),
     );

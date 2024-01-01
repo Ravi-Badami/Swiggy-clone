@@ -6,8 +6,15 @@ import { useState } from "react";
 
 const Header = () => {
   const [display, setDisplay] = useState(true);
+  const [count, setCount] = useState(0);
   // const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
+  const ravi = cartItems.map((card) => card.count);
+  const sum = ravi.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+
+  console.log(sum); // Output: 15
   const handleDisplay = () => {
     setDisplay(!display);
   };
@@ -57,7 +64,7 @@ const Header = () => {
           <h1 className="   mt-2 font-bold">
             {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
             <span className="absolute -mt-2 ml-[0.69rem] cursor-pointer select-none text-sm md:-mt-3 md:ml-4 md:text-base ">
-              {cartItems.length}
+              {sum}
             </span>
             <Link to="/Cart" className="">
               <img className=" h-7 md:h-9 " src={SHOPPING_CART} alt="" />

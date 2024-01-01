@@ -28,7 +28,7 @@ const cartSlice = createSlice({
 
       // Find the index of the item to be deleted
       const indexToDelete = state.items.findIndex(
-        (card) => card.cardData.info.id === itemIdToDelete,
+        (card) => card.card.info.id === itemIdToDelete,
       );
 
       if (indexToDelete !== -1) {
