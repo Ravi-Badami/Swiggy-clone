@@ -109,7 +109,7 @@ const ItemList = ({ data }) => {
                 {(e.card.info.price / 100) * countMap[e.card.info.id]}
               </span>
             ) : (
-              <span className="text-lg">{0}</span>
+              <span className="text-lg">{0}fdf</span>
             )}
           </p>
           <div

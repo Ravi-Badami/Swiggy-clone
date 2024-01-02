@@ -25,22 +25,28 @@ const Cart = () => {
   };
   return (
     <div className="text-center">
-      <h1 className="m-10 font-bold">CART</h1>
-      <button
-        className="rounded-lg bg-black px-3 py-2 text-white"
-        onClick={handleClick}
-      >
-        clear cart
-      </button>
+      <h1 className="m-9 font-bold">CART</h1>
+      <div className="fixed z-20 h-16 w-full  bg-white ">
+        <button
+          className=" rounded-lg bg-black px-3 py-2 text-white"
+          onClick={handleClick}
+        >
+          clear cart
+        </button>
+      </div>
+
       <div className="flex items-center justify-center gap-2 border border-black">
-        <div className="m-2 -ml-32 w-[80%]  cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
+        <div className="fixed left-[20%] top-[50%] border border-black">
+          {sum}
+        </div>
+
+        <div className="m-2 ml-[40%] mt-20 w-[80%] cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
           {cartItems.length === 0 ? (
             <h1>Nothing in the cart</h1>
           ) : (
             <ItemList data={cartItems}></ItemList>
           )}
         </div>
-        <div className="fixed right-32 top-40 border border-black">{sum}</div>
       </div>
     </div>
   );
