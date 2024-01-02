@@ -36,21 +36,23 @@ const Cart = () => {
         </button>
       </div>
 
-      <div className="flex items-center justify-center gap-2">
-        <div className="fixed left-[14%] top-[25%] h-[55%] w-[20%] border border-black p-4">
-          <div className="flex h-full flex-col items-center justify-around border ">
-            <p className="text-5xl">{sum}</p>
+      <div className="flex flex-wrap items-start justify-center gap-2 border border-black md:min-h-screen ">
+        <div className="fixed top-[21%] z-20 h-[30%] w-[100%] bg-white  p-4 md:left-[14%] md:top-[25%] md:h-[55%] md:w-[20%]">
+          <div className="mx-auto flex h-full w-[50%] flex-col items-center justify-around border border-black md:w-auto  ">
+            <p className="text-2xl md:text-5xl">{sum}</p>
             <div className="rounded-md border border-black px-4 py-2">
               <Link to={"/Checkout"}>Checkout</Link>
             </div>
           </div>
         </div>
 
-        <div className="m-2 ml-[40%] mt-20 w-[80%] cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
+        <div className="m-2 mt-72 cursor-pointer p-2 px-3 shadow-2xl md:ml-[30%]  md:mt-20  md:w-6/12 md:overflow-y-clip ">
           {cartItems.length === 0 ? (
-            <h1>Nothing in the cart</h1>
+            <div className="">
+              <h1>Nothing in the cart</h1>
+            </div>
           ) : (
-            <ItemList data={cartItems}></ItemList>
+            <ItemList data={cartItems} cart="true"></ItemList>
           )}
         </div>
       </div>

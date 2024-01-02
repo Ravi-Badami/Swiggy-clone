@@ -8,7 +8,7 @@ import {
 } from "../../utils/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const ItemList = ({ data }) => {
+const ItemList = ({ data, cart }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
   const [count, setCount] = useState(0);
@@ -44,6 +44,7 @@ const ItemList = ({ data }) => {
         id: card.card.info.id,
         card: card.card,
         count: 1,
+        cart: cart,
       }),
     );
 
@@ -57,7 +58,7 @@ const ItemList = ({ data }) => {
     <>
       {data.map((e) => (
         <div
-          data-testid="foodItems"
+          data-testid="foodItems "
           key={e.card.info.id}
           className="m-2 flex border-b-2  border-black text-left text-[0.72rem]  md:text-base"
         >
@@ -79,7 +80,11 @@ const ItemList = ({ data }) => {
             </div>
           </div>
           <div className=" ml-10 ">
-            <button className="absolute ml-4 flex w-20 select-none items-center justify-between rounded-md bg-black  p-2 text-xs font-extrabold text-white  md:ml-5 ">
+            <button
+              className={`absolute ml-4 flex w-20 select-none items-center justify-around rounded-md bg-black  p-1 text-xs font-extrabold text-white ${
+                cart === "true" ? "md:ml-2 " : "md:ml-5"
+              } `}
+            >
               <div
                 className="text-xl"
                 onClick={() => handleMinusOnClick(e.card.info.id)}
@@ -103,21 +108,25 @@ const ItemList = ({ data }) => {
               className="mb-4 h-20 w-32 select-none md:h-24 "
             />
           </div>
-          <p>
-            {countMap[e.card.info.id] !== undefined ? (
-              <span>
-                {(e.card.info.price / 100) * countMap[e.card.info.id]}
-              </span>
-            ) : (
-              <span className="text-lg">{0}</span>
-            )}
-          </p>
-          <div
-            onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
-            className="ml-10"
-          >
-            <p>Delete</p>
-          </div>
+          {cart === "true" && (
+            <div className=" -mr-5  mt-5 flex h-10  w-36  p-4">
+              <p className="h-7 w-14 ">
+                {countMap[e.card.info.id] !== undefined ? (
+                  <span>
+                    {(e.card.info.price / 100) * countMap[e.card.info.id]}
+                  </span>
+                ) : (
+                  <span className="text-lg">{0}</span>
+                )}
+              </p>
+              {/* <div
+                onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
+                className="ml-5"
+              >
+                <p>X</p>
+              </div> */}
+            </div>
+          )}
         </div>
       ))}
     </>

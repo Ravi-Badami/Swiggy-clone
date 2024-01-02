@@ -23,7 +23,6 @@ const MenuFilter = () => {
   const rating = useSelector((store) => store.filter.Rating);
   const display = useSelector((store) => store.filter.display);
 
-  console.log(display);
   const handleClickRating = () => {
     const filteredData = result.filter((res) => res.info.avgRating > 4);
     dispatch(addRestaurantFilterData(filteredData));

@@ -39,12 +39,13 @@ const cartSlice = createSlice({
         const itemToDelete = state.items[indexToDelete];
 
         // Decrement the count by 1
-        itemToDelete.count = itemToDelete.count - 1;
+
+        itemToDelete.count = Math.max(0, itemToDelete.count - 1);
 
         // Remove the item if the count is 0
-        // if (itemToDelete.count === 0) {
-        //   state.items.splice(indexToDelete, 1);
-        // }
+        if (itemToDelete.count === 0) {
+          state.items.splice(indexToDelete, 1);
+        }
       }
     },
     deleteFromCart: (state, action) => {
