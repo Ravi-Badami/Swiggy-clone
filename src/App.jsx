@@ -8,6 +8,7 @@ import { lazy, startTransition, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
+import Checkout from "./components/Checkout/Checkout";
 
 /** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
@@ -103,6 +104,10 @@ const appRouter = createBrowserRouter([
             <Search />
           </Suspense>
         ),
+      },
+      {
+        path: "/Checkout",
+        element: <Checkout />,
       },
     ],
   },
