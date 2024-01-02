@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { MENU_IMAGE } from "../../utils/constants";
-import { addItems, deleteItem } from "../../utils/redux/cartSlice";
+import {
+  addItems,
+  deleteFromCart,
+  deleteItem,
+} from "../../utils/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const ItemList = ({ data }) => {
@@ -45,7 +49,10 @@ const ItemList = ({ data }) => {
 
     setCardId(card.card.info.id);
   };
-  // console.log(data);
+
+  const handleDeleteItemFromTheCart = (id) => {
+    dispatch(deleteFromCart(id));
+  };
   return (
     <>
       {data.map((e) => (
@@ -95,6 +102,21 @@ const ItemList = ({ data }) => {
               alt="foodImage"
               className="mb-4 h-20 w-32 select-none md:h-24 "
             />
+          </div>
+          <p>
+            {countMap[e.card.info.id] !== undefined ? (
+              <span>
+                {(e.card.info.price / 100) * countMap[e.card.info.id]}
+              </span>
+            ) : (
+              <span className="text-lg">{0}</span>
+            )}
+          </p>
+          <div
+            onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
+            className="ml-10"
+          >
+            <p>Delete</p>
           </div>
         </div>
       ))}

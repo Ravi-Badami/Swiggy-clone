@@ -4,6 +4,20 @@ import { clearCart } from "../utils/redux/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
+
+  const arr = [];
+  cartItems.map((card) => {
+    arr.push((card.card.info.price / 100) * card.count);
+  });
+  // useEffect(() => {
+  //   arr.map((c) => setTotal(total + c));
+  // }, []);
+
+  const sum = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0,
+  );
+
   console.log(cartItems);
   const dispatch = useDispatch();
   const handleClick = () => {
@@ -18,12 +32,15 @@ const Cart = () => {
       >
         clear cart
       </button>
-      <div className="m-2 mx-auto   w-[80%]  cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
-        {cartItems.length === 0 ? (
-          <h1>Nothing in the cart</h1>
-        ) : (
-          <ItemList data={cartItems}></ItemList>
-        )}
+      <div className="flex items-center justify-center gap-2 border border-black">
+        <div className="m-2 -ml-32 w-[80%]  cursor-pointer overflow-y-clip p-2 px-3   shadow-2xl md:w-6/12">
+          {cartItems.length === 0 ? (
+            <h1>Nothing in the cart</h1>
+          ) : (
+            <ItemList data={cartItems}></ItemList>
+          )}
+        </div>
+        <div className="fixed right-32 top-40 border border-black">{sum}</div>
       </div>
     </div>
   );
