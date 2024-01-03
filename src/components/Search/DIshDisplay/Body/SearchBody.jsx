@@ -7,7 +7,7 @@ const SearchBody = () => {
 
   return (
     <div>
-      <div className=" mt-12  border-black bg-white"></div>
+      <div className="  mt-7 border border-black  bg-white md:mt-12"></div>
 
       {currentBtn === "Restaurant" && <RestaurantBody />}
       {currentBtn === "Dish" && <DishesBody />}

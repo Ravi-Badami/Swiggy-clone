@@ -119,12 +119,12 @@ const ItemList = ({ data, cart }) => {
                   <span className="text-lg">{0}</span>
                 )}
               </p>
-              {/* <div
+              <div
                 onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
                 className="ml-5"
               >
                 <p>X</p>
-              </div> */}
+              </div>
             </div>
           )}
         </div>

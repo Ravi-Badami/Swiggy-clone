@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
 import DisplayCards from "../DisplayCards/DisplayCards";
-import { useSelector } from "react-redux";
 
 const Suggestion = ({ data }) => {
-  // const data = useSelector((store) => store.search.recommendation);
-  // console.log(data);
-  // console.log("suggestions");
   return (
     <div className=" -ml-[8%] w-2/3 ">
       {data &&

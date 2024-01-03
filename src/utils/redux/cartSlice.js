@@ -56,12 +56,7 @@ const cartSlice = createSlice({
         (card) => card.card.info.id === itemIdToDelete,
       );
 
-      if (indexToDelete !== -1) {
-        const itemToDelete = state.items[indexToDelete];
-        if (itemToDelete.count === 0) {
-          state.items.splice(indexToDelete, 1);
-        }
-      }
+      state.items.splice(indexToDelete, 1);
     },
   },
 });
