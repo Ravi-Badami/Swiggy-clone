@@ -88,7 +88,7 @@ const Search = () => {
           </button>
         )}
       </div>
-      <div className="  mt-44 flex flex-col items-center gap-7  ">
+      <div className="  mt-44 flex flex-col  items-center gap-7  ">
         {displayCard ? <SearchDisplayResults /> : <Suggestion data={data} />}
       </div>
     </div>

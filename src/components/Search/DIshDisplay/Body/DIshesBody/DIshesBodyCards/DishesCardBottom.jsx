@@ -3,8 +3,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItems, deleteItem } from "../../../../../../utils/redux/cartSlice";
 import { useEffect, useState } from "react";
+import { RUPPEE, STAR_YELLOW } from "../../../../../../utils/svg/svg";
+import { ADD_MINUS } from "../../../../../../utils/color/button";
 
-const DishesCardBottom = ({ bestSeller, name, price, card }) => {
+const DishesCardBottom = ({ bestSeller, name, price, card, isVeg }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
   const [count, setCount] = useState(0);
@@ -28,21 +30,33 @@ const DishesCardBottom = ({ bestSeller, name, price, card }) => {
   };
   return (
     <div className="flex justify-between">
-      <div className=" flex w-3/5 flex-col border">
-        <span>{bestSeller}</span>
+      <div className=" flex w-3/5 flex-col gap-4 ">
+        <span className="flex gap-1">
+          <span className="borde h-5 rounded-full border-black">
+            {isVeg === 1 ? "🟢" : "🔴"}
+          </span>
+
+          {bestSeller && <img src={STAR_YELLOW} className="w-4" alt="" />}
+          <span className="font-extrabold text-yellow-500">{bestSeller}</span>
+        </span>
         <span>{name}</span>
-        <span>{price / 100}</span>
+        <span className="flex items-center">
+          <span>
+            <img src={RUPPEE} className="h-4" alt="" />
+          </span>
+          <span className="font-medium">{price / 100}</span>
+        </span>
       </div>
       <div className="">
-        <img src="" alt="food img" className="border border-black" />
+        <img src="" alt="food img" className="borde h-20 border-black " />
 
         <button
           // onClick={() => handleOnClick(card)}
-          className="border border-black"
+          className={`borde -mt-32 rounded-lg border-black ${ADD_MINUS} font-bold shadow-inner shadow-black`}
         >
           <div className="flex h-8 w-24  items-center justify-between p-2">
             <div
-              className="text-xl"
+              className="text-xl "
               onClick={() => handleMinusOnClick(card.card.info.id)}
             >
               -

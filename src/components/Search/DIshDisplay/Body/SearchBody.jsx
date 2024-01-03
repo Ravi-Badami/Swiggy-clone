@@ -7,10 +7,10 @@ const SearchBody = () => {
 
   return (
     <div>
-      <div className="  mt-7 border border-black  bg-white md:mt-12"></div>
-
-      {currentBtn === "Restaurant" && <RestaurantBody />}
-      {currentBtn === "Dish" && <DishesBody />}
+      <div className="  borde ml-[7%] mt-7 scroll-smooth border-black   md:ml-0 md:mt-12 ">
+        {currentBtn === "Restaurant" && <RestaurantBody />}
+        {currentBtn === "Dish" && <DishesBody />}
+      </div>
     </div>
   );
 };

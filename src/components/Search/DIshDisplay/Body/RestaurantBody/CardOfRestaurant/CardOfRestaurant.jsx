@@ -5,8 +5,8 @@ const CardOfRestaurant = ({ data }) => {
 
   return (
     <div>
-      <div className="flex w-96 rounded-xl border border-black p-4">
-        <div className=" w-1/3">
+      <div className="flex w-72 rounded-xl border border-black p-4 md:w-96">
+        <div className="md:w-1/3">
           <img src="" alt="food img" />
         </div>
         <div className="w-2/3 border border-red-300 text-start">
