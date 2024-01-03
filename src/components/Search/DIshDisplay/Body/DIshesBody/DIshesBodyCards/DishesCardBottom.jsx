@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems, deleteItem } from "../../../../../../utils/redux/cartSlice";
 import { useEffect, useState } from "react";
 import { RUPPEE, STAR_YELLOW } from "../../../../../../utils/svg/svg";
-import { ADD_MINUS } from "../../../../../../utils/color/button";
+import { ADD_MINUS, MAIN_BUTTON } from "../../../../../../utils/color/button";
 
 const DishesCardBottom = ({ bestSeller, name, price, card, isVeg }) => {
   const dispatch = useDispatch();
@@ -52,9 +52,9 @@ const DishesCardBottom = ({ bestSeller, name, price, card, isVeg }) => {
 
         <button
           // onClick={() => handleOnClick(card)}
-          className={`borde -mt-32 rounded-lg border-black ${ADD_MINUS} font-bold shadow-inner shadow-black`}
+          className={`borde -mt-32 rounded-full border-black ${MAIN_BUTTON}  shadow-inne w-20 font-bold shadow-black md:w-auto`}
         >
-          <div className="flex h-8 w-24  items-center justify-between p-2">
+          <div className="flex h-8 items-center  justify-between p-2 text-white md:w-24">
             <div
               className="text-xl "
               onClick={() => handleMinusOnClick(card.card.info.id)}

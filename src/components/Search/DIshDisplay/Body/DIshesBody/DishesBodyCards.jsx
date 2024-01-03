@@ -13,7 +13,7 @@ const DishesBodyCards = ({ data }) => {
 
   return (
     <div>
-      <div className="    w-80 rounded-2xl  bg-[#F1EFEF] p-4 text-start shadow-md    shadow-gray-500 md:w-96">
+      <div className="    w-80 rounded-2xl  border-t-4 border-red-600 bg-[#F1EFEF] p-4 text-start shadow-md    shadow-gray-500 md:w-96">
         <DishesCardTop areaName={areaName} avgRating={avgRating} id={id} />
         {"------------------------"}
         <DishesCardBottom

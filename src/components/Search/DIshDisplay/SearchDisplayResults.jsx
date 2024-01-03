@@ -13,13 +13,8 @@ import SearchBody from "./Body/SearchBody";
 
 const SearchDisplayResults = () => {
   const dispatch = useDispatch();
-  // const category = useSelector((store) => store.search.cardCategory);
-  // const keyboardCat = useSelector((store) => store.search.keyboardCategory);
   const currentButton = useSelector((store) => store.search.currentButton);
-
   const { dishId } = useParams();
-
-  // console.log(dishId);
   const navigate = useNavigate();
   const [selected, setSelected] = useState(currentButton);
 
@@ -43,21 +38,16 @@ const SearchDisplayResults = () => {
   useEffect(() => {
     setSelected(currentButton);
   }, [currentButton]);
+
   const data = useAfterSearchApi(dishId);
 
   const handleOnClick = (click) => {
-    console.log("click");
+    // console.log("click");
     setSelected(click);
     dispatch(updateCurrentButton(click));
-    // dispatch(updateDisplayCategory(click));
-    // if (keyboardCat) {
-    //   dispatch(updateKeyboardCategory(click));
-    // }
   };
 
   if (!data) return;
-  // console.log(data);
-  // selected && console.log(selected);
 
   return (
     <div className="   borde border-black md:w-2/3 ">
@@ -73,7 +63,7 @@ const SearchDisplayResults = () => {
           isSelected={selected === "Dish"}
         />
       </div>
-      <div className="md: mt-10">
+      <div className="md:mt-10 ">
         <SearchBody />
       </div>
       {/* <div className="relative">{data && <CardDishDisplay data={data} />}</div> */}
