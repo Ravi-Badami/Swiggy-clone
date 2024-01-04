@@ -21,6 +21,7 @@ import AboutUsShimmer from "./About/Shimmer/AboutShimmer";
 import CarouselShimmer from "./Carousel/CarouselShimmer";
 import ShimmerMenu from "./Menu/Shimmer/ShimmerMenu";
 import { updateShowCard } from "../utils/redux/searchSlice";
+import CorsError from "./Error/CorsError";
 
 /** This is the  main body of the project  */
 const Body = () => {
@@ -28,6 +29,11 @@ const Body = () => {
   const dispatch = useDispatch();
   dispatch(updateShowCard(false));
   const result = useSelector((store) => store.restaurant.restaurantData);
+  const [mobileError, setMobileError] = useState(false);
+  const [desktopError, setDesktopError] = useState(false);
+  console.log(mobileError);
+  console.log(desktopError);
+
   /**
    *  *This useState hook will call the function which is fetching the data from the API  */
   useEffect(() => {
@@ -69,12 +75,13 @@ const Body = () => {
         const mobileJson = await mobileResponse.json();
         mobileJson.data.cards.map((card) => objectOfRestaurant(card));
       } else {
-        throw new Error(
-          `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse}`,
-        );
+        // throw new Error(
+        //   `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse}`,
+        // );
+        setDesktopError(true);
       }
     } catch (error) {
-      // console.error("error is", error);
+      console.error("error is", error);
 
       try {
         const response = await fetch(API_DATA);
@@ -82,12 +89,10 @@ const Body = () => {
           const json = await response.json();
           json.data.cards.map((card) => objectOfRestaurant(card));
         } else {
-          throw new Error(
-            `Failed to fetch data from API_DATA, status: ${response}`,
-          );
+          setMobileError(true);
         }
       } catch (mobileError) {
-        // console.error(mobileError);
+        // console.error("error is ", mobileError);
         // Handle the error for the mobile request here
       }
     }
@@ -111,6 +116,14 @@ const Body = () => {
   // }
   useCuisineData();
 
+  if (mobileError || desktopError) {
+    return (
+      <div className="flex w-screen items-center justify-center">
+        <CorsError />
+      </div>
+    );
+  }
+
   /*
    * - This is the main return function which will be used to render the main body
    * - It will show the shimmer UI until the data is fetched from the API (length === 0) OR else it will render the body component after the call has been made
@@ -119,19 +132,6 @@ const Body = () => {
     /**Input box to take the data from user to search */
     <div className=" scroll-smooth  ">
       <ShimmerHero />
-      <div className=" absolute ml-[60%] mt-[20%] h-10  md:-mt-[45%] md:ml-[50%]">
-        <div className="">
-          if reload takes too much time than
-          <button>
-            <a
-              href="https://cors-anywhere.herokuapp.com/corsdemo"
-              className="border border-black px-4 py-2 "
-            >
-              Click here
-            </a>
-          </button>
-        </div>
-      </div>
       <ShimmerCards />
       <AboutUsShimmer />
       <CarouselShimmer />
