@@ -58,32 +58,34 @@ const ItemList = ({ data, cart }) => {
     <>
       {data.map((e) => (
         <div
-          data-testid="foodItems "
+          data-testid="foodItems"
           key={e.card.info.id}
-          className="m-2 flex border-b-2  border-black text-left text-[0.72rem]  md:text-base"
+          className="m-2 flex flex-col overflow-x-clip border-b-2 border-black text-left text-[0.72rem] md:flex-row md:text-base"
         >
-          <div className=" w-10/12">
-            <div className=" mt-1 select-none text-[0.72rem]  text-sm font-bold subpixel-antialiased md:text-base">
+          <div className="md:w-8/12 md:p-4">
+            <div className="mt-1 select-none text-[0.72rem] text-sm font-bold subpixel-antialiased md:text-base">
               {e.card.info.name}
             </div>
-            <div className="mb-3  flex select-none text-[0.72rem] text-sm font-medium md:text-base">
-              {" "}
+            <div className="mb-3 flex select-none items-center justify-start text-[0.72rem] text-sm font-medium md:text-base">
               <img
-                src="https://www.svgrepo.com/show/502817/rupee-coin.svg "
-                className="mr-1 h-4 select-none  "
+                src="https://www.svgrepo.com/show/502817/rupee-coin.svg"
+                className="mr-1 h-4 select-none "
                 alt=""
               />
-              {e.card.info.price / 100 || e.card.info.defaultPrice / 100}
+              <div>
+                {e.card.info.price / 100 || e.card.info.defaultPrice / 100}
+              </div>
             </div>
-            <div className="md:text-basesubpixel-antialiased mb-4 select-none text-[0.69rem]  text-sm font-light">
+            <div className="mb-4 w-72 select-none  text-sm font-light subpixel-antialiased md:h-auto md:text-sm">
               {e.card.info.description}
             </div>
           </div>
-          <div className=" ml-10 ">
+
+          <div className=" md:ml-10 md:flex md:w-4/12 md:flex-col md:items-center">
             <button
-              className={`absolute ml-4 flex w-20 select-none items-center justify-around rounded-md bg-black  p-1 text-xs font-extrabold text-white ${
-                cart === "true" ? "md:ml-2 " : "md:ml-5"
-              } `}
+              className={`ml-4 flex w-20 select-none items-center justify-around rounded-md bg-black p-1 text-xs font-extrabold text-white ${
+                cart === "true" ? "ml-0" && "md:-ml-12" : "ml-0"
+              } ${cart === "true" ? "md:mt-2" : "md:mt-5"}`}
             >
               <div
                 className="text-xl"
@@ -102,31 +104,37 @@ const ItemList = ({ data, cart }) => {
                 +
               </div>
             </button>
-            <img
-              src={MENU_IMAGE + e.card.info.imageId}
-              alt="foodImage"
-              className="mb-4 h-20 w-32 select-none md:h-24 "
-            />
-          </div>
-          {cart === "true" && (
-            <div className=" -mr-5  mt-5 flex h-10  w-36  p-4">
-              <p className="h-7 w-14 ">
-                {countMap[e.card.info.id] !== undefined ? (
-                  <span>
-                    {(e.card.info.price / 100) * countMap[e.card.info.id]}
-                  </span>
-                ) : (
-                  <span className="text-lg">{0}</span>
-                )}
-              </p>
-              <div
-                onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
-                className="ml-5"
-              >
-                <p>X</p>
-              </div>
+
+            <div className="flex justify-between ">
+              <img
+                src={MENU_IMAGE + e.card.info.imageId}
+                className="mb-4 h-24 w-24 select-none border md:h-24 md:w-24"
+              />
+              {cart === "true" && (
+                <div className="  flex h-20 w-32 items-center   justify-center  p-4 md:h-24 md:w-28 md:flex-col md:items-start md:justify-start ">
+                  <p className="h-7 w-14">
+                    {countMap[e.card.info.id] !== undefined ? (
+                      <span className="text-2xl font-bold md:text-lg">
+                        {(e.card.info.price / 100) * countMap[e.card.info.id]}
+                      </span>
+                    ) : (
+                      <span className="text-lg">{0}</span>
+                    )}
+                  </p>
+                  <div
+                    onClick={() => handleDeleteItemFromTheCart(e.card.info.id)}
+                    className=""
+                  >
+                    <img
+                      src="https://www.svgrepo.com/show/436652/bin-xmark-fill.svg"
+                      alt=""
+                      className="h-5 md:h-7"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       ))}
     </>

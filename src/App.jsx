@@ -15,7 +15,7 @@ const About = lazy(() => import("./components/About"));
 const RestaurantMenu = lazy(
   () => import("./components/Restaurants/RestaurantMenu"),
 );
-const Cart = lazy(() => import("./components/Cart"));
+const Cart = lazy(() => import("./components/Cart/Cart"));
 const Search = lazy(() => import("./components/Search/Search"));
 const Contact = lazy(() => import("./components/Contact"));
 const Error = lazy(() => import("./components/Error"));

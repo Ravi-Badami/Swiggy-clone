@@ -9,7 +9,6 @@ const DishesBodyCards = ({ data }) => {
   const { name, ribbon, price, isVeg } = data?.card?.card?.info;
   const { areaName, avgRating, id } = data?.card?.card?.restaurant?.info;
   const bestSeller = ribbon;
-  console.log(data);
 
   return (
     <div>

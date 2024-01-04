@@ -116,13 +116,13 @@ const Body = () => {
   // }
   useCuisineData();
 
-  if (mobileError || desktopError) {
-    return (
-      <div className="flex w-screen items-center justify-center">
-        <CorsError />
-      </div>
-    );
-  }
+  // if (mobileError || desktopError) {
+  //   return (
+  //     <div className="flex w-screen items-center justify-center">
+  //       <CorsError />
+  //     </div>
+  //   );
+  // }
 
   /*
    * - This is the main return function which will be used to render the main body
