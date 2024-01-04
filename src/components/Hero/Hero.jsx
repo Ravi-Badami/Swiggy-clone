@@ -8,7 +8,7 @@ const Hero = () => {
       <div className=" mt-20 flex h-[42vh] w-screen  select-none justify-around border-b border-gray-400 px-1 py-[7%]  md:mt-10 md:h-[110vh]  md:items-center md:px-28 md:py-0 ">
         {/** Left */}
         <div className=" borde   w-[50%] border-black pl-5 text-start md:h-[70%]">
-          <p className="text-2xl font-extrabold md:text-7xl">
+          <p className="text-2xl font-extrabold tracking-tight md:text-7xl">
             Culinary artistry in every bite – welcome to TAJBITE
           </p>
           <div className="mt-4  w-[220%]  md:mt-8 ">

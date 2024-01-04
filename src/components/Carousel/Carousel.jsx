@@ -15,7 +15,7 @@ const Carousel = () => {
       <div className="   px-4  md:p-8">
         <div className=" bg flex justify-between text-start md:mb-1">
           <div className="">
-            <p className="select-none text-2xl font-extrabold md:text-4xl">
+            <p className="select-none text-2xl font-extrabold tracking-tight md:text-4xl">
               {heading}
             </p>
           </div>
