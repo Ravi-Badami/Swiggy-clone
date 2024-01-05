@@ -10,6 +10,7 @@ import {
 
 import TypeButton from "./Button/TypeButton";
 import SearchBody from "./Body/SearchBody";
+import ShimmerSearchDisplayResults from "./ShimmerSearchDisplayResults";
 
 const SearchDisplayResults = () => {
   const dispatch = useDispatch();
@@ -47,8 +48,9 @@ const SearchDisplayResults = () => {
     dispatch(updateCurrentButton(click));
   };
 
-  if (!data) return;
-
+  if (!data) {
+    return <ShimmerSearchDisplayResults />;
+  }
   return (
     <div className=" w-full md:w-2/3 ">
       <div className="fixed z-10 -mt-[2.3rem]  flex w-full  gap-2   bg-white p-2 md:-mt-[2rem] md:ml-0  md:w-[67%] md:p-4">
@@ -66,7 +68,6 @@ const SearchDisplayResults = () => {
       <div className="">
         <SearchBody />
       </div>
-      {/* <div className="relative">{data && <CardDishDisplay data={data} />}</div> */}
     </div>
   );
 };
