@@ -50,8 +50,8 @@ const SearchDisplayResults = () => {
   if (!data) return;
 
   return (
-    <div className="   borde border-black md:w-2/3 ">
-      <div className="fixed z-10 -mt-3 ml-[5%] flex  w-full gap-2 bg-white  p-2 md:ml-0 md:w-[67%] md:p-4 ">
+    <div className=" w-full md:w-2/3 ">
+      <div className="fixed z-10 -mt-[2.3rem]  flex w-full  gap-2   bg-white p-2 md:-mt-[2rem] md:ml-0  md:w-[67%] md:p-4">
         <TypeButton
           button="Restaurant"
           onclick={() => handleOnClick("Restaurant")}
@@ -63,7 +63,7 @@ const SearchDisplayResults = () => {
           isSelected={selected === "Dish"}
         />
       </div>
-      <div className="md:mt-10 ">
+      <div className="">
         <SearchBody />
       </div>
       {/* <div className="relative">{data && <CardDishDisplay data={data} />}</div> */}

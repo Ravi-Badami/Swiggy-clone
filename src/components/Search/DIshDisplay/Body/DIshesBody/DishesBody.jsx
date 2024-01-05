@@ -7,7 +7,7 @@ const DishesBody = () => {
 
   return (
     <div>
-      <div className="min-h-screen">
+      <div className=" min-h-screen md:-ml-0">
         <div className=" flex flex-wrap justify-center gap-10  md:p-10">
           {data &&
             data.map((card, index) => (

@@ -31,8 +31,6 @@ const Body = () => {
   const result = useSelector((store) => store.restaurant.restaurantData);
   const [mobileError, setMobileError] = useState(false);
   const [desktopError, setDesktopError] = useState(false);
-  console.log(mobileError);
-  console.log(desktopError);
 
   /**
    *  *This useState hook will call the function which is fetching the data from the API  */

@@ -6,8 +6,8 @@ const SearchBody = () => {
   const currentBtn = useSelector((store) => store.search.currentButton);
 
   return (
-    <div>
-      <div className="  borde ml-[7%] mt-7   scroll-smooth rounded-lg border-black  md:ml-0 md:mt-12 ">
+    <div className="flex items-center justify-center">
+      <div className="  borde  mt-7   scroll-smooth rounded-lg border-black  md:ml-0 md:mt-0 ">
         {currentBtn === "Restaurant" && <RestaurantBody />}
         {currentBtn === "Dish" && <DishesBody />}
       </div>

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useSearchApi from "../../utils/useSearchApi";
-import { CLOSE_SVG } from "../../utils/svg/svg";
+import { BACK_BUTTON, CLOSE_SVG } from "../../utils/svg/svg";
 import useAfterSearchApi from "../../utils/Hooks/useAfterSearchApi";
 import { useNavigate } from "react-router-dom";
-import Suggestion from "./Display/Suggestion";
+import Suggestion from "./Suggestion/Suggestion";
 import {
   addDishData,
   addRestaurantData,
-  updateDisplayCategory,
   updateSearchType,
   updateShowCard,
 } from "../../utils/redux/searchSlice";
@@ -57,37 +56,41 @@ const Search = () => {
 
   return (
     <div className="  text-center">
-      <div className="fixed -mt-20 w-full  bg-white">
-        {displayCard && (
-          <button
-            className="  absolute  -ml-56 mt-6 border"
-            onClick={handleClick}
-          >
-            {/* <img src={CLOSE_SVG} className="h-5 " alt="" /> */}X
-          </button>
-        )}
-        <form action="" onSubmit={onSubmitHandle}>
-          <input
-            /**This is the css using tailwind */
-            className="m-4 rounded-sm 
-             border-2 p-2 pl-7 pr-6 md:w-2/3"
-            data-testid="searchInput"
-            placeholder=" What do want to eat"
-            /**This is used to display the data take from the input */
-            value={inputValue}
-            /** This is used to set the data inorder to display furthur */
-            onChange={(e) => {
-              setInputValues(e.target.value);
-              dispatch(updateShowCard(false));
-            }}
-          ></input>
-        </form>
-        {inputValue && (
-          <button className="  absolute -mt-12 ml-48   " onClick={handleClick2}>
-            <img src={CLOSE_SVG} className="h-5 " alt="" />
-          </button>
-        )}
+      <div className="fixed -mt-[5rem] w-full bg-white md:-mt-[4.7rem]">
+        <div className="flex w-full items-center justify-center ">
+          <div className="flex w-[98%] items-center justify-between border-2  px-4   md:w-[63.5%]">
+            <div className="flex gap-3">
+              {displayCard && (
+                <button className=" " onClick={handleClick}>
+                  <img src={BACK_BUTTON} className="h-4" alt="" />
+                </button>
+              )}
+              <form action="" onSubmit={onSubmitHandle}>
+                <input
+                  /**This is the css using tailwind */
+                  className="m-2 rounded-sm
+                    border-none border-black   focus:outline-none md:w-full"
+                  data-testid="searchInput"
+                  placeholder=" What do want to eat"
+                  /**This is used to display the data take from the input */
+                  value={inputValue}
+                  /** This is used to set the data inorder to display furthur */
+                  onChange={(e) => {
+                    setInputValues(e.target.value);
+                    dispatch(updateShowCard(false));
+                  }}
+                ></input>
+              </form>
+            </div>
+            {inputValue && (
+              <button className="     " onClick={handleClick2}>
+                <img src={CLOSE_SVG} className="h-5 " alt="" />
+              </button>
+            )}
+          </div>
+        </div>
       </div>
+
       <div className="  mt-44 flex flex-col  items-center gap-7   ">
         {displayCard ? <SearchDisplayResults /> : <Suggestion data={data} />}
       </div>
