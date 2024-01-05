@@ -75,10 +75,11 @@ const Body = () => {
         const mobileJson = await mobileResponse.json();
         mobileJson.data.cards.map((card) => objectOfRestaurant(card));
       } else {
-        // throw new Error(
-        //   `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse}`,
-        // );
         setDesktopError(true);
+
+        throw new Error(
+          `Failed to fetch data from API_DATA_MOBILE, status: ${mobileResponse}`,
+        );
       }
     } catch (error) {
       console.error("error is", error);
@@ -90,9 +91,12 @@ const Body = () => {
           json.data.cards.map((card) => objectOfRestaurant(card));
         } else {
           setMobileError(true);
+          throw new Error(
+            `Failed to fetch data from API_DATA_MOBILE, status: ${response}`,
+          );
         }
       } catch (mobileError) {
-        // console.error("error is ", mobileError);
+        console.error("error is ", mobileError);
         // Handle the error for the mobile request here
       }
     }
@@ -116,13 +120,13 @@ const Body = () => {
   // }
   useCuisineData();
 
-  // if (mobileError || desktopError) {
-  //   return (
-  //     <div className="flex w-screen items-center justify-center">
-  //       <CorsError />
-  //     </div>
-  //   );
-  // }
+  if (mobileError && desktopError) {
+    return (
+      <div className="flex w-screen items-center justify-center">
+        <CorsError />
+      </div>
+    );
+  }
 
   /*
    * - This is the main return function which will be used to render the main body
