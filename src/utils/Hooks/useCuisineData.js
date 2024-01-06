@@ -7,7 +7,6 @@ const useCuisineData = () => {
   const data = useSelector((store) => store.restaurant.restaurantData);
   const [hasEffectRun, setHasEffectRun] = useState(false);
 
-  // TODO: Remove this useState function before production
   useEffect(() => {
     /** This is the execution of if statement below
      * First time =  T, F [ Because data will not be there so its true statement and default

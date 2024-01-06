@@ -19,7 +19,7 @@ const RestaurantBody = () => {
   return (
     <div>
       <div className="min-h-screen">
-        <div className="flex   flex-wrap gap-10  p-4">
+        <div className="flex   flex-wrap gap-10  p-4 md:mt-10">
           {displayCards &&
             displayCards.map((card) => (
               <h1 key={card?.card?.card?.info?.id}>
