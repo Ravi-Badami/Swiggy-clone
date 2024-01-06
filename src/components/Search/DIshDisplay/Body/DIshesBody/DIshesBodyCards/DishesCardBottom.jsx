@@ -4,9 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems, deleteItem } from "../../../../../../utils/redux/cartSlice";
 import { useEffect, useState } from "react";
 import { RUPPEE, STAR_YELLOW } from "../../../../../../utils/svg/svg";
-import { ADD_MINUS, MAIN_BUTTON } from "../../../../../../utils/color/button";
+import { MAIN_BUTTON } from "../../../../../../utils/color/button";
+import { DISPLAY_RESULT_IMAGE } from "../../../../../../utils/constants";
 
-const DishesCardBottom = ({ bestSeller, name, price, card, isVeg }) => {
+const DishesCardBottom = ({
+  bestSeller,
+  name,
+  price,
+  card,
+  isVeg,
+  imageId,
+}) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
   const [count, setCount] = useState(0);
@@ -48,10 +56,12 @@ const DishesCardBottom = ({ bestSeller, name, price, card, isVeg }) => {
         </span>
       </div>
       <div className="">
-        <img src="" alt="food img" className="borde h-20 border-black " />
+        <img
+          src={DISPLAY_RESULT_IMAGE + imageId}
+          className="borde h-24 w-24 rounded-lg border-black  "
+        />
 
         <button
-          // onClick={() => handleOnClick(card)}
           className={`borde -mt-32 rounded-full border-black ${MAIN_BUTTON}  shadow-inne w-20 font-bold shadow-black md:w-auto`}
         >
           <div className="flex h-8 items-center  justify-between p-2 text-white md:w-24">

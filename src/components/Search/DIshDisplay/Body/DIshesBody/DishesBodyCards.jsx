@@ -6,7 +6,8 @@ import DishesCardTop from "./DIshesBodyCards/DishesCardTop";
 const DishesBodyCards = ({ data }) => {
   if (!data.card.card || data === undefined || !data?.card?.card?.info) return;
 
-  const { name, ribbon, price, isVeg } = data?.card?.card?.info;
+  console.log(data?.card?.card?.info);
+  const { name, ribbon, price, isVeg, imageId } = data?.card?.card?.info;
   const { areaName, avgRating, id } = data?.card?.card?.restaurant?.info;
   const bestSeller = ribbon;
 
@@ -21,6 +22,7 @@ const DishesBodyCards = ({ data }) => {
           price={price}
           card={data.card}
           isVeg={isVeg}
+          imageId={imageId}
         />
       </div>
     </div>

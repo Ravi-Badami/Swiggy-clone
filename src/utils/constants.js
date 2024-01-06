@@ -40,9 +40,6 @@ export const SEARCH_BY_CLICK =
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=15.3803485&lng=73.8349952&str=";
 export const SEARCH_BY_CLICK_2 = "&submitAction=SUGGESTION&";
 
-
-
-
 //?image
 export const RESTAURANT_IMAGE = "";
 // " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";
@@ -58,3 +55,6 @@ export const MENU_IMAGE =
 
 export const SEARCH_ITEMS_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/";
+
+export const DISPLAY_RESULT_IMAGE =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
