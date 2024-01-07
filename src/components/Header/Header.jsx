@@ -6,21 +6,20 @@ import { useState } from "react";
 
 const Header = () => {
   const [display, setDisplay] = useState(true);
-  const [count, setCount] = useState(0);
-  // const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
   const ravi = cartItems.map((card) => card.count);
+
   const sum = ravi.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
 
-  console.log(sum); // Output: 15
   const handleDisplay = () => {
     setDisplay(!display);
   };
 
   return (
     <div className="fixed z-20   flex  w-full items-center justify-between gap-24 bg-white px-4  py-2 md:justify-center md:gap-x-48 ">
+      {/**Logo */}
       <div className="ml-5 md:ml-0 ">
         <Link to="/">
           <button className="  h-20 w-20 text-center  md:mr-0">
@@ -32,6 +31,8 @@ const Header = () => {
           </button>
         </Link>
       </div>
+
+      {/** Navigation section */}
       <div
         className={`  ${
           display ? "hidden" : "block"
@@ -59,10 +60,11 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/**Right section */}
       <div className="md:first-letter borde  flex w-40 items-center  justify-between border-black md:w-36">
         <div className="">
           <h1 className="   mt-2 font-bold">
-            {/* <Link to="/Cart">Cart({cartItems.length} items)</Link> */}
             <span className="absolute -mt-2 ml-[0.69rem] cursor-pointer select-none text-sm md:-mt-3 md:ml-4 md:text-base ">
               {sum}
             </span>
