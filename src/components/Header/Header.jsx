@@ -37,8 +37,8 @@ const Header = () => {
 
       {/** Navigation section */}
       <div
-        className={`  ${display ? "hidden" : "block"} ${
-          display ? "translate-y-96 " : "-translate-y-0"
+        className={`  ${
+          display ? "hidden" : "block"
         }   absolute z-50 mt-[180%]  flex  h-screen w-[100%]  flex-col   items-center justify-center bg-white bg-opacity-95  p-5  md:relative md:ml-0 md:mt-0 md:flex md:h-auto md:w-4/12 md:flex-row md:justify-between md:gap-1 md:border-none md:bg-opacity-100`}
       >
         <div className="flex h-[70%] w-4/12 flex-col gap-10  md:relative md:ml-0 md:mt-0 md:flex md:h-auto md:flex-row md:justify-between  md:gap-20 md:border-none  ">
