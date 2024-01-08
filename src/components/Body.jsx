@@ -145,27 +145,8 @@ const Body = () => {
       <Hero />
       <HeroCards />
       <AboutUs />
-
       <Carousel />
       <Menu />
-      {/* <Comments /> */}
-      {/* <button
-        className="rounded-lg border-2 border-black px-4 py-2"
-        onClick={() => {
-          const filterList = restaurantData.filter(
-            (res) => res.info.avgRatingString > 4,
-          );
-          setFilterData(filterList);
-        }}
-      >
-        Filter 4 star
-      </button>
-      <input
-        type="text "
-        className="m-2 border border-black p-2"
-        value={loggedInUser}
-        onChange={(e) => setUserName(e.target.value)}
-      /> */}
     </div>
   );
 };

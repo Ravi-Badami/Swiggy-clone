@@ -61,6 +61,7 @@ const MenuFilter = () => {
       }
     });
     rating.map((r) => r.checked && dispatch(updateRating(r.rate)));
+    dispatch(addRestaurantFilterData(result));
   };
   // const handleShow = () => {
   //   if (show === "block") {
@@ -122,7 +123,7 @@ const MenuFilter = () => {
           </div>
         </div> */}
       </div>
-      <Suspense fallback={<h1>loading</h1>}>
+      <Suspense fallback={<></>}>
         {display === "block" && (
           <div
             className={` ${display} fixed bottom-0 left-0 right-0 top-0 z-50 flex    items-center justify-center bg-gray-900 bg-opacity-50`}
