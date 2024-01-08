@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { clearCart } from "../../utils/redux/cartSlice";
+
 const Checkout = () => {
+  const dispatch = useDispatch();
+  dispatch(clearCart());
   return (
     <div>
       <div className="mt-[10%] flex h-screen  justify-center ">
