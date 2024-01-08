@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SignUp from "./SignUp";
-import { HAMBURGER, SHOPPING_CART } from "../../utils/svg/svg";
+import { CLOSE_SVG, HAMBURGER, SHOPPING_CART } from "../../utils/svg/svg";
 import { useState } from "react";
 
 const Header = () => {
@@ -14,6 +14,9 @@ const Header = () => {
   }, 0);
 
   const handleDisplay = () => {
+    setDisplay(!display);
+  };
+  const handleClose = () => {
     setDisplay(!display);
   };
 
@@ -34,22 +37,39 @@ const Header = () => {
 
       {/** Navigation section */}
       <div
-        className={`  ${
-          display ? "hidden" : "block"
-        }  absolute mt-[50%] flex   w-[93%]  flex-col items-end border border-black  bg-white p-5 md:relative md:ml-0 md:mt-0 md:flex md:w-4/12 md:flex-row md:justify-between md:gap-1 md:border-none`}
+        className={`  ${display ? "hidden" : "block"} ${
+          display ? "translate-y-96 " : "-translate-y-0"
+        }   absolute z-50 mt-[180%]  flex  h-screen w-[100%]  flex-col   items-center justify-center bg-white bg-opacity-95  p-5  md:relative md:ml-0 md:mt-0 md:flex md:h-auto md:w-4/12 md:flex-row md:justify-between md:gap-1 md:border-none md:bg-opacity-100`}
       >
-        <div className="w-4/12 md:relative md:ml-0 md:mt-0 md:flex md:flex-row md:justify-between md:gap-20 md:border-none">
+        <div className="flex h-[70%] w-4/12 flex-col gap-10  md:relative md:ml-0 md:mt-0 md:flex md:h-auto md:flex-row md:justify-between  md:gap-20 md:border-none  ">
+          <div
+            className={`${
+              display ? "hidden" : "block"
+            } absolute right-20 top-10`}
+          >
+            <img src={CLOSE_SVG} alt="" className="h-7" onClick={handleClose} />
+          </div>
           <div className="mt-2 md:mt-0 ">
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={handleClose}>
+              Home
+            </Link>
+          </div>
+          <div className="header mt-2  md:mt-0 ">
+            <Link to="/about" onClick={handleClose}>
+              About
+            </Link>
           </div>
           <div className="header mt-2 md:mt-0">
-            <Link to="/about">About</Link>
+            <Link to="/contact" onClick={handleClose}>
+              Contact
+            </Link>
           </div>
           <div className="header mt-2 md:mt-0">
-            <Link to="/contact">Contact</Link>
-          </div>
-          <div className="header mt-2 md:mt-0">
-            <Link to="/search" className="flex items-center gap-1 ">
+            <Link
+              to="/search"
+              onClick={handleClose}
+              className="flex items-center gap-1 "
+            >
               <img
                 className="mt-[0.10rem] h-4 "
                 src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
