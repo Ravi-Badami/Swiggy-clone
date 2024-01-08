@@ -11,7 +11,7 @@ const SignUp = () => {
           register === "login" ? setRegister("logout") : setRegister("login");
         }}
       >
-        {register}
+        <div className="w-10 ">{register}</div>
       </button>
     </div>
   );
