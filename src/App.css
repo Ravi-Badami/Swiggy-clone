@@ -28,3 +28,7 @@
     background-position: -200% -200%;
   }
 }
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

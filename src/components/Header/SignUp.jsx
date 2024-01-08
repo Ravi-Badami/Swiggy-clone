@@ -6,7 +6,7 @@ const SignUp = () => {
   return (
     <div>
       <button
-        className="rounded-full  bg-[#F04949] px-4 py-1 font-normal text-white drop-shadow-xl md:px-6 md:py-2 md:font-medium"
+        className="rounded-full  bg-[#F04949] px-4 py-1 font-normal text-white outline-none drop-shadow-xl md:px-6 md:py-2  md:font-medium"
         onClick={() => {
           register === "login" ? setRegister("logout") : setRegister("login");
         }}
