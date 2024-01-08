@@ -14,6 +14,7 @@ import useSortCheckBox from "../../../../utils/Hooks/useSortCheckBox";
 
 const CuisinesSection = () => {
   const dispatch = useDispatch();
+  const sortBy = useSelector((store) => store.filter.sort);
 
   const result = useSelector((store) => store.filter.cuisines);
 
@@ -21,7 +22,6 @@ const CuisinesSection = () => {
   const filteredData = useSelector(
     (store) => store.restaurant.restaurantFilterData,
   );
-  const sortBy = useSelector((store) => store.filter.sort);
   const rating = useSelector((store) => store.filter.Rating);
 
   const cusineArray = [];
@@ -30,6 +30,8 @@ const CuisinesSection = () => {
     return number.info.costForTwo.match(/\d+/)[0];
   };
   useEffect(() => {
+    console.log(sortBy);
+
     arr.length > 0 && dispatch(addCheckboxFilterData(arr));
     arr.length > 0 && dispatch(addCheckboxMainArray(arr));
     arr.length === 0 && dispatch(updateCurrentSort("Sort"));
@@ -37,6 +39,7 @@ const CuisinesSection = () => {
 
     if (sortBy === "Relevance") {
       dispatch(addCheckboxMainArray(arr));
+      dispatch(addCheckboxFilterData(arr));
     }
     if (sortBy === "Rating" && arr) {
       // console.log("rating");
@@ -47,6 +50,7 @@ const CuisinesSection = () => {
       });
 
       dispatch(addCheckboxMainArray(arrInside));
+      dispatch(addCheckboxFilterData(arrInside));
     }
     if (sortBy === "Cost:Low to High" && arr) {
       const arrInside = [...arr].sort((a, b) => {
@@ -55,6 +59,7 @@ const CuisinesSection = () => {
         return A - B;
       });
       dispatch(addCheckboxMainArray(arrInside));
+      dispatch(addCheckboxFilterData(arrInside));
     }
     if (sortBy === "Cost:High to Low" && arr) {
       const arrInside = [...arr].sort((a, b) => {
@@ -63,10 +68,11 @@ const CuisinesSection = () => {
         return B - A;
       });
       dispatch(addCheckboxMainArray(arrInside));
+      dispatch(addCheckboxFilterData(arrInside));
     }
     arr.length === 0 && dispatch(addCheckboxFilterData(null));
     arr.length === 0 && dispatch(addCheckboxMainArray(null));
-  }, [arr, rating]);
+  }, [arr, rating, sortBy]);
 
   sortByCuisine.map((r) => {
     r.checked && cusineArray.push(r.name);
