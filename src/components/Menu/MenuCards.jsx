@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import EachCard from "./EachCard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { addCheckboxMainArray } from "../../utils/redux/restaurantSlice";
 
 const MenuCards = () => {
+  const dispatch = useDispatch();
   const sortBy = useSelector((store) => store.filter.sort);
   const filterData = useSelector(
     (store) => store.restaurant.restaurantFilterData,
@@ -23,6 +25,7 @@ const MenuCards = () => {
     setDisplay(mainCheckboxData);
     !mainCheckboxData && setDisplay(filterData);
     if (current === "Cuisine") {
+      const arr = [];
       mainCheckboxData &&
         rating.map((m) => {
           if (m.checked) {
@@ -33,12 +36,17 @@ const MenuCards = () => {
             );
 
             setDisplay(ratingFiltered);
+          } else if (!m.checked) {
+            arr.push(1);
+            if (arr.length == 3) {
+              dispatch(addCheckboxMainArray(checkBoxData));
+            }
           }
         });
     }
 
     // console.log("-----------------------");
-  }, [checkBoxData, mainCheckboxData]);
+  }, [checkBoxData, mainCheckboxData, rating]);
 
   useEffect(() => {
     setDisplay(filterData);

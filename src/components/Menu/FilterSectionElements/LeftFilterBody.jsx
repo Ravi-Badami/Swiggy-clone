@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PopFilterButton from "./PopFilterButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateButton } from "../../../utils/redux/filterSlice";
 
 const FilterBodyLeft = () => {
-  const [selectedButton, setSelectedButton] = useState("Sort");
+  const result = useSelector((store) => store.filter.cusineButton);
+  const [selectedButton, setSelectedButton] = useState();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setSelectedButton(result);
+  }, []);
+  console.log(selectedButton);
   const handleButtonClick = (button) => {
     dispatch(updateButton(button));
     setSelectedButton(button);

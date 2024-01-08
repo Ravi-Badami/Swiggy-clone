@@ -1,6 +1,9 @@
 //Redux import
 import { useDispatch, useSelector } from "react-redux";
-import { addRestaurantFilterData } from "../../utils/redux/restaurantSlice";
+import {
+  addCheckboxMainArray,
+  addRestaurantFilterData,
+} from "../../utils/redux/restaurantSlice";
 import {
   updateChecked,
   updateDisplay,
@@ -62,6 +65,7 @@ const MenuFilter = () => {
     });
     rating.map((r) => r.checked && dispatch(updateRating(r.rate)));
     dispatch(addRestaurantFilterData(result));
+    dispatch(addCheckboxMainArray(result));
   };
   // const handleShow = () => {
   //   if (show === "block") {
