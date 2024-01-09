@@ -15,10 +15,10 @@ const ItemList = ({ data, cart }) => {
   const [cardId, setCardId] = useState();
   const [countMap, setCountMap] = useState({});
 
-  // console.log(cartItem);
   useEffect(() => {
     setCount(count);
   }, [count, cartItem]);
+
   useEffect(() => {
     const newCountMap = {};
     cartItem.forEach((item) => {
@@ -109,6 +109,7 @@ const ItemList = ({ data, cart }) => {
               <img
                 src={MENU_IMAGE + e.card.info.imageId}
                 className="mb-4 h-24 w-24 select-none border md:h-24 md:w-24"
+                onError="this.onerror=null"
               />
               {cart === "true" && (
                 <div className="  flex h-20 w-32 items-center   justify-center  p-4 md:h-24 md:w-28 md:flex-col md:items-start md:justify-start ">
@@ -127,7 +128,6 @@ const ItemList = ({ data, cart }) => {
                   >
                     <img
                       src="https://www.svgrepo.com/show/436652/bin-xmark-fill.svg"
-                      alt=""
                       className="h-5 md:h-7"
                     />
                   </div>

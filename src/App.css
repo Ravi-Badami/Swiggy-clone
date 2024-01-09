@@ -32,3 +32,14 @@
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/* img:before {
+  content: "Image is not listedd";
+  display: block;
+  margin-bottom: 10px;
+} */
+
+img:after {
+  content: "";
+  display: block;
+  font-size: 12px;
+}

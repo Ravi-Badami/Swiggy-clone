@@ -86,7 +86,6 @@ const CuisinesSection = () => {
     });
   });
   const handleOnChange = (clickedCuisine) => {
-    // console.log(clickedCuisine);
     dispatch(updateChecked(clickedCuisine));
     dispatch(updateCuisineClicked());
   };

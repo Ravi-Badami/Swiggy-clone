@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showList, setShowList }) => {
