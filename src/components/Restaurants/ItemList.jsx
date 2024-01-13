@@ -83,7 +83,7 @@ const ItemList = ({ data, cart }) => {
 
           <div className=" md:ml-10 md:flex md:w-4/12 md:flex-col md:items-center">
             <button
-              className={`ml-4 flex w-20 select-none items-center justify-around rounded-md bg-black p-1 text-xs font-extrabold text-white ${
+              className={` flex w-20 select-none items-center justify-around rounded-md bg-black p-1 text-xs font-extrabold text-white ${
                 cart === "true" ? "ml-0" && "md:-ml-12" : "ml-0"
               } ${cart === "true" ? "md:mt-2" : "md:mt-5"}`}
             >

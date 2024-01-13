@@ -3,7 +3,7 @@ import DisplayCards from "../DisplayCards/DisplayCards";
 
 const Suggestion = ({ data }) => {
   return (
-    <div className=" -mt-5 h-screen px-4  md:-ml-[8%] md:w-2/3 md:px-0 ">
+    <div className="  -mt-5 h-screen px-4 md:-ml-[8%] md:w-2/3 md:px-0 ">
       {data &&
         data?.search.statusCode === 0 &&
         data?.search?.data?.suggestions.map((card) => (

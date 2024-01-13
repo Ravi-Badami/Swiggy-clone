@@ -13,10 +13,10 @@ const CardOfRestaurant = ({ data }) => {
         <div className="md:w-1/3">
           <img
             src={DISPLAY_RESULT_IMAGE + cloudinaryImageId}
-            className="h-20 w-20 rounded-lg  "
+            className="h-24 w-24 rounded-lg  "
           />
         </div>
-        <div className="flex flex-col  gap-2   text-start ">
+        <div className="flex w-2/3 flex-col  gap-2   text-start ">
           <p className="text-md w-52 font-semibold">TAJBITE {areaName}</p>
           <p className="flex gap-1">
             <img src={STAR_BLACK} className="w-4" alt="" />
