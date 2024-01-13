@@ -21,12 +21,6 @@ const Search = () => {
   const displayCard = useSelector((store) => store.search.showCard);
   const data = useSearchApi(inputValue);
 
-  // data &&
-  //   data?.search.statusCode === 0 &&
-  //   dispatch(
-  //     updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
-  //   );
-
   useAfterSearchApi();
 
   const handleClick = () => {
@@ -46,12 +40,6 @@ const Search = () => {
     dispatch(updateShowCard(true));
     dispatch(updateSearchType("keyboard"));
     navigate(`/search/${inputValue}`);
-
-    // data &&
-    //   data?.search.statusCode === 0 &&
-    //   dispatch(
-    //     updateDisplayCategory(data?.search?.data?.suggestions[0].subCategory),
-    //   );
   };
 
   return (
@@ -68,8 +56,8 @@ const Search = () => {
               <form action="" onSubmit={onSubmitHandle}>
                 <input
                   /**This is the css using tailwind */
-                  className="m-2 rounded-sm
-                    border-none border-black   focus:outline-none md:w-full"
+                  className="m-2 
+                    rounded-sm border-none  border-black  focus:outline-none md:w-[250%]"
                   data-testid="searchInput"
                   placeholder=" What do want to eat"
                   /**This is used to display the data take from the input */
