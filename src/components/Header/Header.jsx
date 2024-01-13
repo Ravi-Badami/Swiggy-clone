@@ -47,7 +47,12 @@ const Header = () => {
               display ? "hidden" : "block"
             } absolute right-20 top-10`}
           >
-            <img src={CLOSE_SVG} alt="" className="h-7" onClick={handleClose} />
+            <img
+              src={CLOSE_SVG}
+              alt=""
+              className={`h-7 md:hidden `}
+              onClick={handleClose}
+            />
           </div>
           <div className="mt-2 md:mt-0 ">
             <Link to="/" onClick={handleClose}>
