@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HERO_IMAGE } from "../../utils/constants";
 import HeroButton from "./HeroButton";
 
@@ -11,7 +12,9 @@ const Hero = () => {
             Culinary artistry in every bite – welcome to TAJBITE
           </p>
           <div className="mt-4  w-[220%]  md:mt-8 ">
-            <HeroButton button={"Search"} />
+            <Link to={"/search"}>
+              <HeroButton button={"Search"} />
+            </Link>
             {/* <HeroButton button={"Book A Table"} /> */}
           </div>
         </div>
