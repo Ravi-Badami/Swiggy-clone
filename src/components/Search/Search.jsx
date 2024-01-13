@@ -44,7 +44,7 @@ const Search = () => {
 
   return (
     <div className="  text-center">
-      <div className="fixed -mt-[5rem] w-full bg-white md:-mt-[4.7rem]">
+      <div className="fixed -mt-[5rem] w-full bg-white md:-mt-[5rem]">
         <div className="flex w-full items-center justify-center ">
           <div className="flex w-[98%] items-center justify-between border-2  px-4   md:w-[63.5%]">
             <div className="flex gap-3">

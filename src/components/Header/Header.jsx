@@ -27,7 +27,7 @@ const Header = () => {
         <Link to="/">
           <button className="  h-20 w-20 text-center  md:mr-0">
             <img
-              className=" h-14 rounded-full shadow-inner drop-shadow-xl hover:h-[4.3rem] md:h-20 "
+              className=" h-14 rounded-full shadow-inner drop-shadow-xl  md:h-16 "
               src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
               alt="logo"
             />
@@ -54,32 +54,32 @@ const Header = () => {
               onClick={handleClose}
             />
           </div>
-          <div className="mt-2 md:mt-0 ">
+          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
             <Link to="/" onClick={handleClose}>
               Home
             </Link>
           </div>
-          <div className="header mt-2  md:mt-0 ">
+          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
             <Link to="/about" onClick={handleClose}>
               About
             </Link>
           </div>
-          <div className="header mt-2 md:mt-0">
+          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
             <Link to="/contact" onClick={handleClose}>
               Contact
             </Link>
           </div>
-          <div className="header mt-2 md:mt-0">
+          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
             <Link
               to="/search"
               onClick={handleClose}
               className="flex items-center gap-1 "
             >
-              <img
+              {/* <img
                 className="mt-[0.10rem] h-4 "
                 src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
                 alt=""
-              />
+              /> */}
               <span>Search</span>
             </Link>
           </div>

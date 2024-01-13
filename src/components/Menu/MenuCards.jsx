@@ -44,8 +44,6 @@ const MenuCards = () => {
           }
         });
     }
-
-    // console.log("-----------------------");
   }, [checkBoxData, mainCheckboxData, rating]);
 
   useEffect(() => {
@@ -68,7 +66,6 @@ const MenuCards = () => {
   if (filterData === null) return;
 
   if (display === null) return;
-  // if (display.length === 0) return <h1 className="h-36">Nothing found</h1>;
 
   return (
     <div>

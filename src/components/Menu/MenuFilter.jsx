@@ -69,14 +69,6 @@ const MenuFilter = () => {
     dispatch(addCheckboxMainArray(result));
     dispatch(addCheckboxFilterData(result));
   };
-  // const handleShow = () => {
-  //   if (show === "block") {
-  //     setShow("hidden");
-  //   }
-  //   if (show === "hidden") {
-  //     setShow("block");
-  //   }
-  // };
 
   const buttonObject = [
     {

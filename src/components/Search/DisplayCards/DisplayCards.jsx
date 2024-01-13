@@ -18,7 +18,6 @@ const DisplayCards = ({ text, type, imgId, cta, subCategory }) => {
         onClick={() => {
           dispatch(updateShowCard(true));
           dispatch(updateSearchType("card"));
-          console.log(cta);
           dispatch(updateCta(cta));
           dispatch(updateDisplayCategory(subCategory));
           dispatch(updateCurrentButton(subCategory));
