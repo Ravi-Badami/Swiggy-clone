@@ -9,7 +9,7 @@ const CardOfRestaurant = ({ data }) => {
 
   return (
     <>
-      <div className=" flex w-72 gap-3  rounded-xl border-t-4 border-red-500 p-4 shadow-lg shadow-gray-400 md:w-96">
+      <div className=" flex min-w-full gap-3  rounded-xl border-t-4 border-red-500 p-4 shadow-lg shadow-gray-400 md:w-96">
         <div className="md:w-1/3">
           <img
             src={DISPLAY_RESULT_IMAGE + cloudinaryImageId}
@@ -17,7 +17,7 @@ const CardOfRestaurant = ({ data }) => {
           />
         </div>
         <div className="flex flex-col  gap-2   text-start ">
-          <p className="text-md font-semibold">TAJBITE {areaName}</p>
+          <p className="text-md w-52 font-semibold">TAJBITE {areaName}</p>
           <p className="flex gap-1">
             <img src={STAR_BLACK} className="w-4" alt="" />
             <span>{avgRating}</span>

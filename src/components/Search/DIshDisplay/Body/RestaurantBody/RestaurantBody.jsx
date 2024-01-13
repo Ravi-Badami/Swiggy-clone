@@ -7,17 +7,14 @@ import ShimmerDish from "../DIshesBody/ShimmerDish";
 const RestaurantBody = () => {
   const restaurantData = useSelector((store) => store.search.restaurantData);
   const [displayedCards, setDisplayedCards] = useState([]);
-  const [displayShimmer, setDisplayShimmer] = useState(true);
-  const [showNoRestaurantFound, setShowNoRestaurantFound] = useState(false);
   const cardsPerPage = 10;
 
   useEffect(() => {
     if (restaurantData && restaurantData.cards) {
       setDisplayedCards(restaurantData.cards.slice(0, cardsPerPage));
-      setDisplayShimmer(false);
     } else {
-      setShowNoRestaurantFound(true);
-      setDisplayShimmer(false);
+      // setShowNoRestaurantFound(true);
+      // setDisplayShimmer(false);
     }
   }, [restaurantData]);
 

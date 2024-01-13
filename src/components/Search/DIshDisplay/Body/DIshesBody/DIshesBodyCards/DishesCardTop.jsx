@@ -14,7 +14,13 @@ const DishesCardTop = ({ areaName, avgRating, id }) => {
       <div>
         <button>
           <Link to={"/restaurants/" + id}>
-            <span>{"->"}</span>
+            <span>
+              <img
+                src="https://www.svgrepo.com/show/521969/arrow-right-circle.svg"
+                className="h-6"
+                alt=""
+              />
+            </span>
           </Link>
         </button>
       </div>
