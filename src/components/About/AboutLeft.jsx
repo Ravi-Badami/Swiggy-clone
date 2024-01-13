@@ -1,4 +1,4 @@
-import { RESTAURANT_IMAGE } from "../../utils/constants";
+import RESTAURANT_IMAGE from "../../utils/svg/about1.png";
 
 const AboutLeft = () => {
   return (

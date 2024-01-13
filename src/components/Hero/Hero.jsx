@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HERO_IMAGE } from "../../utils/constants";
+import heroImage from "../../utils/svg/hero1.png";
 import HeroButton from "./HeroButton";
 
 const Hero = () => {
@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="  w-[90%] overflow-hidden  rounded-[67px] ">
             <img
               className="  w-full rounded-[67px] object-cover  md:h-full "
-              src={HERO_IMAGE}
+              src={heroImage}
               alt="hero image"
             />
           </div>
