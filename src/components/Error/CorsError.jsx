@@ -5,7 +5,7 @@ const CorsError = () => {
     <div className=" w-screen">
       <div className="    mt-[50%] flex h-screen  md:ml-[27%] md:mt-[10%] md:w-[80%] ">
         <div className="fixed ml-[15%] h-auto w-[70%] rounded-xl  p-10 shadow-xl shadow-gray-300 md:ml-0 md:h-[50%] md:w-[50%]  md:p-10 ">
-          <div className="flex flex-col flex-wrap items-center justify-start gap-10 md:gap-24">
+          <div className="flex flex-col flex-wrap items-center justify-start gap-10 md:gap-20">
             <span className="font-semibold md:text-2xl">
               To resolve cors error click button and press allow
             </span>
@@ -17,6 +17,9 @@ const CorsError = () => {
                 Click here
               </a>
             </button>
+            <span className="font-semibold md:text-2xl">
+              If you alreay did than please refresh the page
+            </span>
           </div>
         </div>
       </div>
