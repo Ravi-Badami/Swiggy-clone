@@ -11,8 +11,8 @@ const Hero = () => {
             Culinary artistry in every bite – welcome to TAJBITE
           </p>
           <div className="mt-4  w-[220%]  md:mt-8 ">
-            <HeroButton button={"Menu"} />
-            <HeroButton button={"Book A Table"} />
+            <HeroButton button={"Search"} />
+            {/* <HeroButton button={"Book A Table"} /> */}
           </div>
         </div>
 

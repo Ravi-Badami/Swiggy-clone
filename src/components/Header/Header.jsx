@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import SignUp from "./SignUp";
 import { CLOSE_SVG, HAMBURGER, SHOPPING_CART } from "../../utils/svg/svg";
 import { useState } from "react";
+import { LOGO } from "../../utils/constants";
 
 const Header = () => {
   const [display, setDisplay] = useState(true);
@@ -28,7 +29,7 @@ const Header = () => {
           <button className="  h-20 w-20 text-center  md:mr-0">
             <img
               className=" h-14 rounded-full shadow-inner drop-shadow-xl  md:h-16 "
-              src="https://i.postimg.cc/XJf0MN9Q/logo-3.png"
+              src={LOGO}
               alt="logo"
             />
           </button>
@@ -90,7 +91,7 @@ const Header = () => {
       <div className="md:first-letter borde  flex w-40 items-center  justify-between border-black md:w-36">
         <div className="">
           <h1 className="   mt-2 font-bold">
-            <span className="absolute -mt-2 ml-[0.69rem] cursor-pointer select-none text-sm md:-mt-3 md:ml-4 md:text-base ">
+            <span className="absolute  -mt-2 ml-[0.6rem] cursor-pointer select-none text-sm md:-mt-3 md:ml-4 md:text-base ">
               {sum}
             </span>
             <Link to="/Cart" className="">

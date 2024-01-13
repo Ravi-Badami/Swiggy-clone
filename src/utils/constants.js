@@ -41,10 +41,10 @@ export const SEARCH_BY_CLICK =
 export const SEARCH_BY_CLICK_2 = "&submitAction=SUGGESTION&";
 
 //?image
-export const RESTAURANT_IMAGE = "";
-// " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";
-export const HERO_IMAGE = "";
-// (" https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png");
+export const RESTAURANT_IMAGE =
+  " https://i.postimg.cc/DyYQd6J9/pixlr-image-generator-56ecd33b-1e1f-4d1a-9805-e41153bb03d7.png";
+export const HERO_IMAGE =
+  " https://i.postimg.cc/nh2zFMsL/pixlr-image-generator-91feb445-215c-459d-acee-731ae3316aa9.png";
 export const RESTUARATANT_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -58,3 +58,4 @@ export const SEARCH_ITEMS_IMAGE =
 
 export const DISPLAY_RESULT_IMAGE =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+export const LOGO = "https://i.postimg.cc/g01hF13c/logo-4.png";

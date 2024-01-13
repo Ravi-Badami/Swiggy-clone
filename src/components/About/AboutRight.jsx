@@ -22,9 +22,7 @@ const AboutRight = () => {
       </div>
 
       {/* Hero Button */}
-      <div className="-ml-2 mt-2">
-        <HeroButton button="More" />
-      </div>
+      <div className="-ml-2 mt-2">{/* <HeroButton button="More" /> */}</div>
     </div>
   );
 };
