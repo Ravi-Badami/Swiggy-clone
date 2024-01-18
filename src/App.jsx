@@ -12,13 +12,12 @@ import Checkout from "./components/Checkout/Checkout";
 import HeaderAbout from "./components/About/HeaderAbout";
 
 /** lazy loading importing the component */
-const About = lazy(() => import("./components/About"));
 const RestaurantMenu = lazy(
   () => import("./components/Restaurants/RestaurantMenu"),
 );
 const Cart = lazy(() => import("./components/Cart/Cart"));
 const Search = lazy(() => import("./components/Search/Search"));
-const Contact = lazy(() => import("./components/Contact"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
 const Error = lazy(() => import("./components/Error"));
 
 function App() {
