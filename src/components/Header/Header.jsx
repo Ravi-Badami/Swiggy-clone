@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import { CLOSE_SVG, HAMBURGER, SHOPPING_CART } from "../../utils/svg/svg";
 import { useState } from "react";
 import { LOGO } from "../../utils/constants";
+import SearchButton from "./SearchButton";
 
 const Header = () => {
   const [display, setDisplay] = useState(true);
@@ -55,22 +56,22 @@ const Header = () => {
               onClick={handleClose}
             />
           </div>
-          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
+          <div className="mt-2 py-1  hover:font-medium hover:text-red-500 md:mt-0">
             <Link to="/" onClick={handleClose}>
               Home
             </Link>
           </div>
-          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
+          <div className="mt-2 py-1  hover:font-medium hover:text-red-500 md:mt-0">
             <Link to="/about" onClick={handleClose}>
               About
             </Link>
           </div>
-          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
+          <div className="mt-2 py-1  hover:font-medium hover:text-red-500 md:mt-0">
             <Link to="/contact" onClick={handleClose}>
               Contact
             </Link>
           </div>
-          <div className="mt-2 hover:font-medium  hover:text-red-500 md:mt-0">
+          <div className="mt-2 stroke-black hover:stroke-red-500 hover:font-medium hover:text-red-500 md:mt-0">
             <Link
               to="/search"
               onClick={handleClose}
@@ -81,7 +82,9 @@ const Header = () => {
                 src="https://i.postimg.cc/m2yKWnMb/magnifier.png"
                 alt=""
               /> */}
-              <span>Search</span>
+              <span className="-ml-6 md:ml-0">
+                <SearchButton />
+              </span>
             </Link>
           </div>
         </div>
