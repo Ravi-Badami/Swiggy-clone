@@ -9,6 +9,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/redux/appStore";
 import Checkout from "./components/Checkout/Checkout";
+import HeaderAbout from "./components/About/HeaderAbout";
 
 /** lazy loading importing the component */
 const About = lazy(() => import("./components/About"));
@@ -69,7 +70,7 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: (
           <Suspense fallback={<h1>Loading</h1>}>
-            <About />
+            <HeaderAbout />
           </Suspense>
         ),
       },
