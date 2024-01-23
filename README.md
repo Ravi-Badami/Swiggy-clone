@@ -28,14 +28,12 @@ Check out the live demo of TajBite: [TajBite Demo](https://tajbite.vercel.app/)
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/<YourUsername>/<YourRepository>.git`
-2. Navigate to the project directory: `cd <YourRepository>`
-3. Install dependencies: `npm install`
+1. Clone the repository: `git clone https://github.com/Ravi-Badami/Swiggy-clone.git`
+2. Install dependencies: `npm install`
 
 ## Usage
 
-1. Start the development server: `npm start`
-2. Open your browser and visit: `http://localhost:3000`
+1. Start the development server: `npm run dev`
 
 ## Contributing
 
