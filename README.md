@@ -2,6 +2,10 @@
 
 TajBite is a React-based web application that serves as a clone of Swiggy, offering a seamless food ordering experience. This project demonstrates the implementation of various features and best practices in web development.
 
+## Demo
+
+Check out the live demo of TajBite: [TajBite Demo](https://tajbite.vercel.app/)
+
 ## Features
 
 - **Add to Cart**: Users can easily add items to their cart for a convenient ordering process.
@@ -22,10 +26,6 @@ TajBite is a React-based web application that serves as a clone of Swiggy, offer
 - **Shimmer UI**: Incorporating shimmer UI effects to enhance the visual appeal of loading states.
 - **Filtering and Searching with Debouncing**: Implementing efficient filtering and searching with debouncing for a smooth user interaction.
 
-## Demo
-
-Check out the live demo of TajBite: [TajBite Demo](https://tajbite.vercel.app/)
-
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/<YourUsername>/<YourRepository>.git`
@@ -40,7 +40,3 @@ Check out the live demo of TajBite: [TajBite Demo](https://tajbite.vercel.app/)
 ## Contributing
 
 Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
