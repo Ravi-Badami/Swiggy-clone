@@ -1,6 +1,7 @@
-export const CALL_SVG = "https://svgshare.com/i/10uZ.svg";
-export const LOCATION_SVG = "https://svgshare.com/i/10uL.svg";
-export const CLOCK_SVG = "https://svgshare.com/i/10vC.svg";
+export const CALL_SVG = "https://www.svgrepo.com/show/511583/call-192.svg";
+export const LOCATION_SVG =
+  "https://www.svgrepo.com/show/513450/location-pin.svg";
+export const CLOCK_SVG = "https://www.svgrepo.com/show/195110/clock.svg";
 export const SHOPPING_CART =
   "https://www.svgrepo.com/show/383827/shopping-cart.svg";
 export const CLOSE_SVG = "https://www.svgrepo.com/show/514098/cross-round.svg";
