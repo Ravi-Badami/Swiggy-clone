@@ -34,7 +34,6 @@ Check out the live demo of TajBite: [TajBite Demo](https://tajbite.vercel.app/)
 ## Usage
 
 1. Start the development server: `npm run dev`
-just checking
 
 ## Contributing
 
