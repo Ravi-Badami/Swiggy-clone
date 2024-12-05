@@ -1,6 +1,6 @@
-# TajBite - Swiggy Clone
+# TajBite
 
-TajBite is a React-based web application that serves as a clone of Swiggy, offering a seamless food ordering experience. This project demonstrates the implementation of various features and best practices in web development.
+TajBite is a React-based web application that restaurant chains in goa of Tajbite, offering a seamless food ordering experience. This project demonstrates the implementation of various features and best practices in web development.
 
 ## Demo
 
